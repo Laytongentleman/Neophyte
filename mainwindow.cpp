@@ -7,19 +7,15 @@ MainWindow::MainWindow(QWidget *parent)
   , ui (new Ui::MainWindow)
 {
   ui->setupUi(this);
-  tabsWidget->setParent(ui->center);
+  //tabsWidget->setParent(ui->center);
   setWindowTitle("Ma super app !");
-  tabsWidget->addTab(new QWidget, "tab1");
-  tabsWidget->addTab(new QWidget, "tab2");
-  tabsWidget->addTab(new QWidget, "tab3");
-  tabsWidget->resize(9999,tabsWidget->height());
-  tabsWidget->setMovable(true);
-  tabsWidget->setTabsClosable(true);
-
-
-
-
-  tabsWidget->show();
+  (ui->TabWidget)->addTab(new QWidget, "tab1");
+  (ui->TabWidget)->addTab(new QWidget, "tab2");
+  (ui->TabWidget)->addTab(new QWidget, "tab3");
+  (ui->TabWidget)->resize(9999,(ui->TabWidget)->height());
+  (ui->TabWidget)->setMovable(true);
+  (ui->TabWidget)->setTabsClosable(true);
+  //tabsWidget->show();
   //m_customBtnBonjour = new CustomButton(this);
 }
 MainWindow::~MainWindow(){
@@ -27,7 +23,8 @@ MainWindow::~MainWindow(){
 }
 void MainWindow::on_actionNF_triggered(){
   QFrame *tabFrame = new QFrame(this);
-  tabsWidget->addTab(tabFrame,"Untitled");
-  printf("ça doit ajouter");
+  (ui->TabWidget)->addTab(tabFrame,"Untitled");
 }
-
+void MainWindow::on_actionCF_triggered(){
+  (ui->TabWidget)->removeTab((ui->TabWidget)->currentIndex());
+}

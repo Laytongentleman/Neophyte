@@ -22,6 +22,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -31,6 +32,7 @@ class Ui_MainWindow
 {
 public:
     QAction *actionNF;
+    QAction *actionCF;
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QWidget *mainbody;
@@ -55,6 +57,9 @@ public:
     QPushButton *pushButton_9;
     QWidget *center;
     QGridLayout *gridLayout;
+    QTabWidget *TabWidget;
+    QWidget *tab;
+    QWidget *tab_2;
     QMenuBar *menubar;
     QMenu *menuIns_rez_une_quote_ici;
     QMenu *menuPr_pa;
@@ -91,6 +96,8 @@ public:
         actionNF->setCheckable(false);
         actionNF->setChecked(false);
         actionNF->setShortcutVisibleInContextMenu(false);
+        actionCF = new QAction(MainWindow);
+        actionCF->setObjectName(QString::fromUtf8("actionCF"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
@@ -239,6 +246,17 @@ public:
         center->setMaximumSize(QSize(16777215, 16777215));
         gridLayout = new QGridLayout(center);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        TabWidget = new QTabWidget(center);
+        TabWidget->setObjectName(QString::fromUtf8("TabWidget"));
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        TabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        TabWidget->addTab(tab_2, QString());
+
+        gridLayout->addWidget(TabWidget, 0, 0, 1, 1);
+
 
         gridLayout_2->addWidget(center, 0, 1, 1, 1);
 
@@ -261,6 +279,7 @@ public:
         menubar->addAction(menuPr_pa->menuAction());
         menubar->addAction(menuView->menuAction());
         menuIns_rez_une_quote_ici->addAction(actionNF);
+        menuIns_rez_une_quote_ici->addAction(actionCF);
 
         retranslateUi(MainWindow);
 
@@ -273,6 +292,10 @@ public:
         actionNF->setText(QCoreApplication::translate("MainWindow", "New File", nullptr));
 #if QT_CONFIG(shortcut)
         actionNF->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+N", nullptr));
+#endif // QT_CONFIG(shortcut)
+        actionCF->setText(QCoreApplication::translate("MainWindow", "Close File", nullptr));
+#if QT_CONFIG(shortcut)
+        actionCF->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+W", nullptr));
 #endif // QT_CONFIG(shortcut)
 #if QT_CONFIG(tooltip)
         pushButton_2->setToolTip(QCoreApplication::translate("MainWindow", "It's all and only numbers ~ Louis", nullptr));
@@ -307,6 +330,8 @@ public:
         pushButton_9->setToolTip(QCoreApplication::translate("MainWindow", "\342\200\236Derjenige, der sich mit Einsicht f\303\274r beschr\303\244nkt erkl\303\244rt, ist der Vollkommenheit am n\303\244chsten.\342\200\234", nullptr));
 #endif // QT_CONFIG(tooltip)
         pushButton_9->setText(QCoreApplication::translate("MainWindow", "Allemand", nullptr));
+        TabWidget->setTabText(TabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
+        TabWidget->setTabText(TabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
         menuIns_rez_une_quote_ici->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuPr_pa->setTitle(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));

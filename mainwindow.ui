@@ -349,7 +349,22 @@ text-align:lcenter;
         <height>16777215</height>
        </size>
       </property>
-      <layout class="QGridLayout" name="gridLayout"/>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QTabWidget" name="TabWidget">
+         <widget class="QWidget" name="tab">
+          <attribute name="title">
+           <string>Tab 1</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="tab_2">
+          <attribute name="title">
+           <string>Tab 2</string>
+          </attribute>
+         </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -368,6 +383,7 @@ text-align:lcenter;
      <string>File</string>
     </property>
     <addaction name="actionNF"/>
+    <addaction name="actionCF"/>
    </widget>
    <widget class="QMenu" name="menuPr_pa">
     <property name="title">
@@ -399,6 +415,14 @@ text-align:lcenter;
    </property>
    <property name="shortcutVisibleInContextMenu">
     <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionCF">
+   <property name="text">
+    <string>Close File</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
    </property>
   </action>
  </widget>
