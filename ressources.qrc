@@ -1,0 +1,40 @@
+<RCC>
+  <qresource prefix="pokemons">
+    <file>res/ballshine.png</file>
+    <file>res/Chapignon.png</file>
+    <file>res/honorball.png</file>
+    <file>res/hoothoot.png</file>
+    <file>res/metamorph.png</file>
+    <file>res/Miaouss.png</file>
+    <file>res/coffeecup0.png</file>
+    <file>res/hyperball.svg</file>
+    <file>res/mistherbe.png</file>
+    <file>res/superball.png</file>
+    <file>res/tetarte.png</file>
+    <file>res/Voltorbe.png</file>
+    <file>res/triballs.png</file>
+    <file>res/coffeecup1.png</file>
+    <file>res/fantominus.png</file>
+    <file>res/magneti.png</file>
+    <file>res/maril.png</file>
+    <file>res/prism.png</file>
+    <file>res/ronflex.png</file>
+    <file>res/graph.png</file>
+    <file>res/massball.png</file>
+    <file>res/Simularbre.png</file>
+    <file>res/volley0.png</file>
+    <file>res/volley1.png</file>
+    <file>res/volley3.png</file>
+    <file>res/ballshine.png</file>
+    <file>res/fantominus.png</file>
+    <file>res/honorball.png</file>
+    <file>res/hoothoot.png</file>
+    <file>res/hyperball.svg</file>
+    <file>res/maril.png</file>
+    <file>res/massball.png</file>
+    <file>res/metamorph.png</file>
+    <file>res/mistherbe.png</file>
+    <file>res/ronflex.png</file>
+    <file>res/superball.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="0">
+      <widget class="QSlider" name="verticalSlider">
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Red</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QSpinBox" name="spinBox">
+       <property name="maximum">
+        <number>255</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Green</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QSpinBox" name="spinBox_2">
+       <property name="maximum">
+        <number>255</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QSlider" name="verticalSlider_2">
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Blue</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QSpinBox" name="spinBox_3">
+       <property name="maximum">
+        <number>255</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QSlider" name="verticalSlider_3">
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>verticalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>283</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>76</x>
+     <y>56</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider_2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox_2</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>188</x>
+     <y>282</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>52</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox_3</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>311</x>
+     <y>285</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>343</x>
+     <y>50</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1090</width>
+    <height>608</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+text-align:lcenter;
+}
+
+
+#frame{
+	border:none;
+  padding: 0;
+	margin: 0;
+}
+#frame_2{
+	border:none;
+  padding: 0;
+	margin: 0;
+}
+#frame_3{
+	border:none;
+  padding: 0;
+	margin: 0;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="leftbody" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>210</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QWidget" name="leftmenu" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frame">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="pushButton_2">
+               <property name="toolTip">
+                <string>It's all and only numbers ~ Louis</string>
+               </property>
+               <property name="text">
+                <string> Stats</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>res/triballs.png</normaloff>res/triballs.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="toolTip">
+                <string>Attrappez les tous !!</string>
+               </property>
+               <property name="text">
+                <string>Pokedex</string>
+               </property>
+               <property name="icon">
+                <iconset resource="ressources.qrc">
+                 <normaloff>:/pokemons/res/ballshine.png</normaloff>:/pokemons/res/ballshine.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>10</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_2">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="pushButton_4">
+               <property name="toolTip">
+                <string>“A clever person solves a problem. A wise person avoids it.”
+― Albert Einstein</string>
+               </property>
+               <property name="text">
+                <string>Physique</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>res/tetarte.png</normaloff>res/tetarte.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_6">
+               <property name="toolTip">
+                <string>Suivez moi ~ Mme Mullaert</string>
+               </property>
+               <property name="text">
+                <string>Maths</string>
+               </property>
+               <property name="icon">
+                <iconset resource="ressources.qrc">
+                 <normaloff>:/pokemons/res/maril.png</normaloff>:/pokemons/res/maril.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>65</width>
+                 <height>65</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_5">
+               <property name="toolTip">
+                <string>KISS: Keep it simple, stupid </string>
+               </property>
+               <property name="text">
+                <string>Informatique</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>res/magneti.png</normaloff>res/magneti.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_3">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="pushButton_7">
+               <property name="toolTip">
+                <string>If you only do what you can do, you'll never be better than what you are now. ~Shifu</string>
+               </property>
+               <property name="text">
+                <string>Anglais</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>res/Miaouss.png</normaloff>res/Miaouss.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_8">
+               <property name="toolTip">
+                <string>Il ne dépend pas de toi d'être riche, mais il dépend de toi d'être heureux.</string>
+               </property>
+               <property name="text">
+                <string>Français - Philo</string>
+               </property>
+               <property name="icon">
+                <iconset resource="ressources.qrc">
+                 <normaloff>:/pokemons/res/metamorph.png</normaloff>:/pokemons/res/metamorph.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_9">
+               <property name="toolTip">
+                <string>„Derjenige, der sich mit Einsicht für beschränkt erklärt, ist der Vollkommenheit am nächsten.“</string>
+               </property>
+               <property name="text">
+                <string>Allemand</string>
+               </property>
+               <property name="icon">
+                <iconset resource="ressources.qrc">
+                 <normaloff>:/pokemons/res/hoothoot.png</normaloff>:/pokemons/res/hoothoot.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="center" native="true">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QFrame" name="frame_4">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>More Menu</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>res/massball.png</normaloff>res/massball.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_5">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="mainbody" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>210</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(94, 137, 255);</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1090</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuIns_rez_une_quote_ici">
+    <property name="title">
+     <string>Insérez une quote ici</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuPr_pa">
+    <property name="title">
+     <string>Prépa</string>
+    </property>
+   </widget>
+   <addaction name="menuIns_rez_une_quote_ici"/>
+   <addaction name="menuPr_pa"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="ressources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
