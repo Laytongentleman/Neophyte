@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
   , ui (new Ui::MainWindow)
 {
   ui->setupUi(this);
+
+setWindowIcon(QIcon("icon.png"));
   //tabsWidget->setParent(ui->center);
   setWindowTitle("Ma super app !");
   (ui->TabWidget)->setMovable(true);
@@ -28,4 +30,13 @@ void MainWindow::on_actionCF_triggered(){
 void MainWindow::closeTab(int index){
 
   (ui->TabWidget)->removeTab(index);
+}
+void MainWindow::on_mathsbutton_clicked(){
+  (ui->stackedWidget)->setCurrentIndex(0);
+}
+void MainWindow::on_physiquebutton_clicked(){
+  (ui->stackedWidget)->setCurrentIndex(1);
+}
+void MainWindow::on_infobutton_clicked(){
+  (ui->stackedWidget)->setCurrentIndex(2);
 }

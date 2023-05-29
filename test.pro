@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = test
+TARGET = neophyte
 INCLUDEPATH += .
 QT += widgets
 # You can make your code fail to compile if you use deprecated APIs.
