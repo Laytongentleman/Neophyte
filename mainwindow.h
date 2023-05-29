@@ -14,7 +14,8 @@ public:
     ~MainWindow();
 private slots:
     void on_actionNF_triggered();
-      void on_actionCF_triggered();
+    void on_actionCF_triggered();
+    void closeTab(int index);
 private:
     CustomButton * m_customBtnBonjour;
     Ui::MainWindow *ui;

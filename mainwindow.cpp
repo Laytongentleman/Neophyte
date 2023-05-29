@@ -9,12 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
   ui->setupUi(this);
   //tabsWidget->setParent(ui->center);
   setWindowTitle("Ma super app !");
-  (ui->TabWidget)->addTab(new QWidget, "tab1");
-  (ui->TabWidget)->addTab(new QWidget, "tab2");
-  (ui->TabWidget)->addTab(new QWidget, "tab3");
-  (ui->TabWidget)->resize(9999,(ui->TabWidget)->height());
   (ui->TabWidget)->setMovable(true);
   (ui->TabWidget)->setTabsClosable(true);
+  connect((ui->TabWidget), SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
   //tabsWidget->show();
   //m_customBtnBonjour = new CustomButton(this);
 }
@@ -27,4 +24,8 @@ void MainWindow::on_actionNF_triggered(){
 }
 void MainWindow::on_actionCF_triggered(){
   (ui->TabWidget)->removeTab((ui->TabWidget)->currentIndex());
+}
+void MainWindow::closeTab(int index){
+
+  (ui->TabWidget)->removeTab(index);
 }
