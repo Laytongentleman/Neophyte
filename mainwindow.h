@@ -1,9 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
+
 #include <QMainWindow>
 #include <QPushButton>
 #include "custombutton.h"
 #include <QTabWidget>
+#include <QPlainTextEdit>
 QT_BEGIN_NAMESPACE
 namespace Ui {class MainWindow;}
 QT_END_NAMESPACE
@@ -19,6 +22,16 @@ private slots:
    void on_mathsbutton_clicked();
  void on_physiquebutton_clicked();
  void on_infobutton_clicked();
+  void on_anglaisbutton_clicked();
+ void on_tutobutton_clicked();
+   void on_actionOpen_File_triggered();
+   void openTabFile(QString filepath);
+   QPlainTextEdit*  currentTextEdit();
+    void TextEditChanged();
+void on_actionSave_All_triggered();
+void on_actionSave_As_triggered();
+void on_action_Exit_triggered();
+void openfiles();
 private:
     CustomButton * m_customBtnBonjour;
     Ui::MainWindow *ui;

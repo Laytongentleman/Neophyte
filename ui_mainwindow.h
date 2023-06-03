@@ -29,6 +29,7 @@
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -39,6 +40,10 @@ class Ui_MainWindow
 public:
     QAction *actionNF;
     QAction *actionCF;
+    QAction *actionOpen_File;
+    QAction *actionSave_All;
+    QAction *actionSave_As;
+    QAction *action_Exit;
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QWidget *center;
@@ -56,8 +61,9 @@ public:
     QSlider *horizontalSlider;
     QLabel *label_3;
     QLabel *label_4;
-    QPlainTextEdit *plainTextEdit_3;
+    QPlainTextEdit *mathsquicktext;
     QLabel *label_5;
+    QTextEdit *textEdit;
     QWidget *tab_4;
     QPlainTextEdit *plainTextEdit_2;
     QWidget *tab_3;
@@ -77,6 +83,7 @@ public:
     QLabel *label_14;
     QPlainTextEdit *plainTextEdit_7;
     QLabel *label_15;
+    QPlainTextEdit *plainTextEdit_13;
     QWidget *tab_9;
     QPlainTextEdit *plainTextEdit_8;
     QWidget *tab_10;
@@ -101,11 +108,36 @@ public:
     QWidget *tab_7;
     QPlainTextEdit *plainTextEdit_6;
     QWidget *tab_8;
+    QWidget *pageanglais;
+    QGridLayout *gridLayout_9;
+    QTabWidget *TabWidget_5;
+    QWidget *tabmain_4;
+    QDial *Mastery_4;
+    QLabel *label_16;
+    QListWidget *listWidget_4;
+    QLabel *label_17;
+    QSlider *verticalSlider_4;
+    QSlider *horizontalSlider_4;
+    QLabel *label_18;
+    QLabel *label_19;
+    QPlainTextEdit *plainTextEdit_10;
+    QLabel *label_20;
+    QTextEdit *textEdit_2;
+    QWidget *tab_12;
+    QPlainTextEdit *plainTextEdit_11;
+    QWidget *tab_13;
+    QPlainTextEdit *plainTextEdit_12;
+    QWidget *tab_14;
+    QWidget *page_3;
+    QWidget *page_4;
     QWidget *pagetuto;
     QGridLayout *gridLayout_6;
     QTabWidget *TabWidget;
     QWidget *tab_2;
+    QGridLayout *gridLayout_10;
+    QPlainTextEdit *plainTextEdit_14;
     QWidget *tab;
+    QWidget *page;
     QWidget *mainbody;
     QWidget *leftbody;
     QGridLayout *gridLayout_4;
@@ -123,10 +155,10 @@ public:
     QPushButton *infobutton;
     QFrame *frame_3;
     QVBoxLayout *verticalLayout_4;
-    QPushButton *pushButton_7;
+    QPushButton *anglaisbutton;
     QPushButton *pushButton_8;
     QPushButton *pushButton_9;
-    QPushButton *pushButton_3;
+    QPushButton *tutobutton;
     QMenuBar *menubar;
     QMenu *menuIns_rez_une_quote_ici;
     QMenu *menuPr_pa;
@@ -165,6 +197,14 @@ public:
         actionNF->setShortcutVisibleInContextMenu(false);
         actionCF = new QAction(MainWindow);
         actionCF->setObjectName(QString::fromUtf8("actionCF"));
+        actionOpen_File = new QAction(MainWindow);
+        actionOpen_File->setObjectName(QString::fromUtf8("actionOpen_File"));
+        actionSave_All = new QAction(MainWindow);
+        actionSave_All->setObjectName(QString::fromUtf8("actionSave_All"));
+        actionSave_As = new QAction(MainWindow);
+        actionSave_As->setObjectName(QString::fromUtf8("actionSave_As"));
+        action_Exit = new QAction(MainWindow);
+        action_Exit->setObjectName(QString::fromUtf8("action_Exit"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
@@ -195,7 +235,7 @@ public:
         Mastery->setObjectName(QString::fromUtf8("Mastery"));
         Mastery->setGeometry(QRect(590, 0, 221, 161));
         Mastery->setMaximum(100);
-        Mastery->setValue(3);
+        Mastery->setValue(25);
         Mastery->setWrapping(false);
         label = new QLabel(tabmain);
         label->setObjectName(QString::fromUtf8("label"));
@@ -209,13 +249,15 @@ public:
         new QListWidgetItem(listWidget);
         new QListWidgetItem(listWidget);
         new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
         listWidget->setGeometry(QRect(540, 230, 256, 192));
         label_2 = new QLabel(tabmain);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(30, 190, 111, 121));
         label_2->setMaximumSize(QSize(16777215, 16777215));
-        label_2->setPixmap(QPixmap(QString::fromUtf8("res/ronflex.png")));
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/pokemons/res/superball.png")));
         label_2->setScaledContents(true);
         label_2->setIndent(-1);
         verticalSlider = new QSlider(tabmain);
@@ -238,9 +280,9 @@ public:
         label_4 = new QLabel(tabmain);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(170, 420, 81, 20));
-        plainTextEdit_3 = new QPlainTextEdit(tabmain);
-        plainTextEdit_3->setObjectName(QString::fromUtf8("plainTextEdit_3"));
-        plainTextEdit_3->setGeometry(QRect(250, 20, 271, 231));
+        mathsquicktext = new QPlainTextEdit(tabmain);
+        mathsquicktext->setObjectName(QString::fromUtf8("mathsquicktext"));
+        mathsquicktext->setGeometry(QRect(240, 20, 281, 231));
         label_5 = new QLabel(tabmain);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(630, 190, 57, 18));
@@ -248,6 +290,9 @@ public:
         font3.setFamily(QString::fromUtf8("Clean"));
         font3.setPointSize(12);
         label_5->setFont(font3);
+        textEdit = new QTextEdit(tabmain);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setGeometry(QRect(193, 276, 291, 111));
         TabWidget_2->addTab(tabmain, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
@@ -302,7 +347,7 @@ public:
         label_12->setObjectName(QString::fromUtf8("label_12"));
         label_12->setGeometry(QRect(-10, 80, 141, 131));
         label_12->setMaximumSize(QSize(16777215, 16777215));
-        label_12->setPixmap(QPixmap(QString::fromUtf8("res/prism.png")));
+        label_12->setPixmap(QPixmap(QString::fromUtf8("../../../.designer/backup/res/prism.png")));
         label_12->setScaledContents(true);
         label_12->setIndent(-1);
         verticalSlider_3 = new QSlider(tabmain_3);
@@ -330,6 +375,9 @@ public:
         label_15->setObjectName(QString::fromUtf8("label_15"));
         label_15->setGeometry(QRect(630, 190, 57, 18));
         label_15->setFont(font3);
+        plainTextEdit_13 = new QPlainTextEdit(tabmain_3);
+        plainTextEdit_13->setObjectName(QString::fromUtf8("plainTextEdit_13"));
+        plainTextEdit_13->setGeometry(QRect(40, 260, 221, 151));
         TabWidget_4->addTab(tabmain_3, QString());
         tab_9 = new QWidget();
         tab_9->setObjectName(QString::fromUtf8("tab_9"));
@@ -375,13 +423,14 @@ public:
         new QListWidgetItem(listWidget_2);
         new QListWidgetItem(listWidget_2);
         new QListWidgetItem(listWidget_2);
+        new QListWidgetItem(listWidget_2);
         listWidget_2->setObjectName(QString::fromUtf8("listWidget_2"));
         listWidget_2->setGeometry(QRect(540, 230, 256, 192));
         label_7 = new QLabel(tabmain_2);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setGeometry(QRect(20, 290, 111, 121));
         label_7->setMaximumSize(QSize(16777215, 16777215));
-        label_7->setPixmap(QPixmap(QString::fromUtf8("res/graph.png")));
+        label_7->setPixmap(QPixmap(QString::fromUtf8("../../../.designer/backup/res/graph.png")));
         label_7->setScaledContents(true);
         label_7->setIndent(-1);
         verticalSlider_2 = new QSlider(tabmain_2);
@@ -429,6 +478,93 @@ public:
         gridLayout_7->addWidget(TabWidget_3, 0, 0, 1, 1);
 
         stackedWidget->addWidget(pageinfo);
+        pageanglais = new QWidget();
+        pageanglais->setObjectName(QString::fromUtf8("pageanglais"));
+        gridLayout_9 = new QGridLayout(pageanglais);
+        gridLayout_9->setObjectName(QString::fromUtf8("gridLayout_9"));
+        TabWidget_5 = new QTabWidget(pageanglais);
+        TabWidget_5->setObjectName(QString::fromUtf8("TabWidget_5"));
+        TabWidget_5->setFont(font);
+        tabmain_4 = new QWidget();
+        tabmain_4->setObjectName(QString::fromUtf8("tabmain_4"));
+        Mastery_4 = new QDial(tabmain_4);
+        Mastery_4->setObjectName(QString::fromUtf8("Mastery_4"));
+        Mastery_4->setGeometry(QRect(570, 10, 221, 161));
+        Mastery_4->setMaximum(100);
+        Mastery_4->setValue(14);
+        Mastery_4->setWrapping(false);
+        label_16 = new QLabel(tabmain_4);
+        label_16->setObjectName(QString::fromUtf8("label_16"));
+        label_16->setGeometry(QRect(650, 50, 91, 61));
+        label_16->setFont(font1);
+        label_16->setAlignment(Qt::AlignCenter);
+        listWidget_4 = new QListWidget(tabmain_4);
+        new QListWidgetItem(listWidget_4);
+        new QListWidgetItem(listWidget_4);
+        new QListWidgetItem(listWidget_4);
+        listWidget_4->setObjectName(QString::fromUtf8("listWidget_4"));
+        listWidget_4->setGeometry(QRect(540, 230, 256, 192));
+        label_17 = new QLabel(tabmain_4);
+        label_17->setObjectName(QString::fromUtf8("label_17"));
+        label_17->setGeometry(QRect(30, 190, 111, 121));
+        label_17->setMaximumSize(QSize(16777215, 16777215));
+        label_17->setPixmap(QPixmap(QString::fromUtf8("../../../.designer/backup/res/ronflex.png")));
+        label_17->setScaledContents(true);
+        label_17->setIndent(-1);
+        verticalSlider_4 = new QSlider(tabmain_4);
+        verticalSlider_4->setObjectName(QString::fromUtf8("verticalSlider_4"));
+        verticalSlider_4->setGeometry(QRect(180, 20, 20, 160));
+        verticalSlider_4->setFont(font2);
+        verticalSlider_4->setValue(5);
+        verticalSlider_4->setOrientation(Qt::Vertical);
+        horizontalSlider_4 = new QSlider(tabmain_4);
+        horizontalSlider_4->setObjectName(QString::fromUtf8("horizontalSlider_4"));
+        horizontalSlider_4->setGeometry(QRect(10, 450, 401, 20));
+        horizontalSlider_4->setValue(25);
+        horizontalSlider_4->setOrientation(Qt::Horizontal);
+        label_18 = new QLabel(tabmain_4);
+        label_18->setObjectName(QString::fromUtf8("label_18"));
+        label_18->setGeometry(QRect(10, 30, 201, 41));
+        label_18->setFont(font);
+        label_19 = new QLabel(tabmain_4);
+        label_19->setObjectName(QString::fromUtf8("label_19"));
+        label_19->setGeometry(QRect(170, 420, 81, 20));
+        plainTextEdit_10 = new QPlainTextEdit(tabmain_4);
+        plainTextEdit_10->setObjectName(QString::fromUtf8("plainTextEdit_10"));
+        plainTextEdit_10->setGeometry(QRect(240, 20, 281, 231));
+        label_20 = new QLabel(tabmain_4);
+        label_20->setObjectName(QString::fromUtf8("label_20"));
+        label_20->setGeometry(QRect(630, 190, 57, 18));
+        label_20->setFont(font3);
+        textEdit_2 = new QTextEdit(tabmain_4);
+        textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
+        textEdit_2->setGeometry(QRect(193, 276, 291, 111));
+        TabWidget_5->addTab(tabmain_4, QString());
+        tab_12 = new QWidget();
+        tab_12->setObjectName(QString::fromUtf8("tab_12"));
+        plainTextEdit_11 = new QPlainTextEdit(tab_12);
+        plainTextEdit_11->setObjectName(QString::fromUtf8("plainTextEdit_11"));
+        plainTextEdit_11->setGeometry(QRect(0, 10, 601, 451));
+        TabWidget_5->addTab(tab_12, QString());
+        tab_13 = new QWidget();
+        tab_13->setObjectName(QString::fromUtf8("tab_13"));
+        plainTextEdit_12 = new QPlainTextEdit(tab_13);
+        plainTextEdit_12->setObjectName(QString::fromUtf8("plainTextEdit_12"));
+        plainTextEdit_12->setGeometry(QRect(40, 50, 611, 371));
+        TabWidget_5->addTab(tab_13, QString());
+        tab_14 = new QWidget();
+        tab_14->setObjectName(QString::fromUtf8("tab_14"));
+        TabWidget_5->addTab(tab_14, QString());
+
+        gridLayout_9->addWidget(TabWidget_5, 0, 0, 1, 1);
+
+        stackedWidget->addWidget(pageanglais);
+        page_3 = new QWidget();
+        page_3->setObjectName(QString::fromUtf8("page_3"));
+        stackedWidget->addWidget(page_3);
+        page_4 = new QWidget();
+        page_4->setObjectName(QString::fromUtf8("page_4"));
+        stackedWidget->addWidget(page_4);
         pagetuto = new QWidget();
         pagetuto->setObjectName(QString::fromUtf8("pagetuto"));
         gridLayout_6 = new QGridLayout(pagetuto);
@@ -437,6 +573,14 @@ public:
         TabWidget->setObjectName(QString::fromUtf8("TabWidget"));
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        gridLayout_10 = new QGridLayout(tab_2);
+        gridLayout_10->setObjectName(QString::fromUtf8("gridLayout_10"));
+        plainTextEdit_14 = new QPlainTextEdit(tab_2);
+        plainTextEdit_14->setObjectName(QString::fromUtf8("plainTextEdit_14"));
+        plainTextEdit_14->setFont(font3);
+
+        gridLayout_10->addWidget(plainTextEdit_14, 0, 0, 1, 1);
+
         TabWidget->addTab(tab_2, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
@@ -445,6 +589,9 @@ public:
         gridLayout_6->addWidget(TabWidget, 0, 0, 1, 1);
 
         stackedWidget->addWidget(pagetuto);
+        page = new QWidget();
+        page->setObjectName(QString::fromUtf8("page"));
+        stackedWidget->addWidget(page);
 
         gridLayout->addWidget(stackedWidget, 0, 0, 1, 1);
 
@@ -486,7 +633,7 @@ public:
         pushButton_2 = new QPushButton(frame);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         QIcon icon;
-        icon.addFile(QString::fromUtf8("res/triballs.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("../../../.designer/backup/res/triballs.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_2->setIcon(icon);
         pushButton_2->setIconSize(QSize(50, 50));
 
@@ -495,7 +642,7 @@ public:
         pushButton = new QPushButton(frame);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8("res/ballshine.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8("../../../.designer/backup/res/ballshine.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton->setIcon(icon1);
         pushButton->setIconSize(QSize(32, 32));
 
@@ -519,7 +666,7 @@ public:
         mathsbutton = new QPushButton(frame_2);
         mathsbutton->setObjectName(QString::fromUtf8("mathsbutton"));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8("res/maril.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8(":/pokemons/res/maril.png"), QSize(), QIcon::Normal, QIcon::Off);
         mathsbutton->setIcon(icon2);
         mathsbutton->setIconSize(QSize(65, 65));
 
@@ -528,7 +675,7 @@ public:
         physiquebutton = new QPushButton(frame_2);
         physiquebutton->setObjectName(QString::fromUtf8("physiquebutton"));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8("res/tetarte.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8("res/ballshine.png"), QSize(), QIcon::Normal, QIcon::Off);
         physiquebutton->setIcon(icon3);
         physiquebutton->setIconSize(QSize(50, 50));
 
@@ -537,7 +684,7 @@ public:
         infobutton = new QPushButton(frame_2);
         infobutton->setObjectName(QString::fromUtf8("infobutton"));
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8("res/magneti.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QString::fromUtf8("../../../.designer/backup/res/magneti.png"), QSize(), QIcon::Normal, QIcon::Off);
         infobutton->setIcon(icon4);
         infobutton->setIconSize(QSize(50, 50));
 
@@ -554,19 +701,19 @@ public:
         verticalLayout_4->setSpacing(0);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, -1, -1, -1);
-        pushButton_7 = new QPushButton(frame_3);
-        pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
+        anglaisbutton = new QPushButton(frame_3);
+        anglaisbutton->setObjectName(QString::fromUtf8("anglaisbutton"));
         QIcon icon5;
-        icon5.addFile(QString::fromUtf8("res/Miaouss.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_7->setIcon(icon5);
-        pushButton_7->setIconSize(QSize(40, 40));
+        icon5.addFile(QString::fromUtf8("../../../.designer/backup/res/Miaouss.png"), QSize(), QIcon::Normal, QIcon::Off);
+        anglaisbutton->setIcon(icon5);
+        anglaisbutton->setIconSize(QSize(40, 40));
 
-        verticalLayout_4->addWidget(pushButton_7);
+        verticalLayout_4->addWidget(anglaisbutton);
 
         pushButton_8 = new QPushButton(frame_3);
         pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
         QIcon icon6;
-        icon6.addFile(QString::fromUtf8("res/metamorph.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon6.addFile(QString::fromUtf8("../../../.designer/backup/res/metamorph.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_8->setIcon(icon6);
         pushButton_8->setIconSize(QSize(40, 40));
 
@@ -575,7 +722,7 @@ public:
         pushButton_9 = new QPushButton(frame_3);
         pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
         QIcon icon7;
-        icon7.addFile(QString::fromUtf8("res/hoothoot.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon7.addFile(QString::fromUtf8("../../../.designer/backup/res/hoothoot.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_9->setIcon(icon7);
         pushButton_9->setIconSize(QSize(40, 40));
 
@@ -587,10 +734,10 @@ public:
 
         gridLayout_4->addWidget(leftmenu, 0, 0, 1, 1);
 
-        pushButton_3 = new QPushButton(leftbody);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        tutobutton = new QPushButton(leftbody);
+        tutobutton->setObjectName(QString::fromUtf8("tutobutton"));
 
-        gridLayout_4->addWidget(pushButton_3, 1, 0, 1, 1);
+        gridLayout_4->addWidget(tutobutton, 1, 0, 1, 1);
 
 
         gridLayout_2->addWidget(leftbody, 0, 0, 1, 1);
@@ -615,13 +762,18 @@ public:
         menubar->addAction(menuView->menuAction());
         menuIns_rez_une_quote_ici->addAction(actionNF);
         menuIns_rez_une_quote_ici->addAction(actionCF);
+        menuIns_rez_une_quote_ici->addAction(actionOpen_File);
+        menuIns_rez_une_quote_ici->addAction(actionSave_All);
+        menuIns_rez_une_quote_ici->addAction(actionSave_As);
+        menuIns_rez_une_quote_ici->addAction(action_Exit);
 
         retranslateUi(MainWindow);
 
         TabWidget_2->setCurrentIndex(0);
         TabWidget_4->setCurrentIndex(0);
         TabWidget_3->setCurrentIndex(0);
-        TabWidget->setCurrentIndex(1);
+        TabWidget_5->setCurrentIndex(0);
+        TabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -638,26 +790,44 @@ public:
 #if QT_CONFIG(shortcut)
         actionCF->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+W", nullptr));
 #endif // QT_CONFIG(shortcut)
+        actionOpen_File->setText(QCoreApplication::translate("MainWindow", "Open File", nullptr));
+        actionSave_All->setText(QCoreApplication::translate("MainWindow", "Save All", nullptr));
+#if QT_CONFIG(shortcut)
+        actionSave_All->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+Shift+S", nullptr));
+#endif // QT_CONFIG(shortcut)
+        actionSave_As->setText(QCoreApplication::translate("MainWindow", "Save As", nullptr));
+        action_Exit->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
+#if QT_CONFIG(shortcut)
+        action_Exit->setShortcut(QCoreApplication::translate("MainWindow", "Esc", nullptr));
+#endif // QT_CONFIG(shortcut)
         label->setText(QCoreApplication::translate("MainWindow", "Total Mastery", nullptr));
 
         const bool __sortingEnabled = listWidget->isSortingEnabled();
         listWidget->setSortingEnabled(false);
         QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
-        ___qlistwidgetitem->setText(QCoreApplication::translate("MainWindow", " Variables al\303\251atoires ", nullptr));
+        ___qlistwidgetitem->setText(QCoreApplication::translate("MainWindow", " Variables al\303\251atoires 3.5 0.2", nullptr));
         QListWidgetItem *___qlistwidgetitem1 = listWidget->item(1);
-        ___qlistwidgetitem1->setText(QCoreApplication::translate("MainWindow", "Probabilit\303\251s", nullptr));
+        ___qlistwidgetitem1->setText(QCoreApplication::translate("MainWindow", "Matrice Orthogonales et isom\303\251tries cours 1", nullptr));
         QListWidgetItem *___qlistwidgetitem2 = listWidget->item(2);
-        ___qlistwidgetitem2->setText(QCoreApplication::translate("MainWindow", "Produit Scalaire 25 3 ", nullptr));
+        ___qlistwidgetitem2->setText(QCoreApplication::translate("MainWindow", "Probabilit\303\251s 2 2", nullptr));
         QListWidgetItem *___qlistwidgetitem3 = listWidget->item(3);
-        ___qlistwidgetitem3->setText(QCoreApplication::translate("MainWindow", "Dimension finie", nullptr));
+        ___qlistwidgetitem3->setText(QCoreApplication::translate("MainWindow", "Produit Scalaire 30 2", nullptr));
+        QListWidgetItem *___qlistwidgetitem4 = listWidget->item(4);
+        ___qlistwidgetitem4->setText(QCoreApplication::translate("MainWindow", "Int\303\251gration", nullptr));
+        QListWidgetItem *___qlistwidgetitem5 = listWidget->item(5);
+        ___qlistwidgetitem5->setText(QCoreApplication::translate("MainWindow", "Dimension finie", nullptr));
         listWidget->setSortingEnabled(__sortingEnabled);
 
         label_2->setText(QString());
         label_3->setText(QCoreApplication::translate("MainWindow", "Current power output", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Prepa sup", nullptr));
-        plainTextEdit_3->setPlainText(QCoreApplication::translate("MainWindow", "29 05 2023 : bibmaths + td + mathtraining\n"
-"", nullptr));
+        mathsquicktext->setPlainText(QString());
         label_5->setText(QCoreApplication::translate("MainWindow", "SKILLS:", nullptr));
+        textEdit->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Revoir pk la trace d'une mat est le rg</p></body></html>", nullptr));
         TabWidget_2->setTabText(TabWidget_2->indexOf(tabmain), QCoreApplication::translate("MainWindow", "Overview", nullptr));
         plainTextEdit_2->setPlainText(QCoreApplication::translate("MainWindow", "29 05 2023", nullptr));
         TabWidget_2->setTabText(TabWidget_2->indexOf(tab_4), QCoreApplication::translate("MainWindow", "History", nullptr));
@@ -668,28 +838,33 @@ public:
 
         const bool __sortingEnabled1 = listWidget_3->isSortingEnabled();
         listWidget_3->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem4 = listWidget_3->item(0);
-        ___qlistwidgetitem4->setText(QCoreApplication::translate("MainWindow", "Machines Thermiques", nullptr));
-        QListWidgetItem *___qlistwidgetitem5 = listWidget_3->item(1);
-        ___qlistwidgetitem5->setText(QCoreApplication::translate("MainWindow", "Transition de phases", nullptr));
-        QListWidgetItem *___qlistwidgetitem6 = listWidget_3->item(2);
-        ___qlistwidgetitem6->setText(QCoreApplication::translate("MainWindow", "2nd principe", nullptr));
-        QListWidgetItem *___qlistwidgetitem7 = listWidget_3->item(3);
-        ___qlistwidgetitem7->setText(QCoreApplication::translate("MainWindow", "1er principe", nullptr));
-        QListWidgetItem *___qlistwidgetitem8 = listWidget_3->item(4);
-        ___qlistwidgetitem8->setText(QCoreApplication::translate("MainWindow", "Description de la mati\303\250re", nullptr));
-        QListWidgetItem *___qlistwidgetitem9 = listWidget_3->item(5);
-        ___qlistwidgetitem9->setText(QCoreApplication::translate("MainWindow", "Formation de l'image", nullptr));
-        QListWidgetItem *___qlistwidgetitem10 = listWidget_3->item(6);
-        ___qlistwidgetitem10->setText(QCoreApplication::translate("MainWindow", "Ondes", nullptr));
+        QListWidgetItem *___qlistwidgetitem6 = listWidget_3->item(0);
+        ___qlistwidgetitem6->setText(QCoreApplication::translate("MainWindow", "Machines Thermiques", nullptr));
+        QListWidgetItem *___qlistwidgetitem7 = listWidget_3->item(1);
+        ___qlistwidgetitem7->setText(QCoreApplication::translate("MainWindow", "Transition de phases", nullptr));
+        QListWidgetItem *___qlistwidgetitem8 = listWidget_3->item(2);
+        ___qlistwidgetitem8->setText(QCoreApplication::translate("MainWindow", "2nd principe 2", nullptr));
+        QListWidgetItem *___qlistwidgetitem9 = listWidget_3->item(3);
+        ___qlistwidgetitem9->setText(QCoreApplication::translate("MainWindow", "1er principe 2", nullptr));
+        QListWidgetItem *___qlistwidgetitem10 = listWidget_3->item(4);
+        ___qlistwidgetitem10->setText(QCoreApplication::translate("MainWindow", "Description de la mati\303\250re", nullptr));
+        QListWidgetItem *___qlistwidgetitem11 = listWidget_3->item(5);
+        ___qlistwidgetitem11->setText(QCoreApplication::translate("MainWindow", "Formation de l'image", nullptr));
+        QListWidgetItem *___qlistwidgetitem12 = listWidget_3->item(6);
+        ___qlistwidgetitem12->setText(QCoreApplication::translate("MainWindow", "Ondes", nullptr));
         listWidget_3->setSortingEnabled(__sortingEnabled1);
 
         label_12->setText(QString());
         label_13->setText(QCoreApplication::translate("MainWindow", "Current power output", nullptr));
         label_14->setText(QCoreApplication::translate("MainWindow", "Prepa sup", nullptr));
-        plainTextEdit_7->setPlainText(QCoreApplication::translate("MainWindow", "29 05 2023 : bibmaths + td + mathtraining\n"
-"", nullptr));
+        plainTextEdit_7->setPlainText(QCoreApplication::translate("MainWindow", "31 05 2023 exos de physiques celui du ds \n"
+"29 05 2023 : bibmaths + td + mathtraining", nullptr));
         label_15->setText(QCoreApplication::translate("MainWindow", "SKILLS:", nullptr));
+        plainTextEdit_13->setPlainText(QCoreApplication::translate("MainWindow", "EXOS: \n"
+"- \"J'int\303\250gre MPSI-MP2I\"\n"
+"  - Machines thermiques :\n"
+"   -\n"
+"", nullptr));
         TabWidget_4->setTabText(TabWidget_4->indexOf(tabmain_3), QCoreApplication::translate("MainWindow", "Overview", nullptr));
         plainTextEdit_8->setPlainText(QCoreApplication::translate("MainWindow", "29 05 2023", nullptr));
         TabWidget_4->setTabText(TabWidget_4->indexOf(tab_9), QCoreApplication::translate("MainWindow", "History", nullptr));
@@ -700,14 +875,16 @@ public:
 
         const bool __sortingEnabled2 = listWidget_2->isSortingEnabled();
         listWidget_2->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem11 = listWidget_2->item(0);
-        ___qlistwidgetitem11->setText(QCoreApplication::translate("MainWindow", "Graphes", nullptr));
-        QListWidgetItem *___qlistwidgetitem12 = listWidget_2->item(1);
-        ___qlistwidgetitem12->setText(QCoreApplication::translate("MainWindow", "Logique", nullptr));
-        QListWidgetItem *___qlistwidgetitem13 = listWidget_2->item(2);
-        ___qlistwidgetitem13->setText(QCoreApplication::translate("MainWindow", "Backtracking", nullptr));
-        QListWidgetItem *___qlistwidgetitem14 = listWidget_2->item(3);
-        ___qlistwidgetitem14->setText(QCoreApplication::translate("MainWindow", "Complexit\303\251", nullptr));
+        QListWidgetItem *___qlistwidgetitem13 = listWidget_2->item(0);
+        ___qlistwidgetitem13->setText(QCoreApplication::translate("MainWindow", "Graphes", nullptr));
+        QListWidgetItem *___qlistwidgetitem14 = listWidget_2->item(1);
+        ___qlistwidgetitem14->setText(QCoreApplication::translate("MainWindow", "sql", nullptr));
+        QListWidgetItem *___qlistwidgetitem15 = listWidget_2->item(2);
+        ___qlistwidgetitem15->setText(QCoreApplication::translate("MainWindow", "Logique", nullptr));
+        QListWidgetItem *___qlistwidgetitem16 = listWidget_2->item(3);
+        ___qlistwidgetitem16->setText(QCoreApplication::translate("MainWindow", "Backtracking", nullptr));
+        QListWidgetItem *___qlistwidgetitem17 = listWidget_2->item(4);
+        ___qlistwidgetitem17->setText(QCoreApplication::translate("MainWindow", "Complexit\303\251", nullptr));
         listWidget_2->setSortingEnabled(__sortingEnabled2);
 
         label_7->setText(QString());
@@ -722,6 +899,37 @@ public:
         plainTextEdit_6->setPlainText(QCoreApplication::translate("MainWindow", "Les maths c'est pas seulement du fun", nullptr));
         TabWidget_3->setTabText(TabWidget_3->indexOf(tab_7), QCoreApplication::translate("MainWindow", "Motivation", nullptr));
         TabWidget_3->setTabText(TabWidget_3->indexOf(tab_8), QCoreApplication::translate("MainWindow", "Achievements", nullptr));
+        label_16->setText(QCoreApplication::translate("MainWindow", "Total Mastery", nullptr));
+
+        const bool __sortingEnabled3 = listWidget_4->isSortingEnabled();
+        listWidget_4->setSortingEnabled(false);
+        QListWidgetItem *___qlistwidgetitem18 = listWidget_4->item(0);
+        ___qlistwidgetitem18->setText(QCoreApplication::translate("MainWindow", "Synth\303\250se", nullptr));
+        QListWidgetItem *___qlistwidgetitem19 = listWidget_4->item(1);
+        ___qlistwidgetitem19->setText(QCoreApplication::translate("MainWindow", "Th\303\250me", nullptr));
+        QListWidgetItem *___qlistwidgetitem20 = listWidget_4->item(2);
+        ___qlistwidgetitem20->setText(QCoreApplication::translate("MainWindow", "Colles", nullptr));
+        listWidget_4->setSortingEnabled(__sortingEnabled3);
+
+        label_17->setText(QString());
+        label_18->setText(QCoreApplication::translate("MainWindow", "Current power output", nullptr));
+        label_19->setText(QCoreApplication::translate("MainWindow", "Prepa sup", nullptr));
+        plainTextEdit_10->setPlainText(QCoreApplication::translate("MainWindow", "30 05 2023 : d\303\251but d'une nouvelle synth\303\250se, revu m\303\251thode re\303\247u un 16 \303\240 la synth\303\250se gg! mission accomplie exercice compris. + revu la presse 1/2\n"
+"", nullptr));
+        label_20->setText(QCoreApplication::translate("MainWindow", "SKILLS:", nullptr));
+        textEdit_2->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">trouver un moyen d'apprendre le voc journalistique et compliqu\303\251</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        TabWidget_5->setTabText(TabWidget_5->indexOf(tabmain_4), QCoreApplication::translate("MainWindow", "Overview", nullptr));
+        plainTextEdit_11->setPlainText(QCoreApplication::translate("MainWindow", "29 05 2023", nullptr));
+        TabWidget_5->setTabText(TabWidget_5->indexOf(tab_12), QCoreApplication::translate("MainWindow", "History", nullptr));
+        plainTextEdit_12->setPlainText(QCoreApplication::translate("MainWindow", "Les maths c'est pas seulement du fun", nullptr));
+        TabWidget_5->setTabText(TabWidget_5->indexOf(tab_13), QCoreApplication::translate("MainWindow", "Motivation", nullptr));
+        TabWidget_5->setTabText(TabWidget_5->indexOf(tab_14), QCoreApplication::translate("MainWindow", "Achievements", nullptr));
+        plainTextEdit_14->setPlainText(QCoreApplication::translate("MainWindow", "Samedi 15:33", nullptr));
         TabWidget->setTabText(TabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
         TabWidget->setTabText(TabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
 #if QT_CONFIG(tooltip)
@@ -746,9 +954,9 @@ public:
 #endif // QT_CONFIG(tooltip)
         infobutton->setText(QCoreApplication::translate("MainWindow", "Informatique", nullptr));
 #if QT_CONFIG(tooltip)
-        pushButton_7->setToolTip(QCoreApplication::translate("MainWindow", "If you only do what you can do, you'll never be better than what you are now. ~Shifu", nullptr));
+        anglaisbutton->setToolTip(QCoreApplication::translate("MainWindow", "If you only do what you can do, you'll never be better than what you are now. ~Shifu", nullptr));
 #endif // QT_CONFIG(tooltip)
-        pushButton_7->setText(QCoreApplication::translate("MainWindow", "Anglais", nullptr));
+        anglaisbutton->setText(QCoreApplication::translate("MainWindow", "Anglais", nullptr));
 #if QT_CONFIG(tooltip)
         pushButton_8->setToolTip(QCoreApplication::translate("MainWindow", "Il ne d\303\251pend pas de toi d'\303\252tre riche, mais il d\303\251pend de toi d'\303\252tre heureux.", nullptr));
 #endif // QT_CONFIG(tooltip)
@@ -757,7 +965,7 @@ public:
         pushButton_9->setToolTip(QCoreApplication::translate("MainWindow", "\342\200\236Derjenige, der sich mit Einsicht f\303\274r beschr\303\244nkt erkl\303\244rt, ist der Vollkommenheit am n\303\244chsten.\342\200\234", nullptr));
 #endif // QT_CONFIG(tooltip)
         pushButton_9->setText(QCoreApplication::translate("MainWindow", "Allemand", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("MainWindow", "Tutoriel", nullptr));
+        tutobutton->setText(QCoreApplication::translate("MainWindow", "Tutoriel", nullptr));
         menuIns_rez_une_quote_ici->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuPr_pa->setTitle(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));

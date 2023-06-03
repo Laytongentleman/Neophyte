@@ -14,7 +14,7 @@ QT += widgets
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
-HEADERS += mainwindow.h custombutton.h 
-SOURCES += main.cpp mainwindow.cpp custombutton.cpp
+HEADERS += mainwindow.h custombutton.h timelogic.h 
+SOURCES += main.cpp mainwindow.cpp custombutton.cpp timelogic.cpp
 FORMS += mainwindow.ui sliders.ui
 RESSOURCES += ressources.qrc

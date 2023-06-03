@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[9];
-    char stringdata0[142];
+    QByteArrayData data[21];
+    char stringdata0[377];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,13 +40,31 @@ QT_MOC_LITERAL(4, 56, 8), // "closeTab"
 QT_MOC_LITERAL(5, 65, 5), // "index"
 QT_MOC_LITERAL(6, 71, 22), // "on_mathsbutton_clicked"
 QT_MOC_LITERAL(7, 94, 25), // "on_physiquebutton_clicked"
-QT_MOC_LITERAL(8, 120, 21) // "on_infobutton_clicked"
+QT_MOC_LITERAL(8, 120, 21), // "on_infobutton_clicked"
+QT_MOC_LITERAL(9, 142, 24), // "on_anglaisbutton_clicked"
+QT_MOC_LITERAL(10, 167, 21), // "on_tutobutton_clicked"
+QT_MOC_LITERAL(11, 189, 28), // "on_actionOpen_File_triggered"
+QT_MOC_LITERAL(12, 218, 11), // "openTabFile"
+QT_MOC_LITERAL(13, 230, 8), // "filepath"
+QT_MOC_LITERAL(14, 239, 15), // "currentTextEdit"
+QT_MOC_LITERAL(15, 255, 15), // "QPlainTextEdit*"
+QT_MOC_LITERAL(16, 271, 15), // "TextEditChanged"
+QT_MOC_LITERAL(17, 287, 27), // "on_actionSave_All_triggered"
+QT_MOC_LITERAL(18, 315, 26), // "on_actionSave_As_triggered"
+QT_MOC_LITERAL(19, 342, 24), // "on_action_Exit_triggered"
+QT_MOC_LITERAL(20, 367, 9) // "openfiles"
 
     },
     "MainWindow\0on_actionNF_triggered\0\0"
     "on_actionCF_triggered\0closeTab\0index\0"
     "on_mathsbutton_clicked\0on_physiquebutton_clicked\0"
-    "on_infobutton_clicked"
+    "on_infobutton_clicked\0on_anglaisbutton_clicked\0"
+    "on_tutobutton_clicked\0"
+    "on_actionOpen_File_triggered\0openTabFile\0"
+    "filepath\0currentTextEdit\0QPlainTextEdit*\0"
+    "TextEditChanged\0on_actionSave_All_triggered\0"
+    "on_actionSave_As_triggered\0"
+    "on_action_Exit_triggered\0openfiles"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,7 +74,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,17 +82,37 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x08 /* Private */,
-       3,    0,   45,    2, 0x08 /* Private */,
-       4,    1,   46,    2, 0x08 /* Private */,
-       6,    0,   49,    2, 0x08 /* Private */,
-       7,    0,   50,    2, 0x08 /* Private */,
-       8,    0,   51,    2, 0x08 /* Private */,
+       1,    0,   94,    2, 0x08 /* Private */,
+       3,    0,   95,    2, 0x08 /* Private */,
+       4,    1,   96,    2, 0x08 /* Private */,
+       6,    0,   99,    2, 0x08 /* Private */,
+       7,    0,  100,    2, 0x08 /* Private */,
+       8,    0,  101,    2, 0x08 /* Private */,
+       9,    0,  102,    2, 0x08 /* Private */,
+      10,    0,  103,    2, 0x08 /* Private */,
+      11,    0,  104,    2, 0x08 /* Private */,
+      12,    1,  105,    2, 0x08 /* Private */,
+      14,    0,  108,    2, 0x08 /* Private */,
+      16,    0,  109,    2, 0x08 /* Private */,
+      17,    0,  110,    2, 0x08 /* Private */,
+      18,    0,  111,    2, 0x08 /* Private */,
+      19,    0,  112,    2, 0x08 /* Private */,
+      20,    0,  113,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    5,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   13,
+    0x80000000 | 15,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -94,6 +132,17 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 3: _t->on_mathsbutton_clicked(); break;
         case 4: _t->on_physiquebutton_clicked(); break;
         case 5: _t->on_infobutton_clicked(); break;
+        case 6: _t->on_anglaisbutton_clicked(); break;
+        case 7: _t->on_tutobutton_clicked(); break;
+        case 8: _t->on_actionOpen_File_triggered(); break;
+        case 9: _t->openTabFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 10: { QPlainTextEdit* _r = _t->currentTextEdit();
+            if (_a[0]) *reinterpret_cast< QPlainTextEdit**>(_a[0]) = std::move(_r); }  break;
+        case 11: _t->TextEditChanged(); break;
+        case 12: _t->on_actionSave_All_triggered(); break;
+        case 13: _t->on_actionSave_As_triggered(); break;
+        case 14: _t->on_action_Exit_triggered(); break;
+        case 15: _t->openfiles(); break;
         default: ;
         }
     }
@@ -128,13 +177,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 16)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 16;
     }
     return _id;
 }
