@@ -32,6 +32,7 @@ void on_actionSave_All_triggered();
 void on_actionSave_As_triggered();
 void on_action_Exit_triggered();
 void openfiles();
+void on_startbutton_clicked(); 
 private:
     CustomButton * m_customBtnBonjour;
     Ui::MainWindow *ui;

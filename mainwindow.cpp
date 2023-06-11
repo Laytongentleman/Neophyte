@@ -7,10 +7,12 @@
 #include <QTextStream>
 #include <QList>
 
-
+	#include <QRect>
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <QGraphicsEffect>
+#include <QWebEngineView>
 
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
@@ -29,7 +31,10 @@ setWindowIcon(QIcon("icon.png"));
   openfiles();
   //tabsWidget->show();
   //m_customBtnBonjour = new CustomButton(this);
+ (ui->mainstack)->setCurrentIndex(1);
+
 }
+
 MainWindow::~MainWindow(){
   delete ui;
 }
@@ -168,6 +173,9 @@ void MainWindow::on_actionSave_As_triggered(){
         QMessageBox::warning(this, "Warning", "Cannot save file : " + file.errorString());
 
         return;}
+}
+void MainWindow::on_startbutton_clicked(){
+  (ui->mainstack)->setCurrentIndex(0);
 }
 
 void MainWindow::closeTab(int index){
