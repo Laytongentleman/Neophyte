@@ -91,24 +91,30 @@ string readFileIntoString(const string& path) {
     }
     return string((std::istreambuf_iterator<char>(input_file)), std::istreambuf_iterator<char>());
 }
+
 void MainWindow::openfiles(){
-  QString filePath ="storage/mathsquicktext.txt";
+  int nbjournaux = 2;
+  QPlainTextEdit* journaux[nbjournaux]={ui->mathsquicktext, ui->physiquequicktext};
+  QString journauxnames[nbjournaux]={"mathsquicktext.txt","physiquequicktext.txt"};
+  
+  for (int x = 0; x < nbjournaux;x++){
+  QString filePath ="storage/" + journauxnames[x];
 
   QFile file (filePath);
   QFileInfo fileName(filePath);
   if (!file.open(QIODevice::ReadOnly | QFile::Text)){
     QMessageBox::warning( this, "Warning", "Cannot open file : " + file.errorString());
   }
- 
+ https://stackoverflow.com/questions/15151480/simple-dictionary-in-c
   QTextStream in(&file);
   QString text = in.readAll();
 
-  (ui->mathsquicktext) ->setPlainText(text);
-  (ui->mathsquicktext)->moveCursor (QTextCursor::Start);
+  journaux[x]->setPlainText(text);
+  journaux[x]->moveCursor (QTextCursor::Start);
   string s = readFileIntoString("storage/date.txt");
 QString qstr = QString::fromStdString(s);
 
-QString currentdateqs = ui->mathsquicktext->toPlainText();
+QString currentdateqs = journaux[x]->toPlainText();
 
 std::string currentdate = currentdateqs.toUtf8().constData();
 
@@ -120,10 +126,10 @@ for (int i = 0; i < 7; i++) {
     }
 }
 if (found) {
-(ui->mathsquicktext)->insertPlainText (qstr + "\n");;
+journaux[x]->insertPlainText (qstr + "\n");;
 }  file.close();
   
-
+}
 }
 
 
@@ -145,16 +151,21 @@ void MainWindow::on_actionSave_All_triggered(){
   QString newTabText = (ui->TabWidget)->tabText((ui->TabWidget)->currentIndex()).remove(0,1);
   (ui->TabWidget)->setTabText((ui->TabWidget)->currentIndex(),newTabText); 
   */
-  QString fileName = "storage/mathsquicktext.txt";
+  int nbjournaux = 2;
+  QPlainTextEdit* journaux[nbjournaux]={ui->mathsquicktext, ui->physiquequicktext};
+  QString journauxnames[nbjournaux]={"mathsquicktext.txt","physiquequicktext.txt"};
+  
+  for (int x = 0; x < nbjournaux;x++){
+    QString fileName = "storage/" + journauxnames[x];
   QFile file(fileName);
   if (!file.open(QFile::WriteOnly | QFile::Text)){
     QMessageBox::warning(this,"warning","Cannot save file : " + file.errorString());
     return;
   }
   QTextStream out(&file);
-  QString text = (ui->mathsquicktext)->toPlainText();
+  QString text = (journaux[x])->toPlainText();
   out << text;
-  file.close();
+  file.close();}
 
   
   

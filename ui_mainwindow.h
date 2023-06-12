@@ -13,6 +13,7 @@
 #include <QtGui/QIcon>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QDial>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
@@ -88,6 +89,8 @@ public:
     QLabel *label_4;
     QLabel *label;
     QWidget *tab_4;
+    QHBoxLayout *horizontalLayout_3;
+    QFrame *heatmapsupport;
     QPlainTextEdit *plainTextEdit_2;
     QWidget *tab_3;
     QPlainTextEdit *plainTextEdit;
@@ -96,18 +99,21 @@ public:
     QGridLayout *gridLayout_8;
     QTabWidget *TabWidget_4;
     QWidget *tabmain_3;
-    QDial *Mastery_3;
     QLabel *label_11;
-    QListWidget *listWidget_3;
-    QLabel *label_12;
-    QSlider *verticalSlider_3;
-    QSlider *horizontalSlider_3;
+    QGridLayout *gridLayout_14;
     QLabel *label_13;
-    QLabel *label_14;
-    QPlainTextEdit *plainTextEdit_7;
+    QPlainTextEdit *physiquequicktext;
+    QDial *Mastery_3;
+    QSlider *verticalSlider_3;
+    QLabel *label_12;
     QLabel *label_15;
+    QListWidget *listWidget_3;
     QPlainTextEdit *plainTextEdit_13;
+    QLabel *label_14;
+    QSlider *horizontalSlider_3;
     QWidget *tab_9;
+    QHBoxLayout *horizontalLayout;
+    QCalendarWidget *calendarWidget;
     QPlainTextEdit *plainTextEdit_8;
     QWidget *tab_10;
     QPlainTextEdit *plainTextEdit_9;
@@ -285,7 +291,7 @@ public:
         mathsbutton = new QPushButton(frame_2);
         mathsbutton->setObjectName(QString::fromUtf8("mathsbutton"));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/pokemons/res/maril.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8("res/maril.png"), QSize(), QIcon::Normal, QIcon::Off);
         mathsbutton->setIcon(icon2);
         mathsbutton->setIconSize(QSize(65, 65));
 
@@ -294,7 +300,7 @@ public:
         physiquebutton = new QPushButton(frame_2);
         physiquebutton->setObjectName(QString::fromUtf8("physiquebutton"));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8("res/ballshine.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8("res/magneti.png"), QSize(), QIcon::Normal, QIcon::Off);
         physiquebutton->setIcon(icon3);
         physiquebutton->setIconSize(QSize(50, 50));
 
@@ -477,9 +483,23 @@ public:
         TabWidget_2->addTab(tabmain, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
+        horizontalLayout_3 = new QHBoxLayout(tab_4);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        heatmapsupport = new QFrame(tab_4);
+        heatmapsupport->setObjectName(QString::fromUtf8("heatmapsupport"));
+        heatmapsupport->setMinimumSize(QSize(400, 0));
+        heatmapsupport->setFrameShape(QFrame::StyledPanel);
+        heatmapsupport->setFrameShadow(QFrame::Raised);
+
+        horizontalLayout_3->addWidget(heatmapsupport);
+
         plainTextEdit_2 = new QPlainTextEdit(tab_4);
         plainTextEdit_2->setObjectName(QString::fromUtf8("plainTextEdit_2"));
-        plainTextEdit_2->setGeometry(QRect(0, 10, 601, 451));
+        sizePolicy.setHeightForWidth(plainTextEdit_2->sizePolicy().hasHeightForWidth());
+        plainTextEdit_2->setSizePolicy(sizePolicy);
+
+        horizontalLayout_3->addWidget(plainTextEdit_2);
+
         TabWidget_2->addTab(tab_4, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
@@ -503,17 +523,60 @@ public:
         TabWidget_4->setFont(font1);
         tabmain_3 = new QWidget();
         tabmain_3->setObjectName(QString::fromUtf8("tabmain_3"));
-        Mastery_3 = new QDial(tabmain_3);
-        Mastery_3->setObjectName(QString::fromUtf8("Mastery_3"));
-        Mastery_3->setGeometry(QRect(580, 0, 221, 161));
-        Mastery_3->setMaximum(100);
-        Mastery_3->setValue(8);
-        Mastery_3->setWrapping(false);
         label_11 = new QLabel(tabmain_3);
         label_11->setObjectName(QString::fromUtf8("label_11"));
         label_11->setGeometry(QRect(650, 50, 91, 61));
         label_11->setFont(font5);
         label_11->setAlignment(Qt::AlignCenter);
+        gridLayout_14 = new QGridLayout(tabmain_3);
+        gridLayout_14->setObjectName(QString::fromUtf8("gridLayout_14"));
+        label_13 = new QLabel(tabmain_3);
+        label_13->setObjectName(QString::fromUtf8("label_13"));
+        label_13->setFont(font1);
+
+        gridLayout_14->addWidget(label_13, 0, 0, 2, 3);
+
+        physiquequicktext = new QPlainTextEdit(tabmain_3);
+        physiquequicktext->setObjectName(QString::fromUtf8("physiquequicktext"));
+
+        gridLayout_14->addWidget(physiquequicktext, 0, 3, 5, 1);
+
+        Mastery_3 = new QDial(tabmain_3);
+        Mastery_3->setObjectName(QString::fromUtf8("Mastery_3"));
+        Mastery_3->setMaximum(100);
+        Mastery_3->setValue(8);
+        Mastery_3->setWrapping(false);
+
+        gridLayout_14->addWidget(Mastery_3, 0, 4, 3, 1);
+
+        verticalSlider_3 = new QSlider(tabmain_3);
+        verticalSlider_3->setObjectName(QString::fromUtf8("verticalSlider_3"));
+        verticalSlider_3->setFont(font2);
+        verticalSlider_3->setValue(5);
+        verticalSlider_3->setOrientation(Qt::Vertical);
+
+        gridLayout_14->addWidget(verticalSlider_3, 1, 2, 3, 1);
+
+        label_12 = new QLabel(tabmain_3);
+        label_12->setObjectName(QString::fromUtf8("label_12"));
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(label_12->sizePolicy().hasHeightForWidth());
+        label_12->setSizePolicy(sizePolicy1);
+        label_12->setMaximumSize(QSize(100, 100));
+        label_12->setPixmap(QPixmap(QString::fromUtf8("res/prism.png")));
+        label_12->setScaledContents(true);
+        label_12->setIndent(-1);
+
+        gridLayout_14->addWidget(label_12, 2, 0, 2, 1);
+
+        label_15 = new QLabel(tabmain_3);
+        label_15->setObjectName(QString::fromUtf8("label_15"));
+        label_15->setFont(font4);
+
+        gridLayout_14->addWidget(label_15, 3, 4, 1, 1);
+
         listWidget_3 = new QListWidget(tabmain_3);
         new QListWidgetItem(listWidget_3);
         new QListWidgetItem(listWidget_3);
@@ -523,48 +586,44 @@ public:
         new QListWidgetItem(listWidget_3);
         new QListWidgetItem(listWidget_3);
         listWidget_3->setObjectName(QString::fromUtf8("listWidget_3"));
-        listWidget_3->setGeometry(QRect(540, 230, 256, 192));
-        label_12 = new QLabel(tabmain_3);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
-        label_12->setGeometry(QRect(-10, 80, 141, 131));
-        label_12->setMaximumSize(QSize(16777215, 16777215));
-        label_12->setPixmap(QPixmap(QString::fromUtf8("../../../.designer/backup/res/prism.png")));
-        label_12->setScaledContents(true);
-        label_12->setIndent(-1);
-        verticalSlider_3 = new QSlider(tabmain_3);
-        verticalSlider_3->setObjectName(QString::fromUtf8("verticalSlider_3"));
-        verticalSlider_3->setGeometry(QRect(190, 50, 20, 160));
-        verticalSlider_3->setFont(font2);
-        verticalSlider_3->setValue(5);
-        verticalSlider_3->setOrientation(Qt::Vertical);
-        horizontalSlider_3 = new QSlider(tabmain_3);
-        horizontalSlider_3->setObjectName(QString::fromUtf8("horizontalSlider_3"));
-        horizontalSlider_3->setGeometry(QRect(0, 450, 401, 20));
-        horizontalSlider_3->setValue(10);
-        horizontalSlider_3->setOrientation(Qt::Horizontal);
-        label_13 = new QLabel(tabmain_3);
-        label_13->setObjectName(QString::fromUtf8("label_13"));
-        label_13->setGeometry(QRect(10, 30, 201, 41));
-        label_13->setFont(font1);
-        label_14 = new QLabel(tabmain_3);
-        label_14->setObjectName(QString::fromUtf8("label_14"));
-        label_14->setGeometry(QRect(170, 420, 81, 20));
-        plainTextEdit_7 = new QPlainTextEdit(tabmain_3);
-        plainTextEdit_7->setObjectName(QString::fromUtf8("plainTextEdit_7"));
-        plainTextEdit_7->setGeometry(QRect(250, 20, 271, 231));
-        label_15 = new QLabel(tabmain_3);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
-        label_15->setGeometry(QRect(630, 190, 57, 18));
-        label_15->setFont(font4);
+
+        gridLayout_14->addWidget(listWidget_3, 4, 4, 3, 1);
+
         plainTextEdit_13 = new QPlainTextEdit(tabmain_3);
         plainTextEdit_13->setObjectName(QString::fromUtf8("plainTextEdit_13"));
-        plainTextEdit_13->setGeometry(QRect(40, 260, 221, 151));
+
+        gridLayout_14->addWidget(plainTextEdit_13, 5, 0, 1, 4);
+
+        label_14 = new QLabel(tabmain_3);
+        label_14->setObjectName(QString::fromUtf8("label_14"));
+
+        gridLayout_14->addWidget(label_14, 6, 1, 1, 2);
+
+        horizontalSlider_3 = new QSlider(tabmain_3);
+        horizontalSlider_3->setObjectName(QString::fromUtf8("horizontalSlider_3"));
+        horizontalSlider_3->setValue(10);
+        horizontalSlider_3->setOrientation(Qt::Horizontal);
+
+        gridLayout_14->addWidget(horizontalSlider_3, 7, 0, 1, 4);
+
         TabWidget_4->addTab(tabmain_3, QString());
         tab_9 = new QWidget();
         tab_9->setObjectName(QString::fromUtf8("tab_9"));
+        horizontalLayout = new QHBoxLayout(tab_9);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        calendarWidget = new QCalendarWidget(tab_9);
+        calendarWidget->setObjectName(QString::fromUtf8("calendarWidget"));
+        calendarWidget->setGridVisible(true);
+        calendarWidget->setNavigationBarVisible(true);
+        calendarWidget->setDateEditEnabled(true);
+
+        horizontalLayout->addWidget(calendarWidget);
+
         plainTextEdit_8 = new QPlainTextEdit(tab_9);
         plainTextEdit_8->setObjectName(QString::fromUtf8("plainTextEdit_8"));
-        plainTextEdit_8->setGeometry(QRect(0, 10, 601, 451));
+
+        horizontalLayout->addWidget(plainTextEdit_8);
+
         TabWidget_4->addTab(tab_9, QString());
         tab_10 = new QWidget();
         tab_10->setObjectName(QString::fromUtf8("tab_10"));
@@ -814,11 +873,11 @@ public:
         startbutton = new QPushButton(startpage);
         startbutton->setObjectName(QString::fromUtf8("startbutton"));
         startbutton->setEnabled(true);
-        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(startbutton->sizePolicy().hasHeightForWidth());
-        startbutton->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(startbutton->sizePolicy().hasHeightForWidth());
+        startbutton->setSizePolicy(sizePolicy2);
         startbutton->setMaximumSize(QSize(0, 0));
 
         gridLayout_12->addWidget(startbutton, 1, 0, 1, 1);
@@ -863,7 +922,7 @@ public:
         mainstack->setCurrentIndex(0);
         TabWidget_2->setCurrentIndex(0);
         TabWidget_4->setCurrentIndex(0);
-        TabWidget_3->setCurrentIndex(0);
+        TabWidget_3->setCurrentIndex(1);
         TabWidget_5->setCurrentIndex(0);
         TabWidget->setCurrentIndex(0);
 
@@ -961,6 +1020,11 @@ public:
         TabWidget_2->setTabText(TabWidget_2->indexOf(tab_3), QCoreApplication::translate("MainWindow", "Motivation", nullptr));
         TabWidget_2->setTabText(TabWidget_2->indexOf(tab_5), QCoreApplication::translate("MainWindow", "Achievements", nullptr));
         label_11->setText(QCoreApplication::translate("MainWindow", "Total Mastery", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindow", "Current power output", nullptr));
+        physiquequicktext->setPlainText(QCoreApplication::translate("MainWindow", "31 05 2023 exos de physiques celui du ds \n"
+"29 05 2023 : bibmaths + td + mathtraining", nullptr));
+        label_12->setText(QString());
+        label_15->setText(QCoreApplication::translate("MainWindow", "SKILLS:", nullptr));
 
         const bool __sortingEnabled1 = listWidget_3->isSortingEnabled();
         listWidget_3->setSortingEnabled(false);
@@ -980,17 +1044,12 @@ public:
         ___qlistwidgetitem12->setText(QCoreApplication::translate("MainWindow", "Ondes", nullptr));
         listWidget_3->setSortingEnabled(__sortingEnabled1);
 
-        label_12->setText(QString());
-        label_13->setText(QCoreApplication::translate("MainWindow", "Current power output", nullptr));
-        label_14->setText(QCoreApplication::translate("MainWindow", "Prepa sup", nullptr));
-        plainTextEdit_7->setPlainText(QCoreApplication::translate("MainWindow", "31 05 2023 exos de physiques celui du ds \n"
-"29 05 2023 : bibmaths + td + mathtraining", nullptr));
-        label_15->setText(QCoreApplication::translate("MainWindow", "SKILLS:", nullptr));
         plainTextEdit_13->setPlainText(QCoreApplication::translate("MainWindow", "EXOS: \n"
 "- \"J'int\303\250gre MPSI-MP2I\"\n"
 "  - Machines thermiques :\n"
 "   -\n"
 "", nullptr));
+        label_14->setText(QCoreApplication::translate("MainWindow", "Prepa sup", nullptr));
         TabWidget_4->setTabText(TabWidget_4->indexOf(tabmain_3), QCoreApplication::translate("MainWindow", "Overview", nullptr));
         plainTextEdit_8->setPlainText(QCoreApplication::translate("MainWindow", "29 05 2023", nullptr));
         TabWidget_4->setTabText(TabWidget_4->indexOf(tab_9), QCoreApplication::translate("MainWindow", "History", nullptr));

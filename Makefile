@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = neophyte1.0.0
-DISTDIR = /home/louis/Documents/github/Neophyte/.tmp/neophyte1.0.0
+DISTDIR = /home/louis/info/fun/Neophyte/.tmp/neophyte1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -L/usr/lib64 -Wl,-rpath,/usr/lib64 -Wl,-rpath-link,/usr/lib64
 LIBS          = $(SUBLIBS) /usr/lib64/libQt5WebEngineWidgets.so /usr/lib64/libQt5PrintSupport.so /usr/lib64/libQt5Widgets.so /usr/lib64/libQt5WebEngineCore.so /usr/lib64/libQt5Quick.so /usr/lib64/libQt5Gui.so /usr/lib64/libQt5QmlModels.so /usr/lib64/libQt5WebChannel.so /usr/lib64/libQt5Qml.so /usr/lib64/libQt5Network.so /usr/lib64/libQt5Positioning.so /usr/lib64/libQt5Core.so -lGL -lpthread   
@@ -91,6 +91,7 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/modules/qt_IncidenceEditor.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KActivities.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KActivitiesStats.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KAddressbookImportExport.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KAlarmCal.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KArchive.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KAuth.pri \
@@ -150,6 +151,7 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/modules/qt_KJsEmbed.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KMailTransport.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KMailTransportAkonadi.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KManageSieve.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KMbox.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KMime.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KNewStuff.pri \
@@ -169,9 +171,13 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/modules/qt_KRunner.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KScreen.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KService.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KSieve.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KSieveUi.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KSMTP.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KSyntaxHighlighting.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KTextEditor.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KTextWidgets.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KTNef.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KUnitConversion.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KWallet.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KWaylandClient.pri \
@@ -373,6 +379,10 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_Libkdepim.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_Libkleo.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_MailCommon.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_MailImporter.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_MailImporterAkonadi.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_Marble.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_MessageComposer.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_MessageCore.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_MessageList.pri \
@@ -461,6 +471,7 @@ Makefile: test.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/mk
 		/usr/lib64/qt5/mkspecs/modules/qt_IncidenceEditor.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KActivities.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KActivitiesStats.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KAddressbookImportExport.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KAlarmCal.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KArchive.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KAuth.pri \
@@ -520,6 +531,7 @@ Makefile: test.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/mk
 		/usr/lib64/qt5/mkspecs/modules/qt_KJsEmbed.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KMailTransport.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KMailTransportAkonadi.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KManageSieve.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KMbox.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KMime.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KNewStuff.pri \
@@ -539,9 +551,13 @@ Makefile: test.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/mk
 		/usr/lib64/qt5/mkspecs/modules/qt_KRunner.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KScreen.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KService.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KSieve.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KSieveUi.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KSMTP.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KSyntaxHighlighting.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KTextEditor.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KTextWidgets.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_KTNef.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KUnitConversion.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KWallet.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_KWaylandClient.pri \
@@ -743,6 +759,10 @@ Makefile: test.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/mk
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_Libkdepim.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_Libkleo.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_MailCommon.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_MailImporter.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_MailImporterAkonadi.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_Marble.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_MessageComposer.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_MessageCore.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_MessageList.pri \
@@ -816,6 +836,7 @@ Makefile: test.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/mk
 /usr/lib64/qt5/mkspecs/modules/qt_IncidenceEditor.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KActivities.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KActivitiesStats.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_KAddressbookImportExport.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KAlarmCal.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KArchive.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KAuth.pri:
@@ -875,6 +896,7 @@ Makefile: test.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/mk
 /usr/lib64/qt5/mkspecs/modules/qt_KJsEmbed.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KMailTransport.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KMailTransportAkonadi.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_KManageSieve.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KMbox.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KMime.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KNewStuff.pri:
@@ -894,9 +916,13 @@ Makefile: test.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/mk
 /usr/lib64/qt5/mkspecs/modules/qt_KRunner.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KScreen.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KService.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_KSieve.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_KSieveUi.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_KSMTP.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KSyntaxHighlighting.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KTextEditor.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KTextWidgets.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_KTNef.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KUnitConversion.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KWallet.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_KWaylandClient.pri:
@@ -1098,6 +1124,10 @@ Makefile: test.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/mk
 /usr/lib64/qt5/mkspecs/modules/qt_lib_xmlpatterns_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_Libkdepim.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_Libkleo.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_MailCommon.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_MailImporter.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_MailImporterAkonadi.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_Marble.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_MessageComposer.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_MessageCore.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_MessageList.pri:
@@ -1198,12 +1228,12 @@ moc_mainwindow.cpp: mainwindow.h \
 		custombutton.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
-	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/Documents/github/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/Documents/github/Neophyte -I/home/louis/Documents/github/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/fun/Neophyte -I/home/louis/info/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
 moc_custombutton.cpp: custombutton.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
-	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/Documents/github/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/Documents/github/Neophyte -I/home/louis/Documents/github/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include custombutton.h -o moc_custombutton.cpp
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/fun/Neophyte -I/home/louis/info/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include custombutton.h -o moc_custombutton.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
