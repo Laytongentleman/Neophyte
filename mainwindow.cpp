@@ -6,7 +6,7 @@
 #include <QMessageBox>
 #include <QTextStream>
 #include <QList>
-
+#include "heatmap.h"
 	#include <QRect>
 #include <iostream>
 #include <fstream>
@@ -32,8 +32,52 @@ setWindowIcon(QIcon("icon.png"));
   //tabsWidget->show();
   //m_customBtnBonjour = new CustomButton(this);
  (ui->mainstack)->setCurrentIndex(1);
+ (ui->stackedWidget)->setCurrentIndex(0);
+ int year = 2023;
+ QString month[12] = {"Jan","Fev","Mars","Avril","Mai","Juin","Juill","Aout","Sept","Oct","Nov","Dec"};
+  
+ int monthsize[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+ if ((year %4 == 0 && year %100 != 0) || year %400 == 0) { 
+   monthsize[1] = 29;
+ }
 
+ for (int k = 0 ; k <12; k++){
+ QLabel* t = new QLabel(ui->heatmapsupport);
+ t->setText(month[k]);
+ t->move(40+k*4.3*14,50);
+ }
+
+
+   for (int i =0 ; i < 53;i++){
+     for(int j = 0; j < 7; j++){
+       if ((1+j)+(i)*7 <= 366) {
+ int a = rand()%255;
+char buff[400];
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: skyblue;}", 255 - a,255 -a, 255-(a/10));
+  std::string buffAsStdStr = buff;
+  Heatmap* test = new Heatmap(ui->heatmapsupport);
+  test->move(20 + i*14,70 + j*14);
+ test->resize(10,10);
+ char date[20];
+ int c = i*7+(j+1);
+ int potmonth = 0;
+ while (c > monthsize[potmonth]){
+   c = c - monthsize[potmonth];
+   if (potmonth < 11) {potmonth++;} else {potmonth = 0;}
+ }
+ 
+ snprintf(date, sizeof(date), "%d %s", c,  month[potmonth].toUtf8().constData()
+) ;
+
+  test->setToolTip(date);
+
+   test->setStyleSheet(buff);
+  }
 }
+}
+}
+
+
 
 MainWindow::~MainWindow(){
   delete ui;
@@ -105,7 +149,6 @@ void MainWindow::openfiles(){
   if (!file.open(QIODevice::ReadOnly | QFile::Text)){
     QMessageBox::warning( this, "Warning", "Cannot open file : " + file.errorString());
   }
- https://stackoverflow.com/questions/15151480/simple-dictionary-in-c
   QTextStream in(&file);
   QString text = in.readAll();
 

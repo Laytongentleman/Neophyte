@@ -36,9 +36,21 @@ text-align:lcenter;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <widget class="QStackedWidget" name="mainstack">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="font">
        <font>
         <family>Terminus</family>
@@ -234,6 +246,14 @@ text-align:lcenter;
                    <property name="toolTip">
                     <string>KISS: Keep it simple, stupid </string>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton { border: none; 
+background-color: rgb(255, 25, 128);}
+*:hover {
+border: 1rem solid;
+  background-color: yellow;
+}</string>
+                   </property>
                    <property name="text">
                     <string>Informatique</string>
                    </property>
@@ -357,7 +377,7 @@ text-align:lcenter;
              <widget class="QWidget" name="pagemaths">
               <layout class="QGridLayout" name="gridLayout_3">
                <item row="0" column="0">
-                <widget class="QTabWidget" name="TabWidget_2">
+                <widget class="QTabWidget" name="TabWidget_maths">
                  <property name="font">
                   <font>
                    <family>Clean</family>
@@ -556,7 +576,7 @@ p, li { white-space: pre-wrap; }
                     <widget class="QFrame" name="heatmapsupport">
                      <property name="minimumSize">
                       <size>
-                       <width>400</width>
+                       <width>600</width>
                        <height>0</height>
                       </size>
                      </property>
@@ -604,6 +624,11 @@ p, li { white-space: pre-wrap; }
                  <widget class="QWidget" name="tab_5">
                   <attribute name="title">
                    <string>Achievements</string>
+                  </attribute>
+                 </widget>
+                 <widget class="QWidget" name="skill_tree">
+                  <attribute name="title">
+                   <string>Skills</string>
                   </attribute>
                  </widget>
                 </widget>
@@ -1471,6 +1496,12 @@ p, li { white-space: pre-wrap; }
        </layout>
       </widget>
       <widget class="QWidget" name="startpage">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>

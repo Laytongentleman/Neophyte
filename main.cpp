@@ -9,8 +9,12 @@ int main (int argc, char *argv[]){
 
   update_date();
   w.show();
+  QFont newFont("Terminus", 14, QFont::Bold, true);
+//set font of application
+  QApplication::setFont(newFont);
 
  
   return a.exec();
+
 
 }

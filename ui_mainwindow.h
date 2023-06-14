@@ -74,7 +74,7 @@ public:
     QStackedWidget *stackedWidget;
     QWidget *pagemaths;
     QGridLayout *gridLayout_3;
-    QTabWidget *TabWidget_2;
+    QTabWidget *TabWidget_maths;
     QWidget *tabmain;
     QGridLayout *gridLayout_13;
     QListWidget *listWidget;
@@ -95,6 +95,7 @@ public:
     QWidget *tab_3;
     QPlainTextEdit *plainTextEdit;
     QWidget *tab_5;
+    QWidget *skill_tree;
     QWidget *pagephysique;
     QGridLayout *gridLayout_8;
     QTabWidget *TabWidget_4;
@@ -219,10 +220,20 @@ public:
         action_Exit->setObjectName(QString::fromUtf8("action_Exit"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
+        centralwidget->setSizePolicy(sizePolicy);
         gridLayout_2 = new QGridLayout(centralwidget);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         mainstack = new QStackedWidget(centralwidget);
         mainstack->setObjectName(QString::fromUtf8("mainstack"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(mainstack->sizePolicy().hasHeightForWidth());
+        mainstack->setSizePolicy(sizePolicy1);
         QFont font;
         font.setFamily(QString::fromUtf8("Terminus"));
         font.setPointSize(24);
@@ -234,11 +245,11 @@ public:
         gridLayout_11->setObjectName(QString::fromUtf8("gridLayout_11"));
         leftbody = new QWidget(prepa);
         leftbody->setObjectName(QString::fromUtf8("leftbody"));
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(leftbody->sizePolicy().hasHeightForWidth());
-        leftbody->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(leftbody->sizePolicy().hasHeightForWidth());
+        leftbody->setSizePolicy(sizePolicy2);
         leftbody->setMaximumSize(QSize(210, 16777215));
         gridLayout_4 = new QGridLayout(leftbody);
         gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
@@ -308,6 +319,12 @@ public:
 
         infobutton = new QPushButton(frame_2);
         infobutton->setObjectName(QString::fromUtf8("infobutton"));
+        infobutton->setStyleSheet(QString::fromUtf8("QPushButton { border: none; \n"
+"background-color: rgb(255, 25, 128);}\n"
+"*:hover {\n"
+"border: 1rem solid;\n"
+"  background-color: yellow;\n"
+"}"));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8("../../../.designer/backup/res/magneti.png"), QSize(), QIcon::Normal, QIcon::Off);
         infobutton->setIcon(icon4);
@@ -378,15 +395,15 @@ public:
         pagemaths->setObjectName(QString::fromUtf8("pagemaths"));
         gridLayout_3 = new QGridLayout(pagemaths);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        TabWidget_2 = new QTabWidget(pagemaths);
-        TabWidget_2->setObjectName(QString::fromUtf8("TabWidget_2"));
+        TabWidget_maths = new QTabWidget(pagemaths);
+        TabWidget_maths->setObjectName(QString::fromUtf8("TabWidget_maths"));
         QFont font1;
         font1.setFamily(QString::fromUtf8("Clean"));
         font1.setPointSize(12);
         font1.setBold(true);
         font1.setItalic(false);
         font1.setWeight(75);
-        TabWidget_2->setFont(font1);
+        TabWidget_maths->setFont(font1);
         tabmain = new QWidget();
         tabmain->setObjectName(QString::fromUtf8("tabmain"));
         gridLayout_13 = new QGridLayout(tabmain);
@@ -480,14 +497,14 @@ public:
 
         gridLayout_13->addWidget(label, 4, 3, 1, 1);
 
-        TabWidget_2->addTab(tabmain, QString());
+        TabWidget_maths->addTab(tabmain, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
         horizontalLayout_3 = new QHBoxLayout(tab_4);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         heatmapsupport = new QFrame(tab_4);
         heatmapsupport->setObjectName(QString::fromUtf8("heatmapsupport"));
-        heatmapsupport->setMinimumSize(QSize(400, 0));
+        heatmapsupport->setMinimumSize(QSize(600, 0));
         heatmapsupport->setFrameShape(QFrame::StyledPanel);
         heatmapsupport->setFrameShadow(QFrame::Raised);
 
@@ -495,23 +512,26 @@ public:
 
         plainTextEdit_2 = new QPlainTextEdit(tab_4);
         plainTextEdit_2->setObjectName(QString::fromUtf8("plainTextEdit_2"));
-        sizePolicy.setHeightForWidth(plainTextEdit_2->sizePolicy().hasHeightForWidth());
-        plainTextEdit_2->setSizePolicy(sizePolicy);
+        sizePolicy2.setHeightForWidth(plainTextEdit_2->sizePolicy().hasHeightForWidth());
+        plainTextEdit_2->setSizePolicy(sizePolicy2);
 
         horizontalLayout_3->addWidget(plainTextEdit_2);
 
-        TabWidget_2->addTab(tab_4, QString());
+        TabWidget_maths->addTab(tab_4, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
         plainTextEdit = new QPlainTextEdit(tab_3);
         plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
         plainTextEdit->setGeometry(QRect(40, 50, 611, 371));
-        TabWidget_2->addTab(tab_3, QString());
+        TabWidget_maths->addTab(tab_3, QString());
         tab_5 = new QWidget();
         tab_5->setObjectName(QString::fromUtf8("tab_5"));
-        TabWidget_2->addTab(tab_5, QString());
+        TabWidget_maths->addTab(tab_5, QString());
+        skill_tree = new QWidget();
+        skill_tree->setObjectName(QString::fromUtf8("skill_tree"));
+        TabWidget_maths->addTab(skill_tree, QString());
 
-        gridLayout_3->addWidget(TabWidget_2, 0, 0, 1, 1);
+        gridLayout_3->addWidget(TabWidget_maths, 0, 0, 1, 1);
 
         stackedWidget->addWidget(pagemaths);
         pagephysique = new QWidget();
@@ -559,11 +579,11 @@ public:
 
         label_12 = new QLabel(tabmain_3);
         label_12->setObjectName(QString::fromUtf8("label_12"));
-        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Minimum);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(label_12->sizePolicy().hasHeightForWidth());
-        label_12->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy3(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(label_12->sizePolicy().hasHeightForWidth());
+        label_12->setSizePolicy(sizePolicy3);
         label_12->setMaximumSize(QSize(100, 100));
         label_12->setPixmap(QPixmap(QString::fromUtf8("res/prism.png")));
         label_12->setScaledContents(true);
@@ -841,6 +861,8 @@ public:
         mainstack->addWidget(prepa);
         startpage = new QWidget();
         startpage->setObjectName(QString::fromUtf8("startpage"));
+        sizePolicy1.setHeightForWidth(startpage->sizePolicy().hasHeightForWidth());
+        startpage->setSizePolicy(sizePolicy1);
         startpage->setAutoFillBackground(false);
         startpage->setStyleSheet(QString::fromUtf8("#startpage{background: url(res/professor-layton-and-the-new-world-of-steam.png)  0 0 0 0 stretch stretch;\n"
 "background-size 100% 100%;\n"
@@ -873,11 +895,11 @@ public:
         startbutton = new QPushButton(startpage);
         startbutton->setObjectName(QString::fromUtf8("startbutton"));
         startbutton->setEnabled(true);
-        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(startbutton->sizePolicy().hasHeightForWidth());
-        startbutton->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy4(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(startbutton->sizePolicy().hasHeightForWidth());
+        startbutton->setSizePolicy(sizePolicy4);
         startbutton->setMaximumSize(QSize(0, 0));
 
         gridLayout_12->addWidget(startbutton, 1, 0, 1, 1);
@@ -888,8 +910,8 @@ public:
 
         mainbody = new QWidget(centralwidget);
         mainbody->setObjectName(QString::fromUtf8("mainbody"));
-        sizePolicy.setHeightForWidth(mainbody->sizePolicy().hasHeightForWidth());
-        mainbody->setSizePolicy(sizePolicy);
+        sizePolicy2.setHeightForWidth(mainbody->sizePolicy().hasHeightForWidth());
+        mainbody->setSizePolicy(sizePolicy2);
         mainbody->setMaximumSize(QSize(210, 16777215));
         mainbody->setStyleSheet(QString::fromUtf8("background-color: rgb(94, 137, 255);"));
 
@@ -920,7 +942,7 @@ public:
         retranslateUi(MainWindow);
 
         mainstack->setCurrentIndex(0);
-        TabWidget_2->setCurrentIndex(0);
+        TabWidget_maths->setCurrentIndex(0);
         TabWidget_4->setCurrentIndex(0);
         TabWidget_3->setCurrentIndex(1);
         TabWidget_5->setCurrentIndex(0);
@@ -1013,12 +1035,13 @@ public:
         label_5->setText(QCoreApplication::translate("MainWindow", "SKILLS:", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Prepa sup", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Total Mastery", nullptr));
-        TabWidget_2->setTabText(TabWidget_2->indexOf(tabmain), QCoreApplication::translate("MainWindow", "Overview", nullptr));
+        TabWidget_maths->setTabText(TabWidget_maths->indexOf(tabmain), QCoreApplication::translate("MainWindow", "Overview", nullptr));
         plainTextEdit_2->setPlainText(QCoreApplication::translate("MainWindow", "29 05 2023", nullptr));
-        TabWidget_2->setTabText(TabWidget_2->indexOf(tab_4), QCoreApplication::translate("MainWindow", "History", nullptr));
+        TabWidget_maths->setTabText(TabWidget_maths->indexOf(tab_4), QCoreApplication::translate("MainWindow", "History", nullptr));
         plainTextEdit->setPlainText(QCoreApplication::translate("MainWindow", "Les maths c'est pas seulement du fun", nullptr));
-        TabWidget_2->setTabText(TabWidget_2->indexOf(tab_3), QCoreApplication::translate("MainWindow", "Motivation", nullptr));
-        TabWidget_2->setTabText(TabWidget_2->indexOf(tab_5), QCoreApplication::translate("MainWindow", "Achievements", nullptr));
+        TabWidget_maths->setTabText(TabWidget_maths->indexOf(tab_3), QCoreApplication::translate("MainWindow", "Motivation", nullptr));
+        TabWidget_maths->setTabText(TabWidget_maths->indexOf(tab_5), QCoreApplication::translate("MainWindow", "Achievements", nullptr));
+        TabWidget_maths->setTabText(TabWidget_maths->indexOf(skill_tree), QCoreApplication::translate("MainWindow", "Skills", nullptr));
         label_11->setText(QCoreApplication::translate("MainWindow", "Total Mastery", nullptr));
         label_13->setText(QCoreApplication::translate("MainWindow", "Current power output", nullptr));
         physiquequicktext->setPlainText(QCoreApplication::translate("MainWindow", "31 05 2023 exos de physiques celui du ds \n"

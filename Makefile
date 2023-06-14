@@ -55,14 +55,18 @@ OBJECTS_DIR   = ./
 SOURCES       = main.cpp \
 		mainwindow.cpp \
 		custombutton.cpp \
-		timelogic.cpp moc_mainwindow.cpp \
-		moc_custombutton.cpp
+		timelogic.cpp \
+		heatmap.cpp moc_mainwindow.cpp \
+		moc_custombutton.cpp \
+		moc_heatmap.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		custombutton.o \
 		timelogic.o \
+		heatmap.o \
 		moc_mainwindow.o \
-		moc_custombutton.o
+		moc_custombutton.o \
+		moc_heatmap.o
 DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/common/unix.conf \
 		/usr/lib64/qt5/mkspecs/common/linux.conf \
@@ -428,10 +432,12 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/features/lex.prf \
 		test.pro mainwindow.h \
 		custombutton.h \
-		timelogic.h main.cpp \
+		timelogic.h \
+		heatmap.h main.cpp \
 		mainwindow.cpp \
 		custombutton.cpp \
-		timelogic.cpp
+		timelogic.cpp \
+		heatmap.cpp
 QMAKE_TARGET  = neophyte
 DESTDIR       = 
 TARGET        = neophyte
@@ -1187,8 +1193,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib64/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h custombutton.h timelogic.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp custombutton.cpp timelogic.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h custombutton.h timelogic.h heatmap.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp custombutton.cpp timelogic.cpp heatmap.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui sliders.ui $(DISTDIR)/
 
 
@@ -1221,9 +1227,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -O2 -fPIC -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_custombutton.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_custombutton.cpp moc_heatmap.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_custombutton.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_custombutton.cpp moc_heatmap.cpp
 moc_mainwindow.cpp: mainwindow.h \
 		custombutton.h \
 		moc_predefs.h \
@@ -1234,6 +1240,11 @@ moc_custombutton.cpp: custombutton.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
 	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/fun/Neophyte -I/home/louis/info/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include custombutton.h -o moc_custombutton.cpp
+
+moc_heatmap.cpp: heatmap.h \
+		moc_predefs.h \
+		/usr/lib64/qt5/bin/moc
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/fun/Neophyte -I/home/louis/info/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include heatmap.h -o moc_heatmap.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1276,11 +1287,17 @@ custombutton.o: custombutton.cpp custombutton.h
 timelogic.o: timelogic.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o timelogic.o timelogic.cpp
 
+heatmap.o: heatmap.cpp heatmap.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o heatmap.o heatmap.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
 moc_custombutton.o: moc_custombutton.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_custombutton.o moc_custombutton.cpp
+
+moc_heatmap.o: moc_heatmap.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_heatmap.o moc_heatmap.cpp
 
 ####### Install
 
