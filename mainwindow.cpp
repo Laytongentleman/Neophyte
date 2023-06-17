@@ -41,19 +41,25 @@ setWindowIcon(QIcon("icon.png"));
    monthsize[1] = 29;
  }
 
+
  for (int k = 0 ; k <12; k++){
  QLabel* t = new QLabel(ui->heatmapsupport);
  t->setText(month[k]);
  t->move(40+k*4.3*14,50);
  }
 
+ ifstream infile("storage/mathsquicktext.txt");
 
+
+
+                
+  Heatmap * harray[12][31]; 
    for (int i =0 ; i < 53;i++){
      for(int j = 0; j < 7; j++){
        if ((1+j)+(i)*7 <= 366) {
- int a = rand()%255;
+ //int a = rand()%255;
 char buff[400];
-  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: skyblue;}", 255 - a,255 -a, 255-(a/10));
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( 255 , 255, 255);}*:hover{border: 1rem solid;background-color: skyblue;}");
   std::string buffAsStdStr = buff;
   Heatmap* test = new Heatmap(ui->heatmapsupport);
   test->move(20 + i*14,70 + j*14);
@@ -72,9 +78,65 @@ char buff[400];
   test->setToolTip(date);
 
    test->setStyleSheet(buff);
+   harray[potmonth][c] = test;
   }
 }
 }
+    bool registering = false;
+    int d=0;
+    int m=0;
+ int score = 0;
+  while (infile.good())
+  {
+
+    string sLine;
+    getline(infile, sLine);
+
+    if (sLine[0] == '|') {
+      if (registering == true){
+        printf("REEEG");
+        char buff[400];
+        int a = min((int)(score*25),255);
+        printf("A %d", a);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: skyblue;}", 255-a,255-a, (255-a/10));
+   harray[m][d]->setStyleSheet(buff);
+      }
+      struct tm tm;
+           char buf[255];
+
+           sLine.erase(0,1);
+           memset(&tm, 0, sizeof(tm));
+          const char * sline2 = sLine.c_str();
+           strptime(sline2, "%Y-%m-%d %H:%M:%S", &tm);
+
+           strftime(buf, sizeof(buf), "%d %b %Y %H:%M", &tm);
+           puts(buf);
+           d = tm.tm_mday;
+           m =tm.tm_mon ;
+           registering = true;
+           printf("on a reg true");
+   score = 0;
+    }
+    else{
+      const char * sline2 = sLine.c_str();
+      int countch = 0;
+      printf(sline2);
+      int l = sLine.length();
+      for (int i = 0; i < l;i++) {
+        if (sLine[countch] == '*'){ score++;}
+        countch++;
+
+      }
+    }
+  }
+      if (registering == true){
+        printf("REEEG");
+        char buff[400];
+        int a = min((int)(score*25),255);
+        printf("A %d", a);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: skyblue;}", 255-a,255-a, (255-a/10));
+   harray[m][d]->setStyleSheet(buff);
+      }
 }
 
 
@@ -154,7 +216,7 @@ void MainWindow::openfiles(){
 
   journaux[x]->setPlainText(text);
   journaux[x]->moveCursor (QTextCursor::Start);
-  string s = readFileIntoString("storage/date.txt");
+  string s = "|"+ readFileIntoString("storage/date.txt");
 QString qstr = QString::fromStdString(s);
 
 QString currentdateqs = journaux[x]->toPlainText();
@@ -162,9 +224,10 @@ QString currentdateqs = journaux[x]->toPlainText();
 std::string currentdate = currentdateqs.toUtf8().constData();
 
 bool found = false;
-for (int i = 0; i < 7; i++) {
-    if (currentdate[i] != s[i]) {
+for (int i =0; i < 7; i++) {
+    if (currentdate[i+1] != s[i+1]) {
         found = true;
+
         break;
     }
 }
@@ -174,6 +237,8 @@ journaux[x]->insertPlainText (qstr + "\n");;
   
 }
 }
+
+
 
 
 void MainWindow::on_actionSave_All_triggered(){
