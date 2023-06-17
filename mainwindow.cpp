@@ -94,46 +94,40 @@ char buff[400];
 
     if (sLine[0] == '|') {
       if (registering == true){
-        printf("REEEG");
         char buff[400];
         int a = min((int)(score*25),255);
-        printf("A %d", a);
   snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: skyblue;}", 255-a,255-a, (255-a/10));
    harray[m][d]->setStyleSheet(buff);
       }
       struct tm tm;
-           char buf[255];
+           //char buf[255];
 
            sLine.erase(0,1);
            memset(&tm, 0, sizeof(tm));
           const char * sline2 = sLine.c_str();
            strptime(sline2, "%Y-%m-%d %H:%M:%S", &tm);
-
-           strftime(buf, sizeof(buf), "%d %b %Y %H:%M", &tm);
-           puts(buf);
+            // des pistes à explorer pour mieux mettre la date auto dans le fichier mathsquicktext
+           //strftime(buf, sizeof(buf), "%d %b %Y %H:%M", &tm);
+           //puts(buf);
            d = tm.tm_mday;
            m =tm.tm_mon ;
            registering = true;
-           printf("on a reg true");
-   score = 0;
+           score = 0;
     }
     else{
-      const char * sline2 = sLine.c_str();
       int countch = 0;
-      printf(sline2);
       int l = sLine.length();
       for (int i = 0; i < l;i++) {
         if (sLine[countch] == '*'){ score++;}
         countch++;
+        if (sLine[countch] == '%'){ score--;}
 
       }
     }
   }
       if (registering == true){
-        printf("REEEG");
         char buff[400];
         int a = min((int)(score*25),255);
-        printf("A %d", a);
   snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: skyblue;}", 255-a,255-a, (255-a/10));
    harray[m][d]->setStyleSheet(buff);
       }
