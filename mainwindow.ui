@@ -1487,7 +1487,24 @@ p, li { white-space: pre-wrap; }
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="page"/>
+             <widget class="QWidget" name="pagestats">
+              <layout class="QGridLayout" name="gridLayout_15">
+               <item row="0" column="0">
+                <widget class="QTabWidget" name="tabWidget">
+                 <widget class="QWidget" name="tab_15">
+                  <attribute name="title">
+                   <string>Tab 1</string>
+                  </attribute>
+                 </widget>
+                 <widget class="QWidget" name="tab_16">
+                  <attribute name="title">
+                   <string>Tab 2</string>
+                  </attribute>
+                 </widget>
+                </widget>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
           </layout>

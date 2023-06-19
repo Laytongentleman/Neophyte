@@ -47,6 +47,7 @@ setWindowIcon(QIcon("icon.png"));
  t->setText(month[k]);
  t->move(40+k*4.3*14,50);
  }
+ int yoff = 70;
 
  ifstream infile("storage/mathsquicktext.txt");
 
@@ -59,10 +60,10 @@ setWindowIcon(QIcon("icon.png"));
        if ((1+j)+(i)*7 <= 366) {
  //int a = rand()%255;
 char buff[400];
-  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( 255 , 255, 255);}*:hover{border: 1rem solid;background-color: skyblue;}");
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( 255 , 255, 255);}*:hover{border: 1rem solid;background-color: blue;}");
   std::string buffAsStdStr = buff;
   Heatmap* test = new Heatmap(ui->heatmapsupport);
-  test->move(20 + i*14,70 + j*14);
+  test->move(20 + i*14,yoff + j*14);
  test->resize(10,10);
  char date[20];
  int c = i*7+(j+1);
@@ -96,7 +97,7 @@ char buff[400];
       if (registering == true){
         char buff[400];
         int a = min((int)(score*25),255);
-  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: skyblue;}", 255-a,255-a, (255-a/10));
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: blue;}", 255-a,255-a, (255-a/10));
    harray[m][d]->setStyleSheet(buff);
       }
       struct tm tm;
@@ -128,9 +129,287 @@ char buff[400];
       if (registering == true){
         char buff[400];
         int a = min((int)(score*25),255);
-  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: skyblue;}", 255-a,255-a, (255-a/10));
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: blue;}", 255-a,255-a, (255-a/10));
    harray[m][d]->setStyleSheet(buff);
       }
+// copie à clean
+ yoff = 70+150;
+ for (int k = 0 ; k <12; k++){
+ QLabel* t = new QLabel(ui->heatmapsupport);
+ t->setText(month[k]);
+ t->move(40+k*4.3*14,yoff-30);
+ }
+
+
+// physique 
+infile.clear();
+  infile.close();
+infile.open("storage/physiquequicktext.txt");
+
+
+
+                
+   for (int i =0 ; i < 53;i++){
+     for(int j = 0; j < 7; j++){
+       if ((1+j)+(i)*7 <= 366) {
+ //int a = rand()%255;
+ char buff[400];
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( 255 , 255, 255);}*:hover{border: 1rem solid;background-color: skyblue;}");
+  std::string buffAsStdStr = buff;
+  
+  Heatmap * test = new Heatmap(ui->heatmapsupport);
+  test->move(20 + i*14,yoff + j*14);
+ test->resize(10,10);
+ char date[20];
+ int c = i*7+(j+1);
+ int potmonth = 0;
+ while (c > monthsize[potmonth]){
+   c = c - monthsize[potmonth];
+   if (potmonth < 11) {potmonth++;} else {potmonth = 0;}
+ }
+ 
+ snprintf(date, sizeof(date), "%d %s", c,  month[potmonth].toUtf8().constData()
+) ;
+
+  test->setToolTip(date);
+
+   test->setStyleSheet(buff);
+   harray[potmonth][c] = test;
+  }
+}
+}
+    registering = false;
+    d=0;
+     m=0;
+    score = 0;
+  while (infile.good())
+  {
+    string sLine;
+    getline(infile, sLine);
+
+    if (sLine[0] == '|') {
+      if (registering == true){
+        char buff[400];
+        int a = min((int)(score*25),255);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: skyblue ;}", 255-a,255-(a/10), (255-a/10));
+  harray[m][d]->setStyleSheet(buff);
+      }
+      struct tm tm;
+           //char buf[255];
+
+           sLine.erase(0,1);
+           memset(&tm, 0, sizeof(tm));
+          const char * sline2 = sLine.c_str();
+           strptime(sline2, "%Y-%m-%d %H:%M:%S", &tm);
+            // des pistes à explorer pour mieux mettre la date auto dans le fichier mathsquicktext
+           //strftime(buf, sizeof(buf), "%d %b %Y %H:%M", &tm);
+           //puts(buf);
+           d = tm.tm_mday;
+           m =tm.tm_mon ;
+           registering = true;
+           score = 0;
+    }
+    else{
+      int countch = 0;
+      int l = sLine.length();
+      for (int i = 0; i < l;i++) {
+        if (sLine[countch] == '&'){ score++;}
+        countch++;
+        if (sLine[countch] == '%'){ score--;}
+
+      }
+    }
+  }
+      if (registering == true){
+        char buff[400];
+        int a = min((int)(score*25),255);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: skyblue;}", 255-a,255-(a/10), (255-a/10));
+   harray[m][d]->setStyleSheet(buff);
+      }
+
+// info
+infile.clear();
+  infile.close();
+infile.open("storage/mathsquicktext.txt");
+
+
+ 
+  yoff= 70+300 ;
+ for (int k = 0 ; k <12; k++){
+ QLabel* t = new QLabel(ui->heatmapsupport);
+ t->setText(month[k]);
+ t->move(40+k*4.3*14,yoff-30);
+ }
+for (int i =0 ; i < 53;i++){
+     for(int j = 0; j < 7; j++){
+       if ((1+j)+(i)*7 <= 366) {
+ //int a = rand()%255;
+ char buff[400];
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( 255 , 255, 255);}*:hover{border: 1rem solid;background-color: purple;}");
+  std::string buffAsStdStr = buff;
+  
+  Heatmap * test = new Heatmap(ui->heatmapsupport);
+  test->move(20 + i*14,yoff + j*14);
+ test->resize(10,10);
+ char date[20];
+ int c = i*7+(j+1);
+ int potmonth = 0;
+ while (c > monthsize[potmonth]){
+   c = c - monthsize[potmonth];
+   if (potmonth < 11) {potmonth++;} else {potmonth = 0;}
+ }
+ 
+ snprintf(date, sizeof(date), "%d %s", c,  month[potmonth].toUtf8().constData()
+) ;
+
+  test->setToolTip(date);
+
+   test->setStyleSheet(buff);
+   harray[potmonth][c] = test;
+  }
+}
+}
+    registering = false;
+    d=0;
+     m=0;
+    score = 0;
+  while (infile.good())
+  {
+    string sLine;
+    getline(infile, sLine);
+
+    if (sLine[0] == '|') {
+      if (registering == true){
+        char buff[400];
+        int a = min((int)(score*25),255);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: purple ;}", 255-(a/(5)),255-a, (255-a/10));
+   harray[m][d]->setStyleSheet(buff);
+      }
+      struct tm tm;
+           //char buf[255];
+
+           sLine.erase(0,1);
+           memset(&tm, 0, sizeof(tm));
+          const char * sline2 = sLine.c_str();
+           strptime(sline2, "%Y-%m-%d %H:%M:%S", &tm);
+            // des pistes à explorer pour mieux mettre la date auto dans le fichier mathsquicktext
+           //strftime(buf, sizeof(buf), "%d %b %Y %H:%M", &tm);
+           //puts(buf);
+           d = tm.tm_mday;
+           m =tm.tm_mon ;
+           registering = true;
+           score = 0;
+    }
+    else{
+      int countch = 0;
+      int l = sLine.length();
+      for (int i = 0; i < l;i++) {
+        if (sLine[countch] == '@'){ score++;}
+        countch++;
+        if (sLine[countch] == '%'){ score--;}
+
+      }
+    }
+  }
+      if (registering == true){
+        char buff[400];
+        int a = min((int)(score*25),255);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: purple;}", 255-(a/5),255-(a), (255-(a/10)));
+   harray[m][d]->setStyleSheet(buff);
+      }
+
+// sport 
+infile.clear();
+  infile.close();
+infile.open("storage/mathsquicktext.txt");
+
+
+
+yoff= 70+450;                
+for (int k = 0 ; k <12; k++){
+ QLabel* t = new QLabel(ui->heatmapsupport);
+ t->setText(month[k]);
+ t->move(40+k*4.3*14,yoff-30);
+ }
+
+   for (int i =0 ; i < 53;i++){
+     for(int j = 0; j < 7; j++){
+       if ((1+j)+(i)*7 <= 366) {
+ //int a = rand()%255;
+ char buff[400];
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( 255 , 255, 255);}*:hover{border: 1rem solid;background-color: red ;}");
+  std::string buffAsStdStr = buff;
+  
+  Heatmap * test = new Heatmap(ui->heatmapsupport);
+  test->move(20 + i*14,yoff + j*14);
+ test->resize(10,10);
+ char date[20];
+ int c = i*7+(j+1);
+ int potmonth = 0;
+ while (c > monthsize[potmonth]){
+   c = c - monthsize[potmonth];
+   if (potmonth < 11) {potmonth++;} else {potmonth = 0;}
+ }
+ 
+ snprintf(date, sizeof(date), "%d %s", c,  month[potmonth].toUtf8().constData()
+) ;
+
+  test->setToolTip(date);
+
+   test->setStyleSheet(buff);
+   harray[potmonth][c] = test;
+  }
+}
+}
+    registering = false;
+    d=0;
+     m=0;
+    score = 0;
+  while (infile.good())
+  {
+    string sLine;
+    getline(infile, sLine);
+
+    if (sLine[0] == '|') {
+      if (registering == true){
+        char buff[400];
+        int a = min((int)(score*25),255);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: red ;}", 255-(a/10),255-a, (255-a));
+   harray[m][d]->setStyleSheet(buff);
+      }
+      struct tm tm;
+           //char buf[255];
+
+           sLine.erase(0,1);
+           memset(&tm, 0, sizeof(tm));
+          const char * sline2 = sLine.c_str();
+           strptime(sline2, "%Y-%m-%d %H:%M:%S", &tm);
+            // des pistes à explorer pour mieux mettre la date auto dans le fichier mathsquicktext
+           //strftime(buf, sizeof(buf), "%d %b %Y %H:%M", &tm);
+           //puts(buf);
+           d = tm.tm_mday;
+           m =tm.tm_mon ;
+           registering = true;
+           score = 0;
+    }
+    else{
+      int countch = 0;
+      int l = sLine.length();
+      for (int i = 0; i < l;i++) {
+        if (sLine[countch] == '$'){ score++;}
+        countch++;
+        if (sLine[countch] == '%'){ score--;}
+
+      }
+    }
+  }
+      if (registering == true){
+        char buff[400];
+        int a = min((int)(score*25),255);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: red;}", 255-(a/10),255-a, (255-a));
+      }
+
+
 }
 
 
