@@ -167,7 +167,11 @@ public:
     QGridLayout *gridLayout_10;
     QPlainTextEdit *plainTextEdit_14;
     QWidget *tab;
-    QWidget *page;
+    QWidget *pagestats;
+    QGridLayout *gridLayout_15;
+    QTabWidget *tabWidget;
+    QWidget *tab_15;
+    QWidget *tab_16;
     QWidget *startpage;
     QGridLayout *gridLayout_12;
     QLabel *startquote;
@@ -849,9 +853,22 @@ public:
         gridLayout_6->addWidget(TabWidget, 0, 0, 1, 1);
 
         stackedWidget->addWidget(pagetuto);
-        page = new QWidget();
-        page->setObjectName(QString::fromUtf8("page"));
-        stackedWidget->addWidget(page);
+        pagestats = new QWidget();
+        pagestats->setObjectName(QString::fromUtf8("pagestats"));
+        gridLayout_15 = new QGridLayout(pagestats);
+        gridLayout_15->setObjectName(QString::fromUtf8("gridLayout_15"));
+        tabWidget = new QTabWidget(pagestats);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tab_15 = new QWidget();
+        tab_15->setObjectName(QString::fromUtf8("tab_15"));
+        tabWidget->addTab(tab_15, QString());
+        tab_16 = new QWidget();
+        tab_16->setObjectName(QString::fromUtf8("tab_16"));
+        tabWidget->addTab(tab_16, QString());
+
+        gridLayout_15->addWidget(tabWidget, 0, 0, 1, 1);
+
+        stackedWidget->addWidget(pagestats);
 
         gridLayout->addWidget(stackedWidget, 0, 0, 1, 1);
 
@@ -1140,6 +1157,8 @@ public:
         plainTextEdit_14->setPlainText(QCoreApplication::translate("MainWindow", "Samedi 15:33", nullptr));
         TabWidget->setTabText(TabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
         TabWidget->setTabText(TabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_15), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_16), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
         startquote->setText(QCoreApplication::translate("MainWindow", "Je ne perds jamais, soit je gagne soit j'apprends ~ some wise dude", nullptr));
         startbutton->setText(QCoreApplication::translate("MainWindow", "Push", nullptr));
 #if QT_CONFIG(shortcut)

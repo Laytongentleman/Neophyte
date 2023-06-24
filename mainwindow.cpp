@@ -48,6 +48,9 @@ setWindowIcon(QIcon("icon.png"));
  t->move(40+k*4.3*14,50);
  }
  int yoff = 70;
+ QLabel* maths = new QLabel(ui->heatmapsupport);
+ maths->setText("MATHS");
+ maths->move(300,yoff - 50);
 
  ifstream infile("storage/mathsquicktext.txt");
 
@@ -86,13 +89,32 @@ char buff[400];
     bool registering = false;
     int d=0;
     int m=0;
+
  int score = 0;
+
+  /* FILE * fp = fopen("storage/date.txt","w");
+ 
+
+   char cur_time[128];
+  
+   time_t      t1;
+   struct tm*  ptm;
+  
+   t1 = time(NULL);
+   ptm = localtime(&t1);
+   
+   strftime(cur_time, 128, "%Y-%m-%d %H:%M:%S", ptm);
+   int curday = ptm->tm_mday;
+   int curmonth = ptm->tm_mon;
+   printf("%d", curmonth+1);*/
+  int streak = -1;
+  bool streakbroken = false;
+  bool streakok = true;
   while (infile.good())
   {
 
     string sLine;
     getline(infile, sLine);
-
     if (sLine[0] == '|') {
       if (registering == true){
         char buff[400];
@@ -112,14 +134,28 @@ char buff[400];
            //puts(buf);
            d = tm.tm_mday;
            m =tm.tm_mon ;
+           // on brise la streak que si la streak est brisé avant aujourd'hui et pas le futur
+          
+           if (not streakbroken  )  {
+           if (streakok){
+             printf("trrrrrrt");
+           streak++;
+           }
+           else{
+             streakbroken = true;
+           }
+
+           }
+           streakok = false;
            registering = true;
+
            score = 0;
     }
     else{
       int countch = 0;
       int l = sLine.length();
       for (int i = 0; i < l;i++) {
-        if (sLine[countch] == '*'){ score++;}
+        if (sLine[countch] == '*'){ score++; streakok = true;}
         countch++;
         if (sLine[countch] == '%'){ score--;}
 
@@ -127,18 +163,32 @@ char buff[400];
     }
   }
       if (registering == true){
+        streakok = true;
         char buff[400];
         int a = min((int)(score*25),255);
   snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: rgb( %d , %d , %d);}*:hover{border: 1rem solid;background-color: blue;}", 255-a,255-a, (255-a/10));
    harray[m][d]->setStyleSheet(buff);
-      }
-// copie à clean
+      } 
+
+ QLabel* curstreak = new QLabel(ui->heatmapsupport);
+ char buff[50];
+ snprintf(buff, sizeof(buff), "current streak : %d", streak);
+
+ curstreak->setText(buff);
+ curstreak->move(360,yoff - 50);
+
+
+ // copie à clean
+//
  yoff = 70+150;
  for (int k = 0 ; k <12; k++){
  QLabel* t = new QLabel(ui->heatmapsupport);
  t->setText(month[k]);
  t->move(40+k*4.3*14,yoff-30);
  }
+
+
+
 
 
 // physique 
@@ -365,6 +415,9 @@ for (int k = 0 ; k <12; k++){
     d=0;
      m=0;
     score = 0;
+
+
+
   while (infile.good())
   {
     string sLine;
