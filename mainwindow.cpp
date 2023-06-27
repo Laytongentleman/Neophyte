@@ -138,7 +138,6 @@ char buff[400];
           
            if (not streakbroken  )  {
            if (streakok){
-             printf("trrrrrrt");
            streak++;
            }
            else{
