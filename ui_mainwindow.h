@@ -90,7 +90,7 @@ public:
     QLabel *label;
     QWidget *tab_4;
     QHBoxLayout *horizontalLayout_3;
-    QFrame *heatmapsupport;
+    QFrame *historymaths;
     QPlainTextEdit *plainTextEdit_2;
     QWidget *tab_3;
     QPlainTextEdit *plainTextEdit;
@@ -170,8 +170,10 @@ public:
     QWidget *pagestats;
     QGridLayout *gridLayout_15;
     QTabWidget *tabWidget;
-    QWidget *tab_15;
-    QWidget *tab_16;
+    QWidget *heatmapsupport;
+    QGridLayout *gridLayout_16;
+    QWidget *overall;
+    QWidget *graphs;
     QWidget *startpage;
     QGridLayout *gridLayout_12;
     QLabel *startquote;
@@ -323,11 +325,7 @@ public:
 
         infobutton = new QPushButton(frame_2);
         infobutton->setObjectName(QString::fromUtf8("infobutton"));
-        infobutton->setStyleSheet(QString::fromUtf8("QPushButton { border: none; \n"
-"background-color: rgb(255, 25, 128);}\n"
-"*:hover {\n"
-"border: 1rem solid;\n"
-"  background-color: yellow;\n"
+        infobutton->setStyleSheet(QString::fromUtf8("QPushButton { \n"
 "}"));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8("../../../.designer/backup/res/magneti.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -506,13 +504,13 @@ public:
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
         horizontalLayout_3 = new QHBoxLayout(tab_4);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        heatmapsupport = new QFrame(tab_4);
-        heatmapsupport->setObjectName(QString::fromUtf8("heatmapsupport"));
-        heatmapsupport->setMinimumSize(QSize(600, 0));
-        heatmapsupport->setFrameShape(QFrame::StyledPanel);
-        heatmapsupport->setFrameShadow(QFrame::Raised);
+        historymaths = new QFrame(tab_4);
+        historymaths->setObjectName(QString::fromUtf8("historymaths"));
+        historymaths->setMinimumSize(QSize(600, 0));
+        historymaths->setFrameShape(QFrame::StyledPanel);
+        historymaths->setFrameShadow(QFrame::Raised);
 
-        horizontalLayout_3->addWidget(heatmapsupport);
+        horizontalLayout_3->addWidget(historymaths);
 
         plainTextEdit_2 = new QPlainTextEdit(tab_4);
         plainTextEdit_2->setObjectName(QString::fromUtf8("plainTextEdit_2"));
@@ -859,12 +857,17 @@ public:
         gridLayout_15->setObjectName(QString::fromUtf8("gridLayout_15"));
         tabWidget = new QTabWidget(pagestats);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tab_15 = new QWidget();
-        tab_15->setObjectName(QString::fromUtf8("tab_15"));
-        tabWidget->addTab(tab_15, QString());
-        tab_16 = new QWidget();
-        tab_16->setObjectName(QString::fromUtf8("tab_16"));
-        tabWidget->addTab(tab_16, QString());
+        heatmapsupport = new QWidget();
+        heatmapsupport->setObjectName(QString::fromUtf8("heatmapsupport"));
+        gridLayout_16 = new QGridLayout(heatmapsupport);
+        gridLayout_16->setObjectName(QString::fromUtf8("gridLayout_16"));
+        tabWidget->addTab(heatmapsupport, QString());
+        overall = new QWidget();
+        overall->setObjectName(QString::fromUtf8("overall"));
+        tabWidget->addTab(overall, QString());
+        graphs = new QWidget();
+        graphs->setObjectName(QString::fromUtf8("graphs"));
+        tabWidget->addTab(graphs, QString());
 
         gridLayout_15->addWidget(tabWidget, 0, 0, 1, 1);
 
@@ -959,11 +962,12 @@ public:
         retranslateUi(MainWindow);
 
         mainstack->setCurrentIndex(0);
-        TabWidget_maths->setCurrentIndex(0);
+        TabWidget_maths->setCurrentIndex(1);
         TabWidget_4->setCurrentIndex(0);
         TabWidget_3->setCurrentIndex(1);
         TabWidget_5->setCurrentIndex(0);
         TabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1157,8 +1161,9 @@ public:
         plainTextEdit_14->setPlainText(QCoreApplication::translate("MainWindow", "Samedi 15:33", nullptr));
         TabWidget->setTabText(TabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
         TabWidget->setTabText(TabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_15), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_16), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(heatmapsupport), QCoreApplication::translate("MainWindow", "History", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(overall), QCoreApplication::translate("MainWindow", "Overall", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(graphs), QCoreApplication::translate("MainWindow", "Graphs", nullptr));
         startquote->setText(QCoreApplication::translate("MainWindow", "Je ne perds jamais, soit je gagne soit j'apprends ~ some wise dude", nullptr));
         startbutton->setText(QCoreApplication::translate("MainWindow", "Push", nullptr));
 #if QT_CONFIG(shortcut)

@@ -15,7 +15,7 @@ QT += webenginewidgets
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
-HEADERS += mainwindow.h custombutton.h timelogic.h heatmap.h 
-SOURCES += main.cpp mainwindow.cpp custombutton.cpp timelogic.cpp heatmap.cpp
+HEADERS += mainwindow.h custombutton.h timelogic.h heatmap.h heatmaptotal.h
+SOURCES += main.cpp mainwindow.cpp custombutton.cpp timelogic.cpp heatmap.cpp heatmaptotal.cpp
 FORMS += mainwindow.ui sliders.ui
 RESSOURCES += ressources.qrc

@@ -247,11 +247,7 @@ text-align:lcenter;
                     <string>KISS: Keep it simple, stupid </string>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">QPushButton { border: none; 
-background-color: rgb(255, 25, 128);}
-*:hover {
-border: 1rem solid;
-  background-color: yellow;
+                    <string notr="true">QPushButton { 
 }</string>
                    </property>
                    <property name="text">
@@ -388,7 +384,7 @@ border: 1rem solid;
                   </font>
                  </property>
                  <property name="currentIndex">
-                  <number>0</number>
+                  <number>1</number>
                  </property>
                  <widget class="QWidget" name="tabmain">
                   <attribute name="title">
@@ -573,7 +569,7 @@ p, li { white-space: pre-wrap; }
                   </attribute>
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <item>
-                    <widget class="QFrame" name="heatmapsupport">
+                    <widget class="QFrame" name="historymaths">
                      <property name="minimumSize">
                       <size>
                        <width>600</width>
@@ -1491,14 +1487,23 @@ p, li { white-space: pre-wrap; }
               <layout class="QGridLayout" name="gridLayout_15">
                <item row="0" column="0">
                 <widget class="QTabWidget" name="tabWidget">
-                 <widget class="QWidget" name="tab_15">
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <widget class="QWidget" name="heatmapsupport">
                   <attribute name="title">
-                   <string>Tab 1</string>
+                   <string>History</string>
+                  </attribute>
+                  <layout class="QGridLayout" name="gridLayout_16"/>
+                 </widget>
+                 <widget class="QWidget" name="overall">
+                  <attribute name="title">
+                   <string>Overall</string>
                   </attribute>
                  </widget>
-                 <widget class="QWidget" name="tab_16">
+                 <widget class="QWidget" name="graphs">
                   <attribute name="title">
-                   <string>Tab 2</string>
+                   <string>Graphs</string>
                   </attribute>
                  </widget>
                 </widget>

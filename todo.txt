@@ -8,3 +8,33 @@
 - real life feed back grades
 - cleaning heatmaps
 
+
+
+
+
+
+titles:
+de streak
+0 - Novice
+3 - Débutant
+7 - Néophyte
+10 - Apprentit
+15 En herbe
+20 Régulier
+30 - Investi
+35- Fort
+40 - En pleine progression
+50 - Chevalier
+60 - Roi
+70 - Monstre
+80 - 
+90 - Seigneur
+100 - Héros
+
+365 - Amoureux
+1000 - Fou
+
+systeme de niv qui ne dépend pas de la streak ou moins
+systeme de moyenne d'étoiles et conmpteur d'étoiles.
+
+calendrier séparé en travail et lifestyle: (dormir etc..)
