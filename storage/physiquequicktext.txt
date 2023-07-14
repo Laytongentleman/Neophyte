@@ -1,5 +1,5 @@
 |2023-07-13 09:43:35
-
+physique: exos chap 1 jintregre:1.1->1.6 stuck1.7 &&
 |2023-07-12 15:42:20
 Jintegre méthode 1 relue en entier &&
 fibre à revue à revoir &

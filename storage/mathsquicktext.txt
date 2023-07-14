@@ -1,10 +1,11 @@
 |2023-07-13 09:43:35
 %%%
-maths lecture manga maths *
+maths intégrale: 13-14meth1 à finir *
+méthode des rectangles pause maths * 
 étirement ischio $
-informatique : 7/7 exos sur système et architecture @@@
+informatique : 7/7 exos sur système et architecture @@@ + lecture chapitre 3 p48 -> 
 gravity falls [2.5;5] ~~
-physique: cours optique
+
 
 |2023-07-12 15:42:20
 %%%

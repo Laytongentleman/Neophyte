@@ -4,6 +4,7 @@
 #include "timelogic.h"
 int main (int argc, char *argv[]){
   QApplication a (argc, argv);
+
   MainWindow w;
  //QPushButton btn("Toto", &w);
 

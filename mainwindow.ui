@@ -59,7 +59,7 @@ text-align:lcenter;
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="prepa">
        <layout class="QGridLayout" name="gridLayout_11">
@@ -118,7 +118,7 @@ text-align:lcenter;
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QPushButton" name="pushButton_2">
+                  <widget class="QPushButton" name="statsbutton">
                    <property name="toolTip">
                     <string>It's all and only numbers ~ Louis</string>
                    </property>
@@ -384,13 +384,83 @@ text-align:lcenter;
                   </font>
                  </property>
                  <property name="currentIndex">
-                  <number>1</number>
+                  <number>0</number>
                  </property>
                  <widget class="QWidget" name="tabmain">
                   <attribute name="title">
                    <string>Overview</string>
                   </attribute>
                   <layout class="QGridLayout" name="gridLayout_13">
+                   <item row="9" column="0" colspan="3">
+                    <widget class="QSlider" name="horizontalSlider">
+                     <property name="value">
+                      <number>10</number>
+                     </property>
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="1" colspan="2">
+                    <widget class="QTextEdit" name="textEdit">
+                     <property name="font">
+                      <font>
+                       <family>Hack</family>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="html">
+                      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Hack'; font-size:10pt; font-weight:600; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Noto Sans'; font-weight:400;&quot;&gt;Revoir pk la trace d'une mat est le rg&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="8" column="1" colspan="2">
+                    <widget class="QLabel" name="label_4">
+                     <property name="text">
+                      <string>Prepa sup</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2" rowspan="7">
+                    <widget class="QPlainTextEdit" name="mathsquicktext">
+                     <property name="plainText">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="3">
+                    <widget class="QLabel" name="label">
+                     <property name="font">
+                      <font>
+                       <family>ClearlyU</family>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Total Mastery</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3" rowspan="4" colspan="2">
+                    <widget class="QDial" name="Mastery">
+                     <property name="maximum">
+                      <number>100</number>
+                     </property>
+                     <property name="value">
+                      <number>25</number>
+                     </property>
+                     <property name="wrapping">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="6" column="3" rowspan="3" colspan="2">
                     <widget class="QListWidget" name="listWidget">
                      <item>
@@ -447,23 +517,6 @@ text-align:lcenter;
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="2" rowspan="7">
-                    <widget class="QPlainTextEdit" name="mathsquicktext">
-                     <property name="plainText">
-                      <string/>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="9" column="0" colspan="3">
-                    <widget class="QSlider" name="horizontalSlider">
-                     <property name="value">
-                      <number>10</number>
-                     </property>
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="1" column="0" rowspan="2" colspan="2">
                     <widget class="QLabel" name="label_3">
                      <property name="font">
@@ -480,39 +533,6 @@ text-align:lcenter;
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="1">
-                    <widget class="QSlider" name="verticalSlider">
-                     <property name="font">
-                      <font>
-                       <italic>true</italic>
-                      </font>
-                     </property>
-                     <property name="value">
-                      <number>5</number>
-                     </property>
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="7" column="1" colspan="2">
-                    <widget class="QTextEdit" name="textEdit">
-                     <property name="font">
-                      <font>
-                       <family>Hack</family>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="html">
-                      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Hack'; font-size:10pt; font-weight:600; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Noto Sans'; font-weight:400;&quot;&gt;Revoir pk la trace d'une mat est le rg&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="5" column="3" colspan="2">
                     <widget class="QLabel" name="label_5">
                      <property name="font">
@@ -526,38 +546,18 @@ p, li { white-space: pre-wrap; }
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="3" rowspan="4" colspan="2">
-                    <widget class="QDial" name="Mastery">
-                     <property name="maximum">
-                      <number>100</number>
-                     </property>
-                     <property name="value">
-                      <number>25</number>
-                     </property>
-                     <property name="wrapping">
-                      <bool>false</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="8" column="1" colspan="2">
-                    <widget class="QLabel" name="label_4">
-                     <property name="text">
-                      <string>Prepa sup</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="3">
-                    <widget class="QLabel" name="label">
+                   <item row="0" column="1">
+                    <widget class="QSlider" name="verticalSlider">
                      <property name="font">
                       <font>
-                       <family>ClearlyU</family>
+                       <italic>true</italic>
                       </font>
                      </property>
-                     <property name="text">
-                      <string>Total Mastery</string>
+                     <property name="value">
+                      <number>5</number>
                      </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
                      </property>
                     </widget>
                    </item>
@@ -1528,7 +1528,7 @@ p, li { white-space: pre-wrap; }
         <bool>false</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">#startpage{background: url(res/professor-layton-and-the-new-world-of-steam.png)  0 0 0 0 stretch stretch;
+        <string notr="true">#startpage{
 background-size 100% 100%;
  background-repeat: no-repeat;
 background-position: center;}

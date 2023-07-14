@@ -14,6 +14,10 @@
 #include <QGraphicsEffect>
 #include <QWebEngineView>
 #include "heatmaptotal.h"
+
+
+
+
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
   : QMainWindow(parent)
@@ -34,7 +38,7 @@ setWindowIcon(QIcon("icon.png"));
    (ui->mainstack)->setCurrentIndex(0);
    (ui->stackedWidget)->setCurrentIndex(7);
 
-   Heatmaptotal * heatmaths = new Heatmaptotal(ui->heatmapsupport,"Maths","storage/mathsquicktext.txt",0,80,'*',134,true);
+   Heatmaptotal * heatmaths = new Heatmaptotal(ui->heatmapsupport,"Maths",":/res/math.txt",0,80,'*',134,true);
    
    Heatmaptotal * heatsport = new Heatmaptotal(ui->heatmapsupport,"Sport","storage/mathsquicktext.txt",820,80,'$',350,true);
    
@@ -50,10 +54,14 @@ setWindowIcon(QIcon("icon.png"));
 
    Heatmaptotal * heatfasttyping = new Heatmaptotal(ui->heatmapsupport,"Dactylographie","storage/mathsquicktext.txt",820,680,'%',164,true);
  
+   Heatmaptotal * heatgeo = new Heatmaptotal(ui->heatmapsupport,"Géographie","storage/mathsquicktext.txt",0,880,'$',210,true);
+
+   Heatmaptotal * heatchess = new Heatmaptotal(ui->heatmapsupport,"Chess","storage/mathsquicktext.txt",820,880,'$',164,true);
 
 
-
-
+QWidget *frame = new QWidget(ui->heatmapsupport);
+frame->setGeometry(20, 20, 800, 800);
+//frame->setStyleSheet("background-image: url(:/res/ronflex.png)");
 }
 
 
@@ -118,10 +126,10 @@ string readFileIntoString(const string& path) {
 void MainWindow::openfiles(){
   int nbjournaux = 2;
   QPlainTextEdit* journaux[nbjournaux]={ui->mathsquicktext, ui->physiquequicktext};
-  QString journauxnames[nbjournaux]={"mathsquicktext.txt","physiquequicktext.txt"};
+  QString journauxnames[nbjournaux]={":res/math.txt","storage/physiquequicktext.txt"};
   
   for (int x = 0; x < nbjournaux;x++){
-  QString filePath ="storage/" + journauxnames[x];
+  QString filePath = journauxnames[x];
 
   QFile file (filePath);
   QFileInfo fileName(filePath);
@@ -232,6 +240,9 @@ void MainWindow::on_anglaisbutton_clicked(){
 }
 void MainWindow::on_tutobutton_clicked(){
   (ui->stackedWidget)->setCurrentIndex(6);
+}
+void MainWindow::on_statsbutton_clicked(){
+  (ui->stackedWidget)->setCurrentIndex(7);
 }
 void MainWindow::TextEditChanged(){
  QString tabName =  (ui->TabWidget)->tabText((ui->TabWidget)->currentIndex());

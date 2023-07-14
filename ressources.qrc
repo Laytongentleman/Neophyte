@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="pokemons">
+  <qresource prefix="/">
     <file>res/ballshine.png</file>
     <file>res/Chapignon.png</file>
     <file>res/honorball.png</file>
@@ -25,16 +25,10 @@
     <file>res/volley0.png</file>
     <file>res/volley1.png</file>
     <file>res/volley3.png</file>
-    <file>res/ballshine.png</file>
-    <file>res/fantominus.png</file>
-    <file>res/honorball.png</file>
-    <file>res/hoothoot.png</file>
-    <file>res/hyperball.svg</file>
-    <file>res/maril.png</file>
-    <file>res/massball.png</file>
-    <file>res/metamorph.png</file>
-    <file>res/mistherbe.png</file>
-    <file>res/ronflex.png</file>
-    <file>res/superball.png</file>
+
+    <file>storage/mathsquicktext.txt</file>
+    <file>math.txt</file>
+    <file>res/math.txt</file>
+    <file>res/professor-layton-steam.png</file>
   </qresource>
 </RCC>

@@ -33,6 +33,7 @@ void on_actionSave_As_triggered();
 void on_action_Exit_triggered();
 void openfiles();
 void on_startbutton_clicked(); 
+void on_statsbutton_clicked(); 
 
 private:
     CustomButton * m_customBtnBonjour;

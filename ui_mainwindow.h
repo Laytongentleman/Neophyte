@@ -55,7 +55,7 @@ public:
     QGridLayout *gridLayout_5;
     QFrame *frame;
     QHBoxLayout *horizontalLayout_2;
-    QPushButton *pushButton_2;
+    QPushButton *statsbutton;
     QPushButton *pushButton;
     QSpacerItem *verticalSpacer;
     QFrame *frame_2;
@@ -77,17 +77,17 @@ public:
     QTabWidget *TabWidget_maths;
     QWidget *tabmain;
     QGridLayout *gridLayout_13;
+    QSlider *horizontalSlider;
+    QTextEdit *textEdit;
+    QLabel *label_4;
+    QPlainTextEdit *mathsquicktext;
+    QLabel *label;
+    QDial *Mastery;
     QListWidget *listWidget;
     QLabel *label_2;
-    QPlainTextEdit *mathsquicktext;
-    QSlider *horizontalSlider;
     QLabel *label_3;
-    QSlider *verticalSlider;
-    QTextEdit *textEdit;
     QLabel *label_5;
-    QDial *Mastery;
-    QLabel *label_4;
-    QLabel *label;
+    QSlider *verticalSlider;
     QWidget *tab_4;
     QHBoxLayout *horizontalLayout_3;
     QFrame *historymaths;
@@ -272,14 +272,14 @@ public:
         horizontalLayout_2->setSpacing(0);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        pushButton_2 = new QPushButton(frame);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        statsbutton = new QPushButton(frame);
+        statsbutton->setObjectName(QString::fromUtf8("statsbutton"));
         QIcon icon;
         icon.addFile(QString::fromUtf8("../../../.designer/backup/res/triballs.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon);
-        pushButton_2->setIconSize(QSize(50, 50));
+        statsbutton->setIcon(icon);
+        statsbutton->setIconSize(QSize(50, 50));
 
-        horizontalLayout_2->addWidget(pushButton_2);
+        horizontalLayout_2->addWidget(statsbutton);
 
         pushButton = new QPushButton(frame);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
@@ -410,6 +410,50 @@ public:
         tabmain->setObjectName(QString::fromUtf8("tabmain"));
         gridLayout_13 = new QGridLayout(tabmain);
         gridLayout_13->setObjectName(QString::fromUtf8("gridLayout_13"));
+        horizontalSlider = new QSlider(tabmain);
+        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
+        horizontalSlider->setValue(10);
+        horizontalSlider->setOrientation(Qt::Horizontal);
+
+        gridLayout_13->addWidget(horizontalSlider, 9, 0, 1, 3);
+
+        textEdit = new QTextEdit(tabmain);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Hack"));
+        font2.setBold(true);
+        font2.setWeight(75);
+        textEdit->setFont(font2);
+
+        gridLayout_13->addWidget(textEdit, 7, 1, 1, 2);
+
+        label_4 = new QLabel(tabmain);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        gridLayout_13->addWidget(label_4, 8, 1, 1, 2);
+
+        mathsquicktext = new QPlainTextEdit(tabmain);
+        mathsquicktext->setObjectName(QString::fromUtf8("mathsquicktext"));
+
+        gridLayout_13->addWidget(mathsquicktext, 0, 2, 7, 1);
+
+        label = new QLabel(tabmain);
+        label->setObjectName(QString::fromUtf8("label"));
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("ClearlyU"));
+        label->setFont(font3);
+        label->setAlignment(Qt::AlignCenter);
+
+        gridLayout_13->addWidget(label, 4, 3, 1, 1);
+
+        Mastery = new QDial(tabmain);
+        Mastery->setObjectName(QString::fromUtf8("Mastery"));
+        Mastery->setMaximum(100);
+        Mastery->setValue(25);
+        Mastery->setWrapping(false);
+
+        gridLayout_13->addWidget(Mastery, 0, 3, 4, 2);
+
         listWidget = new QListWidget(tabmain);
         new QListWidgetItem(listWidget);
         new QListWidgetItem(listWidget);
@@ -430,43 +474,11 @@ public:
 
         gridLayout_13->addWidget(label_2, 5, 0, 3, 1);
 
-        mathsquicktext = new QPlainTextEdit(tabmain);
-        mathsquicktext->setObjectName(QString::fromUtf8("mathsquicktext"));
-
-        gridLayout_13->addWidget(mathsquicktext, 0, 2, 7, 1);
-
-        horizontalSlider = new QSlider(tabmain);
-        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
-        horizontalSlider->setValue(10);
-        horizontalSlider->setOrientation(Qt::Horizontal);
-
-        gridLayout_13->addWidget(horizontalSlider, 9, 0, 1, 3);
-
         label_3 = new QLabel(tabmain);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setFont(font1);
 
         gridLayout_13->addWidget(label_3, 1, 0, 2, 2);
-
-        verticalSlider = new QSlider(tabmain);
-        verticalSlider->setObjectName(QString::fromUtf8("verticalSlider"));
-        QFont font2;
-        font2.setItalic(true);
-        verticalSlider->setFont(font2);
-        verticalSlider->setValue(5);
-        verticalSlider->setOrientation(Qt::Vertical);
-
-        gridLayout_13->addWidget(verticalSlider, 0, 1, 1, 1);
-
-        textEdit = new QTextEdit(tabmain);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("Hack"));
-        font3.setBold(true);
-        font3.setWeight(75);
-        textEdit->setFont(font3);
-
-        gridLayout_13->addWidget(textEdit, 7, 1, 1, 2);
 
         label_5 = new QLabel(tabmain);
         label_5->setObjectName(QString::fromUtf8("label_5"));
@@ -477,27 +489,15 @@ public:
 
         gridLayout_13->addWidget(label_5, 5, 3, 1, 2);
 
-        Mastery = new QDial(tabmain);
-        Mastery->setObjectName(QString::fromUtf8("Mastery"));
-        Mastery->setMaximum(100);
-        Mastery->setValue(25);
-        Mastery->setWrapping(false);
-
-        gridLayout_13->addWidget(Mastery, 0, 3, 4, 2);
-
-        label_4 = new QLabel(tabmain);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        gridLayout_13->addWidget(label_4, 8, 1, 1, 2);
-
-        label = new QLabel(tabmain);
-        label->setObjectName(QString::fromUtf8("label"));
+        verticalSlider = new QSlider(tabmain);
+        verticalSlider->setObjectName(QString::fromUtf8("verticalSlider"));
         QFont font5;
-        font5.setFamily(QString::fromUtf8("ClearlyU"));
-        label->setFont(font5);
-        label->setAlignment(Qt::AlignCenter);
+        font5.setItalic(true);
+        verticalSlider->setFont(font5);
+        verticalSlider->setValue(5);
+        verticalSlider->setOrientation(Qt::Vertical);
 
-        gridLayout_13->addWidget(label, 4, 3, 1, 1);
+        gridLayout_13->addWidget(verticalSlider, 0, 1, 1, 1);
 
         TabWidget_maths->addTab(tabmain, QString());
         tab_4 = new QWidget();
@@ -548,7 +548,7 @@ public:
         label_11 = new QLabel(tabmain_3);
         label_11->setObjectName(QString::fromUtf8("label_11"));
         label_11->setGeometry(QRect(650, 50, 91, 61));
-        label_11->setFont(font5);
+        label_11->setFont(font3);
         label_11->setAlignment(Qt::AlignCenter);
         gridLayout_14 = new QGridLayout(tabmain_3);
         gridLayout_14->setObjectName(QString::fromUtf8("gridLayout_14"));
@@ -573,7 +573,7 @@ public:
 
         verticalSlider_3 = new QSlider(tabmain_3);
         verticalSlider_3->setObjectName(QString::fromUtf8("verticalSlider_3"));
-        verticalSlider_3->setFont(font2);
+        verticalSlider_3->setFont(font5);
         verticalSlider_3->setValue(5);
         verticalSlider_3->setOrientation(Qt::Vertical);
 
@@ -678,7 +678,7 @@ public:
         label_6 = new QLabel(tabmain_2);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setGeometry(QRect(650, 50, 91, 61));
-        label_6->setFont(font5);
+        label_6->setFont(font3);
         label_6->setAlignment(Qt::AlignCenter);
         listWidget_2 = new QListWidget(tabmain_2);
         new QListWidgetItem(listWidget_2);
@@ -698,7 +698,7 @@ public:
         verticalSlider_2 = new QSlider(tabmain_2);
         verticalSlider_2->setObjectName(QString::fromUtf8("verticalSlider_2"));
         verticalSlider_2->setGeometry(QRect(180, 20, 20, 160));
-        verticalSlider_2->setFont(font2);
+        verticalSlider_2->setFont(font5);
         verticalSlider_2->setValue(5);
         verticalSlider_2->setOrientation(Qt::Vertical);
         horizontalSlider_2 = new QSlider(tabmain_2);
@@ -758,7 +758,7 @@ public:
         label_16 = new QLabel(tabmain_4);
         label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setGeometry(QRect(650, 50, 91, 61));
-        label_16->setFont(font5);
+        label_16->setFont(font3);
         label_16->setAlignment(Qt::AlignCenter);
         listWidget_4 = new QListWidget(tabmain_4);
         new QListWidgetItem(listWidget_4);
@@ -776,7 +776,7 @@ public:
         verticalSlider_4 = new QSlider(tabmain_4);
         verticalSlider_4->setObjectName(QString::fromUtf8("verticalSlider_4"));
         verticalSlider_4->setGeometry(QRect(180, 20, 20, 160));
-        verticalSlider_4->setFont(font2);
+        verticalSlider_4->setFont(font5);
         verticalSlider_4->setValue(5);
         verticalSlider_4->setOrientation(Qt::Vertical);
         horizontalSlider_4 = new QSlider(tabmain_4);
@@ -884,7 +884,7 @@ public:
         sizePolicy1.setHeightForWidth(startpage->sizePolicy().hasHeightForWidth());
         startpage->setSizePolicy(sizePolicy1);
         startpage->setAutoFillBackground(false);
-        startpage->setStyleSheet(QString::fromUtf8("#startpage{background: url(res/professor-layton-and-the-new-world-of-steam.png)  0 0 0 0 stretch stretch;\n"
+        startpage->setStyleSheet(QString::fromUtf8("#startpage{\n"
 "background-size 100% 100%;\n"
 " background-repeat: no-repeat;\n"
 "background-position: center;}\n"
@@ -961,8 +961,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        mainstack->setCurrentIndex(0);
-        TabWidget_maths->setCurrentIndex(1);
+        mainstack->setCurrentIndex(1);
+        TabWidget_maths->setCurrentIndex(0);
         TabWidget_4->setCurrentIndex(0);
         TabWidget_3->setCurrentIndex(1);
         TabWidget_5->setCurrentIndex(0);
@@ -995,9 +995,9 @@ public:
         action_Exit->setShortcut(QCoreApplication::translate("MainWindow", "Esc", nullptr));
 #endif // QT_CONFIG(shortcut)
 #if QT_CONFIG(tooltip)
-        pushButton_2->setToolTip(QCoreApplication::translate("MainWindow", "It's all and only numbers ~ Louis", nullptr));
+        statsbutton->setToolTip(QCoreApplication::translate("MainWindow", "It's all and only numbers ~ Louis", nullptr));
 #endif // QT_CONFIG(tooltip)
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", " Stats", nullptr));
+        statsbutton->setText(QCoreApplication::translate("MainWindow", " Stats", nullptr));
 #if QT_CONFIG(tooltip)
         pushButton->setToolTip(QCoreApplication::translate("MainWindow", "Attrappez les tous !!", nullptr));
 #endif // QT_CONFIG(tooltip)
@@ -1028,6 +1028,14 @@ public:
 #endif // QT_CONFIG(tooltip)
         pushButton_9->setText(QCoreApplication::translate("MainWindow", "Allemand", nullptr));
         tutobutton->setText(QCoreApplication::translate("MainWindow", "Tutoriel", nullptr));
+        textEdit->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Hack'; font-size:10pt; font-weight:600; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Noto Sans'; font-weight:400;\">Revoir pk la trace d'une mat est le rg</span></p></body></html>", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Prepa sup", nullptr));
+        mathsquicktext->setPlainText(QString());
+        label->setText(QCoreApplication::translate("MainWindow", "Total Mastery", nullptr));
 
         const bool __sortingEnabled = listWidget->isSortingEnabled();
         listWidget->setSortingEnabled(false);
@@ -1046,16 +1054,8 @@ public:
         listWidget->setSortingEnabled(__sortingEnabled);
 
         label_2->setText(QString());
-        mathsquicktext->setPlainText(QString());
         label_3->setText(QCoreApplication::translate("MainWindow", "Current power output", nullptr));
-        textEdit->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Hack'; font-size:10pt; font-weight:600; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Noto Sans'; font-weight:400;\">Revoir pk la trace d'une mat est le rg</span></p></body></html>", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "SKILLS:", nullptr));
-        label_4->setText(QCoreApplication::translate("MainWindow", "Prepa sup", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Total Mastery", nullptr));
         TabWidget_maths->setTabText(TabWidget_maths->indexOf(tabmain), QCoreApplication::translate("MainWindow", "Overview", nullptr));
         plainTextEdit_2->setPlainText(QCoreApplication::translate("MainWindow", "29 05 2023", nullptr));
         TabWidget_maths->setTabText(TabWidget_maths->indexOf(tab_4), QCoreApplication::translate("MainWindow", "History", nullptr));

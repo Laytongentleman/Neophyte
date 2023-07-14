@@ -2,7 +2,8 @@
 #include <QLabel>
 #include "heatmap.h"
 #include "QDebug"
-
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -32,11 +33,27 @@ Heatmaptotal::Heatmaptotal(QWidget *parent,const char* title,const char * path,i
  name->setMinimumSize(500,0);
  name->move(posx+150 ,posy-50);
 
- ifstream infile(path);
+
+QWidget *frame = new QWidget(parent);
+frame->setGeometry(posx,20, 80, 80);
+frame->setStyleSheet("background-image: url(:/res/ronflex.png)");
+QFile file(":/res/math.txt");
 
 
 
-                
+if(file.open(QFile::ReadOnly | QFile::Text))
+  {
+QString line;
+QTextStream s1(&file);
+ //QString all = s1.readAll();
+//printf("%s", all);
+  QLabel* m_label = new QLabel(parent);
+ /* line = s1.readLine();
+  m_label->setText(line);
+  m_label->setGeometry(30,30,800,800);
+*/
+
+  
   Heatmap * harray[12][31]; 
    for (int i =0 ; i < 53;i++){
      for(int j = 0; j < 7; j++){
@@ -72,29 +89,19 @@ char buff[400];
 
  int score = 0;
 
-  /* FILE * fp = fopen("storage/date.txt","w");
- 
-
-   char cur_time[128];
-  
-   time_t      t1;
-   struct tm*  ptm;
-  
-   t1 = time(NULL);
-   ptm = localtime(&t1);
-   
-   strftime(cur_time, 128, "%Y-%m-%d %H:%M:%S", ptm);
-   int curday = ptm->tm_mday;
-   int curmonth = ptm->tm_mon;
-   printf("%d", curmonth+1);*/
   int streak = -1;
   bool streakbroken = false;
   bool streakok = true;
-  while (infile.good())
-  {
+  int i = 0;
+  while(!s1.atEnd()) {
+    i++;
 
-    string sLine;
-    getline(infile, sLine);
+  QLabel* m_label = new QLabel(parent);
+  line = s1.readLine();
+ /* m_label->setText(line);
+  m_label->setGeometry(30+i*10,30+i*10,800,800);*/
+    //Qstring linep = line->toPlainText();
+    string sLine = line.toUtf8().constData();
     if (sLine[0] == '|') {
       if (registering == true){
         char buff[400];
@@ -157,6 +164,12 @@ char buff[400];
 
  curstreak->setText(buff);
  curstreak->move(posx+560,yoff - 50);
+}
+   else
+    {
+    qDebug()<<file.errorString()<<file.error();
+    }
+
 
 
 }
