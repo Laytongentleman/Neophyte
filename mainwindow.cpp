@@ -14,6 +14,7 @@
 #include <QGraphicsEffect>
 #include <QWebEngineView>
 #include "heatmaptotal.h"
+#include "skills.h"
 
 
 
@@ -37,31 +38,98 @@ setWindowIcon(QIcon("icon.png"));
     //m_customBtnBonjour = new CustomButton(this);
    (ui->mainstack)->setCurrentIndex(0);
    (ui->stackedWidget)->setCurrentIndex(7);
+   heatmapsetup();
+   addskillstabs();
+}
 
-   Heatmaptotal * heatmaths = new Heatmaptotal(ui->heatmapsupport,"Maths",":/res/math.txt",0,80,'*',134,true);
-   
-   Heatmaptotal * heatsport = new Heatmaptotal(ui->heatmapsupport,"Sport","storage/mathsquicktext.txt",820,80,'$',350,true);
-   
-   Heatmaptotal * heatallemand = new Heatmaptotal(ui->heatmapsupport,"Allemand","storage/mathsquicktext.txt",820,480,'#', 22,true);
+void MainWindow::addskillstabs(){
+  int nbskill = 1;
+  int hsl []=  {1,2,3};
+  Skill maths("Maths",1,"storage/mathsquicktext.txt",hsl) ;
 
-   Heatmaptotal * heatfrançais = new Heatmaptotal(ui->heatmapsupport,"Français","storage/mathsquicktext.txt",820,280,'ù',300,true);
+/*  Skill skills[] = {maths};
+
+  int indexoffset = 2; 
+  for (int i = 0; x < nbskill;x++){
+  (ui->statsWidget)->addTab(tabFrame,skills[i].name);
+
+  QString filePath = skills[i].txtpath;
+
+  QFile file (filePath);
+  QFileInfo fileName(filePath);
+  if (!file.open(QIODevice::ReadOnly | QFile::Text)){
+    QMessageBox::warning( this, "Warning", "Cannot open file : " + file.errorString());
+  }
+  QTextStream in(&file);
+  QString text = in.readAll();
+  QPlainTextEdit * newedit = new QPlainTextEdit(ui->statsWidget)
+
+
+  journaux[x]->setPlainText(text);
+  journaux[x]->moveCursor (QTextCursor::Start);
+
+  QFile datefile("storage/date.txt");
+  if (!datefile.open(QIODevice::ReadOnly | QFile::Text)){
+    QMessageBox::warning( this, "Warning", "Cannot open file : " + datefile.errorString());
+  }
+
+  QTextStream streamdate(&datefile);
+
+  QString qstr = "|" + streamdate.readAll();//QString::fromStdString(s);
+
+QString currentdateqs = journaux[x]->toPlainText();
+
+std::string currentdate = currentdateqs.toUtf8().constData();
+  QLabel* m_label = new QLabel(ui->heatmapsupport);
+  m_label->setText(qstr);
+bool found = false;
+for (int i =0; i < 10; i++) 
+{
+    if (currentdateqs[i] != qstr[i]) {
+        found = true;
+
+
+        //break;
+    }
+}
+if (found) {
+journaux[x]->insertPlainText (qstr + "\n");;
+}  file.close();
  
-   Heatmaptotal * heatphys= new Heatmaptotal(ui->heatmapsupport,"Physique - Chimie","storage/physiquequicktext.txt",0,280,'&',189,true);
-   
-   Heatmaptotal * heatinfo = new Heatmaptotal(ui->heatmapsupport,"Informatique","storage/mathsquicktext.txt",0,480,'@',256,true);
-   
-   Heatmaptotal * heatanglais = new Heatmaptotal(ui->heatmapsupport,"Anglais","storage/mathsquicktext.txt",0,680,'~', 300,true);
+}*/
+}
 
-   Heatmaptotal * heatfasttyping = new Heatmaptotal(ui->heatmapsupport,"Dactylographie","storage/mathsquicktext.txt",820,680,'%',164,true);
+void MainWindow::heatmapsetup(){
+   int x1 = 20;
+   int x2 = 840;
+   int y0 = 60 ;
+   int ydec = 150;
+
+   Heatmaptotal * heatmaths = new Heatmaptotal(ui->heatmapsupport,"Maths","storage/mathsquicktext.txt",x1,y0,'*',134,true);
+   
+   Heatmaptotal * heatsport = new Heatmaptotal(ui->heatmapsupport,"Sport","storage/mathsquicktext.txt",x2,y0,'$',350,true);
+   
+   Heatmaptotal * heatallemand = new Heatmaptotal(ui->heatmapsupport,"Allemand","storage/mathsquicktext.txt",x2,y0+2*ydec,'#', 22,true);
+
+   Heatmaptotal * heatfrançais = new Heatmaptotal(ui->heatmapsupport,"Français","storage/mathsquicktext.txt",x2,y0+ydec,'*',300,true);
+
  
-   Heatmaptotal * heatgeo = new Heatmaptotal(ui->heatmapsupport,"Géographie","storage/mathsquicktext.txt",0,880,'$',210,true);
+   Heatmaptotal * heatphys= new Heatmaptotal(ui->heatmapsupport,"Physique - Chimie","storage/physiquequicktext.txt",x1,y0 + ydec,'&',189,true);
+   
+   Heatmaptotal * heatinfo = new Heatmaptotal(ui->heatmapsupport,"Informatique","storage/mathsquicktext.txt",x1,y0 +2*ydec,'@',256,true);
+   
+   Heatmaptotal * heatanglais = new Heatmaptotal(ui->heatmapsupport,"Anglais","storage/mathsquicktext.txt",x1,y0+3*ydec,'~', 300,true);
 
-   Heatmaptotal * heatchess = new Heatmaptotal(ui->heatmapsupport,"Chess","storage/mathsquicktext.txt",820,880,'$',164,true);
+   Heatmaptotal * heatfasttyping = new Heatmaptotal(ui->heatmapsupport,"Dactylographie","storage/mathsquicktext.txt",x2,y0+3*ydec,'%',164,true);
+ 
+   Heatmaptotal * heatgeo = new Heatmaptotal(ui->heatmapsupport,"Géographie","storage/mathsquicktext.txt",x1, y0 + 4* ydec,'$',210,true);
 
+   Heatmaptotal * heatchess = new Heatmaptotal(ui->heatmapsupport,"Chess","storage/mathsquicktext.txt",x2,y0 +4 * ydec,'$',164,true);
 
-QWidget *frame = new QWidget(ui->heatmapsupport);
-frame->setGeometry(20, 20, 800, 800);
-//frame->setStyleSheet("background-image: url(:/res/ronflex.png)");
+   Heatmaptotal * heathealth = new Heatmaptotal(ui->heatmapsupport,"Health","storage/mathsquicktext.txt",x1, y0 + 5* ydec,'$',140,true);
+
+   Heatmaptotal * heatsleep = new Heatmaptotal(ui->heatmapsupport,"Sleep","storage/mathsquicktext.txt",x2,y0 +5 * ydec,'$',250,true);
+
 }
 
 
@@ -126,7 +194,7 @@ string readFileIntoString(const string& path) {
 void MainWindow::openfiles(){
   int nbjournaux = 2;
   QPlainTextEdit* journaux[nbjournaux]={ui->mathsquicktext, ui->physiquequicktext};
-  QString journauxnames[nbjournaux]={":res/math.txt","storage/physiquequicktext.txt"};
+  QString journauxnames[nbjournaux]={"storage/mathsquicktext.txt","storage/physiquequicktext.txt"};
   
   for (int x = 0; x < nbjournaux;x++){
   QString filePath = journauxnames[x];
@@ -141,19 +209,29 @@ void MainWindow::openfiles(){
 
   journaux[x]->setPlainText(text);
   journaux[x]->moveCursor (QTextCursor::Start);
-  string s = "|"+ readFileIntoString("storage/date.txt");
-QString qstr = QString::fromStdString(s);
+
+  QFile datefile("storage/date.txt");
+  if (!datefile.open(QIODevice::ReadOnly | QFile::Text)){
+    QMessageBox::warning( this, "Warning", "Cannot open file : " + datefile.errorString());
+  }
+
+  QTextStream streamdate(&datefile);
+
+  QString qstr = "|" + streamdate.readAll();//QString::fromStdString(s);
 
 QString currentdateqs = journaux[x]->toPlainText();
 
 std::string currentdate = currentdateqs.toUtf8().constData();
-
+  QLabel* m_label = new QLabel(ui->heatmapsupport);
+  m_label->setText(qstr);
 bool found = false;
-for (int i =0; i < 11; i++) {
-    if (currentdate[i+1] != s[i+1]) {
+for (int i =0; i < 10; i++) 
+{
+    if (currentdateqs[i] != qstr[i]) {
         found = true;
 
-        break;
+
+        //break;
     }
 }
 if (found) {
@@ -186,10 +264,10 @@ void MainWindow::on_actionSave_All_triggered(){
   */
   int nbjournaux = 2;
   QPlainTextEdit* journaux[nbjournaux]={ui->mathsquicktext, ui->physiquequicktext};
-  QString journauxnames[nbjournaux]={"mathsquicktext.txt","physiquequicktext.txt"};
+  QString journauxnames[nbjournaux]={"storage/mathsquicktext.txt","storage/physiquequicktext.txt"};
   
   for (int x = 0; x < nbjournaux;x++){
-    QString fileName = "storage/" + journauxnames[x];
+    QString fileName =  journauxnames[x];
   QFile file(fileName);
   if (!file.open(QFile::WriteOnly | QFile::Text)){
     QMessageBox::warning(this,"warning","Cannot save file : " + file.errorString());

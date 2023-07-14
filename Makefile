@@ -57,7 +57,8 @@ SOURCES       = custombutton.cpp \
 		heatmaptotal.cpp \
 		main.cpp \
 		mainwindow.cpp \
-		timelogic.cpp qrc_ressources.cpp \
+		timelogic.cpp \
+		skills.cpp qrc_ressources.cpp \
 		moc_custombutton.cpp \
 		moc_heatmap.cpp \
 		moc_heatmaptotal.cpp \
@@ -68,6 +69,7 @@ OBJECTS       = custombutton.o \
 		main.o \
 		mainwindow.o \
 		timelogic.o \
+		skills.o \
 		qrc_ressources.o \
 		moc_custombutton.o \
 		moc_heatmap.o \
@@ -443,12 +445,14 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		timelogic.h \
 		ui_mainwindow.h \
 		ui_menu.h \
-		ui_sliders.h custombutton.cpp \
+		ui_sliders.h \
+		skills.h custombutton.cpp \
 		heatmap.cpp \
 		heatmaptotal.cpp \
 		main.cpp \
 		mainwindow.cpp \
-		timelogic.cpp
+		timelogic.cpp \
+		skills.cpp
 QMAKE_TARGET  = neophyte
 DESTDIR       = 
 TARGET        = neophyte
@@ -1207,8 +1211,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ressources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib64/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents custombutton.h heatmap.h heatmaptotal.h mainwindow.h timelogic.h ui_mainwindow.h ui_menu.h ui_sliders.h $(DISTDIR)/
-	$(COPY_FILE) --parents custombutton.cpp heatmap.cpp heatmaptotal.cpp main.cpp mainwindow.cpp timelogic.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents custombutton.h heatmap.h heatmaptotal.h mainwindow.h timelogic.h ui_mainwindow.h ui_menu.h ui_sliders.h skills.h $(DISTDIR)/
+	$(COPY_FILE) --parents custombutton.cpp heatmap.cpp heatmaptotal.cpp main.cpp mainwindow.cpp timelogic.cpp skills.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
 
@@ -1238,10 +1242,9 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_ressources.cpp
 qrc_ressources.cpp: ressources.qrc \
 		/usr/lib64/qt5/bin/rcc \
-		math.txt \
+		storage/date.txt \
 		storage/mathsquicktext.txt \
 		res/honorball.png \
-		res/math.txt \
 		res/graph.png \
 		res/volley0.png \
 		res/volley1.png \
@@ -1327,7 +1330,10 @@ heatmap.o: heatmap.cpp heatmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o heatmap.o heatmap.cpp
 
 heatmaptotal.o: heatmaptotal.cpp heatmaptotal.h \
-		heatmap.h
+		heatmap.h \
+		mainwindow.h \
+		custombutton.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o heatmaptotal.o heatmaptotal.cpp
 
 main.o: main.cpp mainwindow.h \
@@ -1344,6 +1350,9 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 
 timelogic.o: timelogic.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o timelogic.o timelogic.cpp
+
+skills.o: skills.cpp skills.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o skills.o skills.cpp
 
 qrc_ressources.o: qrc_ressources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_ressources.o qrc_ressources.cpp

@@ -34,6 +34,8 @@ void on_action_Exit_triggered();
 void openfiles();
 void on_startbutton_clicked(); 
 void on_statsbutton_clicked(); 
+void heatmapsetup();
+void addskillstabs();
 
 private:
     CustomButton * m_customBtnBonjour;

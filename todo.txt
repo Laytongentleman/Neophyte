@@ -1,13 +1,13 @@
 - streak counter system -> habits into nature. (mean, recents, name for the current streak)
-- instant heatmap hover
+- instant heatmap hover 
 - visualize each day by clicking on calendar
-- bigger heatmaps ?
+- bigger heatmaps ? 
 - arrow navigation heatmaps
 - exercice pokedex and graph counting all exercice, difficulty, group by chapters.
 - achievements by steaks and scores.
 - real life feed back grades
-- cleaning heatmaps
-
+- cleaning heatmaps DONE
+- MAKE A SKILL CLASS CONTAINING NAME, PATHS, STREAKS FOR EACH SKILL. 
 
 
 

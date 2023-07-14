@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/">
+    <file>storage/date.txt</file>
     <file>res/ballshine.png</file>
     <file>res/Chapignon.png</file>
     <file>res/honorball.png</file>
@@ -27,8 +28,6 @@
     <file>res/volley3.png</file>
 
     <file>storage/mathsquicktext.txt</file>
-    <file>math.txt</file>
-    <file>res/math.txt</file>
     <file>res/professor-layton-steam.png</file>
   </qresource>
 </RCC>

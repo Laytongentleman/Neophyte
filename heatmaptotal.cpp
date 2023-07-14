@@ -34,10 +34,8 @@ Heatmaptotal::Heatmaptotal(QWidget *parent,const char* title,const char * path,i
  name->move(posx+150 ,posy-50);
 
 
-QWidget *frame = new QWidget(parent);
-frame->setGeometry(posx,20, 80, 80);
-frame->setStyleSheet("background-image: url(:/res/ronflex.png)");
-QFile file(":/res/math.txt");
+
+QFile file(path);
 
 
 
