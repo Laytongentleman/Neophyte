@@ -3,6 +3,7 @@
 #include <QPushButton>
 #include "timelogic.h"
 int main (int argc, char *argv[]){
+system("backup.sh");
   QApplication a (argc, argv);
 
   MainWindow w;

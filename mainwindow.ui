@@ -59,7 +59,7 @@ text-align:lcenter;
        </font>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="prepa">
        <layout class="QGridLayout" name="gridLayout_11">
@@ -1486,9 +1486,9 @@ p, li { white-space: pre-wrap; }
              <widget class="QWidget" name="pagestats">
               <layout class="QGridLayout" name="gridLayout_15">
                <item row="0" column="0">
-                <widget class="QTabWidget" name="tabWidget">
+                <widget class="QTabWidget" name="statsWidget">
                  <property name="currentIndex">
-                  <number>0</number>
+                  <number>2</number>
                  </property>
                  <widget class="QWidget" name="heatmapsupport">
                   <attribute name="title">
@@ -1500,6 +1500,21 @@ p, li { white-space: pre-wrap; }
                   <attribute name="title">
                    <string>Overall</string>
                   </attribute>
+                  <layout class="QGridLayout" name="gridLayout_17">
+                   <property name="sizeConstraint">
+                    <enum>QLayout::SetMinimumSize</enum>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QFrame" name="frame_4">
+                     <property name="frameShape">
+                      <enum>QFrame::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                  <widget class="QWidget" name="graphs">
                   <attribute name="title">

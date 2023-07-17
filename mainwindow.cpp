@@ -15,8 +15,30 @@
 #include <QWebEngineView>
 #include "heatmaptotal.h"
 #include "skills.h"
+#include <QGridLayout>
+ int nbskills = 12;
+  int hsl []=  {1,2,3};
+  Skill maths("Maths",1,"storage/mathsquicktext.txt",hsl) ;
+
+  Skill physique("Physique",2,"storage/physiquequicktext.txt",hsl) ;
+  Skill informatique("Informatique",3,"storage/informatique.txt",hsl) ;
+
+  Skill francais("Français",4,"storage/francais.txt",hsl) ;
+  Skill anglais("Anglais",5,"storage/anglais.txt",hsl) ;
+
+  Skill allemand("Allemand",6,"storage/allemand.txt",hsl) ;
+
+  Skill sport("Sport",7,"storage/sport.txt",hsl) ;
+  Skill health("Health",8,"storage/health.txt",hsl);
+  Skill dactylo("Physique",9,"storage/fasttyping.txt",hsl) ;
+  Skill geo("Geographie",10,"storage/geographie.txt",hsl) ;
+  Skill sleep("Sleep",11,"storage/sleep.txt",hsl) ;
+  Skill chess("Chess",12,"storage/chess.txt",hsl);
 
 
+
+
+  Skill skills[] = {maths,physique,informatique,francais,anglais,allemand,sport,health,dactylo,geo,sleep,chess};
 
 
 using namespace std;
@@ -43,30 +65,44 @@ setWindowIcon(QIcon("icon.png"));
 }
 
 void MainWindow::addskillstabs(){
-  int nbskill = 1;
-  int hsl []=  {1,2,3};
-  Skill maths("Maths",1,"storage/mathsquicktext.txt",hsl) ;
 
-/*  Skill skills[] = {maths};
 
-  int indexoffset = 2; 
-  for (int i = 0; x < nbskill;x++){
+
+  int indexoffset = 3; 
+ for (int i = 0; i < nbskills;i++){
+  int index = indexoffset + i;
+  QWidget* tabFrame = new QWidget(this);
   (ui->statsWidget)->addTab(tabFrame,skills[i].name);
-
+  QWidget* test = new QWidget(ui->statsWidget->widget(index));
+  QGridLayout* grid = new QGridLayout;
+  grid->setHorizontalSpacing(6);
+  grid->setVerticalSpacing(6);
+  grid->setRowStretch(0,0);
+  //grid->setColumnStretch(0);
+  //(ui->statsWidget->widget(index))->setLayout(grid);
+  //tabFrame->setLayout(grid); 
   QString filePath = skills[i].txtpath;
-
+ 
   QFile file (filePath);
   QFileInfo fileName(filePath);
   if (!file.open(QIODevice::ReadOnly | QFile::Text)){
     QMessageBox::warning( this, "Warning", "Cannot open file : " + file.errorString());
   }
+
+
   QTextStream in(&file);
-  QString text = in.readAll();
-  QPlainTextEdit * newedit = new QPlainTextEdit(ui->statsWidget)
+  QString text = in.readAll();  
 
+  QPlainTextEdit * newedit = new QPlainTextEdit(tabFrame);
+  newedit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+  skills[i].edit = newedit;
+  grid->addWidget(newedit);
+  tabFrame->setLayout(grid);
 
-  journaux[x]->setPlainText(text);
-  journaux[x]->moveCursor (QTextCursor::Start);
+ 
+
+  newedit->setPlainText(text);
+  newedit->moveCursor (QTextCursor::Start);
 
   QFile datefile("storage/date.txt");
   if (!datefile.open(QIODevice::ReadOnly | QFile::Text)){
@@ -77,7 +113,7 @@ void MainWindow::addskillstabs(){
 
   QString qstr = "|" + streamdate.readAll();//QString::fromStdString(s);
 
-QString currentdateqs = journaux[x]->toPlainText();
+QString currentdateqs = newedit->toPlainText();
 
 std::string currentdate = currentdateqs.toUtf8().constData();
   QLabel* m_label = new QLabel(ui->heatmapsupport);
@@ -93,10 +129,11 @@ for (int i =0; i < 10; i++)
     }
 }
 if (found) {
-journaux[x]->insertPlainText (qstr + "\n");;
+newedit->insertPlainText (qstr + "\n");;
 }  file.close();
  
-}*/
+
+}
 }
 
 void MainWindow::heatmapsetup(){
@@ -193,7 +230,7 @@ string readFileIntoString(const string& path) {
 
 void MainWindow::openfiles(){
   int nbjournaux = 2;
-  QPlainTextEdit* journaux[nbjournaux]={ui->mathsquicktext, ui->physiquequicktext};
+  /*QPlainTextEdit* journaux[nbjournaux]={ui->mathsquicktext, ui->physiquequicktext};
   QString journauxnames[nbjournaux]={"storage/mathsquicktext.txt","storage/physiquequicktext.txt"};
   
   for (int x = 0; x < nbjournaux;x++){
@@ -225,7 +262,7 @@ std::string currentdate = currentdateqs.toUtf8().constData();
   QLabel* m_label = new QLabel(ui->heatmapsupport);
   m_label->setText(qstr);
 bool found = false;
-for (int i =0; i < 10; i++) 
+for (int i =0; i < 11; i++) 
 {
     if (currentdateqs[i] != qstr[i]) {
         found = true;
@@ -238,7 +275,7 @@ if (found) {
 journaux[x]->insertPlainText (qstr + "\n");;
 }  file.close();
   
-}
+}*/
 }
 
 
@@ -262,23 +299,27 @@ void MainWindow::on_actionSave_All_triggered(){
   QString newTabText = (ui->TabWidget)->tabText((ui->TabWidget)->currentIndex()).remove(0,1);
   (ui->TabWidget)->setTabText((ui->TabWidget)->currentIndex(),newTabText); 
   */
-  int nbjournaux = 2;
-  QPlainTextEdit* journaux[nbjournaux]={ui->mathsquicktext, ui->physiquequicktext};
-  QString journauxnames[nbjournaux]={"storage/mathsquicktext.txt","storage/physiquequicktext.txt"};
+
   
-  for (int x = 0; x < nbjournaux;x++){
-    QString fileName =  journauxnames[x];
+
+
+  int indexoffset = 3; 
+ for (int i = 0; i < nbskills;i++){
+  int index = indexoffset + i;
+  
+  QString fileName =  skills[i].txtpath;
   QFile file(fileName);
   if (!file.open(QFile::WriteOnly | QFile::Text)){
     QMessageBox::warning(this,"warning","Cannot save file : " + file.errorString());
     return;
   }
   QTextStream out(&file);
-  QString text = (journaux[x])->toPlainText();
+
+
+  QString text = (skills[i].edit)->toPlainText();
   out << text;
   file.close();}
-
-  
+ 
   
 }
 

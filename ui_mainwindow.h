@@ -169,10 +169,12 @@ public:
     QWidget *tab;
     QWidget *pagestats;
     QGridLayout *gridLayout_15;
-    QTabWidget *tabWidget;
+    QTabWidget *statsWidget;
     QWidget *heatmapsupport;
     QGridLayout *gridLayout_16;
     QWidget *overall;
+    QGridLayout *gridLayout_17;
+    QFrame *frame_4;
     QWidget *graphs;
     QWidget *startpage;
     QGridLayout *gridLayout_12;
@@ -855,21 +857,31 @@ public:
         pagestats->setObjectName(QString::fromUtf8("pagestats"));
         gridLayout_15 = new QGridLayout(pagestats);
         gridLayout_15->setObjectName(QString::fromUtf8("gridLayout_15"));
-        tabWidget = new QTabWidget(pagestats);
-        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        statsWidget = new QTabWidget(pagestats);
+        statsWidget->setObjectName(QString::fromUtf8("statsWidget"));
         heatmapsupport = new QWidget();
         heatmapsupport->setObjectName(QString::fromUtf8("heatmapsupport"));
         gridLayout_16 = new QGridLayout(heatmapsupport);
         gridLayout_16->setObjectName(QString::fromUtf8("gridLayout_16"));
-        tabWidget->addTab(heatmapsupport, QString());
+        statsWidget->addTab(heatmapsupport, QString());
         overall = new QWidget();
         overall->setObjectName(QString::fromUtf8("overall"));
-        tabWidget->addTab(overall, QString());
+        gridLayout_17 = new QGridLayout(overall);
+        gridLayout_17->setObjectName(QString::fromUtf8("gridLayout_17"));
+        gridLayout_17->setSizeConstraint(QLayout::SetMinimumSize);
+        frame_4 = new QFrame(overall);
+        frame_4->setObjectName(QString::fromUtf8("frame_4"));
+        frame_4->setFrameShape(QFrame::StyledPanel);
+        frame_4->setFrameShadow(QFrame::Raised);
+
+        gridLayout_17->addWidget(frame_4, 0, 0, 1, 1);
+
+        statsWidget->addTab(overall, QString());
         graphs = new QWidget();
         graphs->setObjectName(QString::fromUtf8("graphs"));
-        tabWidget->addTab(graphs, QString());
+        statsWidget->addTab(graphs, QString());
 
-        gridLayout_15->addWidget(tabWidget, 0, 0, 1, 1);
+        gridLayout_15->addWidget(statsWidget, 0, 0, 1, 1);
 
         stackedWidget->addWidget(pagestats);
 
@@ -961,13 +973,13 @@ public:
 
         retranslateUi(MainWindow);
 
-        mainstack->setCurrentIndex(1);
+        mainstack->setCurrentIndex(0);
         TabWidget_maths->setCurrentIndex(0);
         TabWidget_4->setCurrentIndex(0);
         TabWidget_3->setCurrentIndex(1);
         TabWidget_5->setCurrentIndex(0);
         TabWidget->setCurrentIndex(0);
-        tabWidget->setCurrentIndex(0);
+        statsWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1161,9 +1173,9 @@ public:
         plainTextEdit_14->setPlainText(QCoreApplication::translate("MainWindow", "Samedi 15:33", nullptr));
         TabWidget->setTabText(TabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
         TabWidget->setTabText(TabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(heatmapsupport), QCoreApplication::translate("MainWindow", "History", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(overall), QCoreApplication::translate("MainWindow", "Overall", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(graphs), QCoreApplication::translate("MainWindow", "Graphs", nullptr));
+        statsWidget->setTabText(statsWidget->indexOf(heatmapsupport), QCoreApplication::translate("MainWindow", "History", nullptr));
+        statsWidget->setTabText(statsWidget->indexOf(overall), QCoreApplication::translate("MainWindow", "Overall", nullptr));
+        statsWidget->setTabText(statsWidget->indexOf(graphs), QCoreApplication::translate("MainWindow", "Graphs", nullptr));
         startquote->setText(QCoreApplication::translate("MainWindow", "Je ne perds jamais, soit je gagne soit j'apprends ~ some wise dude", nullptr));
         startbutton->setText(QCoreApplication::translate("MainWindow", "Push", nullptr));
 #if QT_CONFIG(shortcut)
