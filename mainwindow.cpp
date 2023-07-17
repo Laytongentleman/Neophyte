@@ -1,44 +1,63 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 #include <QFrame>
 #include <QTabWidget>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QTextStream>
 #include <QList>
-#include "heatmap.h"
 	#include <QRect>
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <QGraphicsEffect>
 #include <QWebEngineView>
-#include "heatmaptotal.h"
-#include "skills.h"
 #include <QGridLayout>
- int nbskills = 12;
-  int hsl []=  {1,2,3};
+
+
+
+
+#include "skills.h"
+
+int nbskills = 12;
+  int hsl[3]=  {200,70,0};
   Skill maths("Maths",1,"storage/mathsquicktext.txt",hsl) ;
-
+//  hsl[0] = 180;
   Skill physique("Physique",2,"storage/physiquequicktext.txt",hsl) ;
+  //hsl[0] = 270;
   Skill informatique("Informatique",3,"storage/informatique.txt",hsl) ;
+;
+  //hsl[0] = 325;
+  Skill francais("Français",4,"storage/francais.txt",hsl) ; 
+  //hsl[0] = 250;
+  Skill anglais("Anglais",5,"storage/anglais.txt",hsl) ; 
+  //hsl[0] = 40;
+  //hsl[1] = 100;
+  Skill allemand("Allemand",6,"storage/allemand.txt",hsl) ; 
+   // hsl[0] = 360;
+ //hsl[1] = 80;
 
-  Skill francais("Français",4,"storage/francais.txt",hsl) ;
-  Skill anglais("Anglais",5,"storage/anglais.txt",hsl) ;
+  Skill sport("Sport",7,"storage/sport.txt",hsl) ; 
+   // hsl[0] = 115;
+  //hsl[1] = 59
+  Skill health("Health",8,"storage/health.txt",hsl); 
+    //hsl[0] = 160;
+ //hsl[1] = 60
+  Skill dactylo("Dactyolographie",9,"storage/fasttyping.txt",hsl) ;
+   // hsl[0] = 27;
+ //hsl[1] = 35
 
-  Skill allemand("Allemand",6,"storage/allemand.txt",hsl) ;
-
-  Skill sport("Sport",7,"storage/sport.txt",hsl) ;
-  Skill health("Health",8,"storage/health.txt",hsl);
-  Skill dactylo("Physique",9,"storage/fasttyping.txt",hsl) ;
   Skill geo("Geographie",10,"storage/geographie.txt",hsl) ;
+   // hsl[0] = 260;
+ //hsl[1] = 20
+
   Skill sleep("Sleep",11,"storage/sleep.txt",hsl) ;
+   // hsl[0] = 144;
+ //hsl[1] = 27
+
   Skill chess("Chess",12,"storage/chess.txt",hsl);
+  Skill skills_list[] = {maths,physique,informatique,francais,anglais,allemand,sport,health,dactylo,geo,sleep,chess};
 
 
-
-
-  Skill skills[] = {maths,physique,informatique,francais,anglais,allemand,sport,health,dactylo,geo,sleep,chess};
 
 
 using namespace std;
@@ -60,6 +79,7 @@ setWindowIcon(QIcon("icon.png"));
     //m_customBtnBonjour = new CustomButton(this);
    (ui->mainstack)->setCurrentIndex(0);
    (ui->stackedWidget)->setCurrentIndex(7);
+   (ui->statsWidget)->setCurrentIndex(0);
    heatmapsetup();
    addskillstabs();
 }
@@ -72,7 +92,7 @@ void MainWindow::addskillstabs(){
  for (int i = 0; i < nbskills;i++){
   int index = indexoffset + i;
   QWidget* tabFrame = new QWidget(this);
-  (ui->statsWidget)->addTab(tabFrame,skills[i].name);
+  (ui->statsWidget)->addTab(tabFrame,skills_list[i].name);
   QWidget* test = new QWidget(ui->statsWidget->widget(index));
   QGridLayout* grid = new QGridLayout;
   grid->setHorizontalSpacing(6);
@@ -81,7 +101,7 @@ void MainWindow::addskillstabs(){
   //grid->setColumnStretch(0);
   //(ui->statsWidget->widget(index))->setLayout(grid);
   //tabFrame->setLayout(grid); 
-  QString filePath = skills[i].txtpath;
+  QString filePath = skills_list[i].txtpath;
  
   QFile file (filePath);
   QFileInfo fileName(filePath);
@@ -95,7 +115,7 @@ void MainWindow::addskillstabs(){
 
   QPlainTextEdit * newedit = new QPlainTextEdit(tabFrame);
   newedit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-  skills[i].edit = newedit;
+  skills_list[i].edit = newedit;
   grid->addWidget(newedit);
   tabFrame->setLayout(grid);
 
@@ -141,35 +161,13 @@ void MainWindow::heatmapsetup(){
    int x2 = 840;
    int y0 = 60 ;
    int ydec = 150;
-
-   Heatmaptotal * heatmaths = new Heatmaptotal(ui->heatmapsupport,"Maths","storage/mathsquicktext.txt",x1,y0,'*',134,true);
-   
-   Heatmaptotal * heatsport = new Heatmaptotal(ui->heatmapsupport,"Sport","storage/mathsquicktext.txt",x2,y0,'$',350,true);
-   
-   Heatmaptotal * heatallemand = new Heatmaptotal(ui->heatmapsupport,"Allemand","storage/mathsquicktext.txt",x2,y0+2*ydec,'#', 22,true);
-
-   Heatmaptotal * heatfrançais = new Heatmaptotal(ui->heatmapsupport,"Français","storage/mathsquicktext.txt",x2,y0+ydec,'*',300,true);
-
- 
-   Heatmaptotal * heatphys= new Heatmaptotal(ui->heatmapsupport,"Physique - Chimie","storage/physiquequicktext.txt",x1,y0 + ydec,'&',189,true);
-   
-   Heatmaptotal * heatinfo = new Heatmaptotal(ui->heatmapsupport,"Informatique","storage/mathsquicktext.txt",x1,y0 +2*ydec,'@',256,true);
-   
-   Heatmaptotal * heatanglais = new Heatmaptotal(ui->heatmapsupport,"Anglais","storage/mathsquicktext.txt",x1,y0+3*ydec,'~', 300,true);
-
-   Heatmaptotal * heatfasttyping = new Heatmaptotal(ui->heatmapsupport,"Dactylographie","storage/mathsquicktext.txt",x2,y0+3*ydec,'%',164,true);
- 
-   Heatmaptotal * heatgeo = new Heatmaptotal(ui->heatmapsupport,"Géographie","storage/mathsquicktext.txt",x1, y0 + 4* ydec,'$',210,true);
-
-   Heatmaptotal * heatchess = new Heatmaptotal(ui->heatmapsupport,"Chess","storage/mathsquicktext.txt",x2,y0 +4 * ydec,'$',164,true);
-
-   Heatmaptotal * heathealth = new Heatmaptotal(ui->heatmapsupport,"Health","storage/mathsquicktext.txt",x1, y0 + 5* ydec,'$',140,true);
-
-   Heatmaptotal * heatsleep = new Heatmaptotal(ui->heatmapsupport,"Sleep","storage/mathsquicktext.txt",x2,y0 +5 * ydec,'$',250,true);
-
+   for(int i = 0; i<6;i++){
+   Heatmaptotal * heatmaths = new Heatmaptotal(ui->heatmapsupport,skills_list[i].name,skills_list[i].txtpath,x1,y0+i*ydec,'*',skills_list[i].hsl,true);
+   }
+   for(int i = 6; i<12;i++){
+   Heatmaptotal * heatmaths = new Heatmaptotal(ui->heatmapsupport,skills_list[i].name,skills_list[i].txtpath,x2,y0+(i-6)*ydec,'*',skills_list[i].hsl,true);
+   }
 }
-
-
 
 MainWindow::~MainWindow(){
   delete ui;
@@ -307,7 +305,7 @@ void MainWindow::on_actionSave_All_triggered(){
  for (int i = 0; i < nbskills;i++){
   int index = indexoffset + i;
   
-  QString fileName =  skills[i].txtpath;
+  QString fileName =  skills_list[i].txtpath;
   QFile file(fileName);
   if (!file.open(QFile::WriteOnly | QFile::Text)){
     QMessageBox::warning(this,"warning","Cannot save file : " + file.errorString());
@@ -316,7 +314,7 @@ void MainWindow::on_actionSave_All_triggered(){
   QTextStream out(&file);
 
 
-  QString text = (skills[i].edit)->toPlainText();
+  QString text = (skills_list[i].edit)->toPlainText();
   out << text;
   file.close();}
  

@@ -384,7 +384,7 @@ text-align:lcenter;
                   </font>
                  </property>
                  <property name="currentIndex">
-                  <number>0</number>
+                  <number>1</number>
                  </property>
                  <widget class="QWidget" name="tabmain">
                   <attribute name="title">
@@ -1488,7 +1488,7 @@ p, li { white-space: pre-wrap; }
                <item row="0" column="0">
                 <widget class="QTabWidget" name="statsWidget">
                  <property name="currentIndex">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                  <widget class="QWidget" name="heatmapsupport">
                   <attribute name="title">

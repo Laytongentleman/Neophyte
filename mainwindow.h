@@ -7,6 +7,10 @@
 #include "custombutton.h"
 #include <QTabWidget>
 #include <QPlainTextEdit>
+#include "heatmaptotal.h"
+//#include "myskills.h"
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui {class MainWindow;}
 QT_END_NAMESPACE

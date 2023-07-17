@@ -57,8 +57,7 @@ SOURCES       = custombutton.cpp \
 		heatmaptotal.cpp \
 		main.cpp \
 		mainwindow.cpp \
-		timelogic.cpp \
-		skills.cpp qrc_ressources.cpp \
+		timelogic.cpp qrc_ressources.cpp \
 		moc_custombutton.cpp \
 		moc_heatmap.cpp \
 		moc_heatmaptotal.cpp \
@@ -69,7 +68,6 @@ OBJECTS       = custombutton.o \
 		main.o \
 		mainwindow.o \
 		timelogic.o \
-		skills.o \
 		qrc_ressources.o \
 		moc_custombutton.o \
 		moc_heatmap.o \
@@ -451,8 +449,7 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		heatmaptotal.cpp \
 		main.cpp \
 		mainwindow.cpp \
-		timelogic.cpp \
-		skills.cpp
+		timelogic.cpp
 QMAKE_TARGET  = neophyte
 DESTDIR       = 
 TARGET        = neophyte
@@ -1212,7 +1209,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents ressources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib64/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents custombutton.h heatmap.h heatmaptotal.h mainwindow.h timelogic.h ui_mainwindow.h ui_menu.h ui_sliders.h skills.h $(DISTDIR)/
-	$(COPY_FILE) --parents custombutton.cpp heatmap.cpp heatmaptotal.cpp main.cpp mainwindow.cpp timelogic.cpp skills.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents custombutton.cpp heatmap.cpp heatmaptotal.cpp main.cpp mainwindow.cpp timelogic.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
 
@@ -1292,12 +1289,15 @@ moc_heatmap.cpp: heatmap.h \
 	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include heatmap.h -o moc_heatmap.cpp
 
 moc_heatmaptotal.cpp: heatmaptotal.h \
+		ui_mainwindow.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
 	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include heatmaptotal.h -o moc_heatmaptotal.cpp
 
 moc_mainwindow.cpp: mainwindow.h \
 		custombutton.h \
+		heatmaptotal.h \
+		ui_mainwindow.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
 	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
@@ -1330,29 +1330,26 @@ heatmap.o: heatmap.cpp heatmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o heatmap.o heatmap.cpp
 
 heatmaptotal.o: heatmaptotal.cpp heatmaptotal.h \
-		heatmap.h \
-		mainwindow.h \
-		custombutton.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		heatmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o heatmaptotal.o heatmaptotal.cpp
 
 main.o: main.cpp mainwindow.h \
 		custombutton.h \
+		heatmaptotal.h \
+		ui_mainwindow.h \
 		timelogic.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
 		custombutton.h \
+		heatmaptotal.h \
 		ui_mainwindow.h \
-		heatmap.h \
-		heatmaptotal.h
+		skills.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 timelogic.o: timelogic.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o timelogic.o timelogic.cpp
-
-skills.o: skills.cpp skills.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o skills.o skills.cpp
 
 qrc_ressources.o: qrc_ressources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_ressources.o qrc_ressources.cpp

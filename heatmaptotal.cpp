@@ -2,15 +2,14 @@
 #include <QLabel>
 #include "heatmap.h"
 #include "QDebug"
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
 
 
 using namespace std;
-Heatmaptotal::Heatmaptotal(QWidget *parent,const char* title,const char * path,int posx , int posy, char symb,int color, bool showmonth)
+Heatmaptotal::Heatmaptotal(QWidget *parent,QString title,QString path,int posx , int posy, char symb,int* color, bool showmonth)
   : QWidget(parent)
 {
  int year = 2023;
@@ -58,7 +57,7 @@ QTextStream s1(&file);
        if ((1+j)+(i)*7 <= 366) {
  //int a = rand()%255;
 char buff[400];
-  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, 70%, 100% );}*:hover{border: 1rem solid;background-color: hsl(%d, 70%, 50% );}",color,color);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, %d%, 100% );}*:hover{border: 1rem solid;background-color: hsl(%d, %d%, 70% );}",color[0],color[1],color[0],color[1]);
   std::string buffAsStdStr = buff;
   Heatmap* test = new Heatmap(parent);
   test->move(posx + i*14,yoff + j*14);
@@ -103,9 +102,9 @@ char buff[400];
     if (sLine[0] == '|') {
       if (registering == true){
         char buff[400];
-        int a = min((int)(score),17);
-  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, 70%, %d% );}*:hover{border: 1rem solid;background-color: hsl(%d, 70%, 50% );}",color,100-(a*7),color);
+        int a = min((int)(score),15);
 
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, %d%, %d% );}*:hover{border: 1rem solid;background-color: hsl(%d, %d, 50% );}",color[0],color[1],max(0,100-((a*7)+color[2])),color[0],color[1]);
   
    harray[m][d]->setStyleSheet(buff);
       }
@@ -152,7 +151,7 @@ char buff[400];
         streakok = true;
         char buff[400];
         int a = min((int)(score*25),255);
-  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, 70%, %d% );}*:hover{border: 1rem solid;background-color: hsl(%d, 70%, 50% );}",color,100-(a*7),color);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, %d%, %d% );}*:hover{border: 1rem solid;background-color: hsl(%d, %d, 50% );}",color[0],color[1],max(0,100-((a*7)+color[2])),color[0],color[1]);
   harray[m][d]->setStyleSheet(buff);
       } 
 

@@ -974,12 +974,12 @@ public:
         retranslateUi(MainWindow);
 
         mainstack->setCurrentIndex(0);
-        TabWidget_maths->setCurrentIndex(0);
+        TabWidget_maths->setCurrentIndex(1);
         TabWidget_4->setCurrentIndex(0);
         TabWidget_3->setCurrentIndex(1);
         TabWidget_5->setCurrentIndex(0);
         TabWidget->setCurrentIndex(0);
-        statsWidget->setCurrentIndex(2);
+        statsWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

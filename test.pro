@@ -23,13 +23,12 @@ HEADERS += custombutton.h \
            ui_mainwindow.h \
            ui_menu.h \
            ui_sliders.h \
-           skills.h
+           skills.h 
 FORMS += mainwindow.ui 
 SOURCES += custombutton.cpp \
            heatmap.cpp \
            heatmaptotal.cpp \
            main.cpp \
            mainwindow.cpp \
-           timelogic.cpp \
-           skills.cpp
+           timelogic.cpp 
 RESOURCES += ressources.qrc
