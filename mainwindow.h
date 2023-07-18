@@ -40,6 +40,8 @@ void on_startbutton_clicked();
 void on_statsbutton_clicked(); 
 void heatmapsetup();
 void addskillstabs();
+void clearLayout(QLayout* layout, bool deleteWidgets);
+bool eventFilter(QObject *obj, QEvent *event);
 
 private:
     CustomButton * m_customBtnBonjour;

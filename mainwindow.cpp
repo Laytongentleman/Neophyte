@@ -12,12 +12,14 @@
 #include <QGraphicsEffect>
 #include <QWebEngineView>
 #include <QGridLayout>
-
+#include <QStatusBar>
 
 
 
 #include "skills.h"
 
+
+   Heatmaptotal* heats[12];
 int nbskills = 12;
   int hsl[3]=  {200,70,0};
   Skill maths("Maths",1,"storage/mathsquicktext.txt",hsl) ;
@@ -80,8 +82,18 @@ setWindowIcon(QIcon("icon.png"));
    (ui->mainstack)->setCurrentIndex(0);
    (ui->stackedWidget)->setCurrentIndex(7);
    (ui->statsWidget)->setCurrentIndex(0);
+
    heatmapsetup();
    addskillstabs();
+}
+bool MainWindow::eventFilter(QObject *obj, QEvent *event)
+{
+  if (event->type() == QEvent::MouseMove)
+  {
+    QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+    statusBar()->showMessage(QString("Mouse move (%1,%2)").arg(mouseEvent->pos().x()).arg(mouseEvent->pos().y()));
+  }
+  return false;
 }
 
 void MainWindow::addskillstabs(){
@@ -139,7 +151,7 @@ std::string currentdate = currentdateqs.toUtf8().constData();
   QLabel* m_label = new QLabel(ui->heatmapsupport);
   m_label->setText(qstr);
 bool found = false;
-for (int i =0; i < 10; i++) 
+for (int i =0; i < 11; i++) 
 {
     if (currentdateqs[i] != qstr[i]) {
         found = true;
@@ -161,11 +173,12 @@ void MainWindow::heatmapsetup(){
    int x2 = 840;
    int y0 = 60 ;
    int ydec = 150;
+
    for(int i = 0; i<6;i++){
-   Heatmaptotal * heatmaths = new Heatmaptotal(ui->heatmapsupport,skills_list[i].name,skills_list[i].txtpath,x1,y0+i*ydec,'*',skills_list[i].hsl,true);
+   heats[i] = new Heatmaptotal(ui->heatmapsupport,skills_list[i].name,skills_list[i].txtpath,x1,y0+i*ydec,'*',skills_list[i].hsl,true);
    }
    for(int i = 6; i<12;i++){
-   Heatmaptotal * heatmaths = new Heatmaptotal(ui->heatmapsupport,skills_list[i].name,skills_list[i].txtpath,x2,y0+(i-6)*ydec,'*',skills_list[i].hsl,true);
+   heats[i]= new Heatmaptotal(ui->heatmapsupport,skills_list[i].name,skills_list[i].txtpath,x2,y0+(i-6)*ydec,'*',skills_list[i].hsl,true);
    }
 }
 
@@ -276,30 +289,22 @@ journaux[x]->insertPlainText (qstr + "\n");;
 }*/
 }
 
-
+void MainWindow::clearLayout(QLayout* layout, bool deleteWidgets){
+  while (QLayoutItem* item = layout->takeAt(0))
+        {
+          if (deleteWidgets)
+          {
+              if (QWidget* widget = item->widget())
+                  widget->deleteLater();
+          }
+          if (QLayout* childLayout = item->layout())
+              clearLayout(childLayout, deleteWidgets);
+          delete item;
+      }
+}
 
 
 void MainWindow::on_actionSave_All_triggered(){
-  /*QString fileName = (ui->TabWidget)->tabToolTip(ui->TabWidget->currentIndex());
-  if (fileName == "Untitled"){
-    MainWindow::on_actionSave_As_triggered();
-    return;
-  }
-  QFile file(fileName);
-  if (!file.open(QFile::WriteOnly | QFile::Text)){
-    QMessageBox::warning(this,"warning","Cannot save file : " + file.errorString());
-    return;
-  }
-  QTextStream out(&file);
-  QString text = MainWindow::currentTextEdit()->toPlainText();
-  out << text;
-  file.close();
-  QString newTabText = (ui->TabWidget)->tabText((ui->TabWidget)->currentIndex()).remove(0,1);
-  (ui->TabWidget)->setTabText((ui->TabWidget)->currentIndex(),newTabText); 
-  */
-
-  
-
 
   int indexoffset = 3; 
  for (int i = 0; i < nbskills;i++){
@@ -317,8 +322,11 @@ void MainWindow::on_actionSave_All_triggered(){
   QString text = (skills_list[i].edit)->toPlainText();
   out << text;
   file.close();}
- 
+   
+
+  qDeleteAll(ui->heatmapsupport->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
   
+  heatmapsetup();
 }
 
 
