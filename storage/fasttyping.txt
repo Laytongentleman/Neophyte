@@ -1,5 +1,13 @@
 |2023-07-18 10:19:56
-
+Total Time:
+00:20:11
+Total Lessons:
+75
+Top Speed (wpm):
+113.5
+Average Speed (wpm):
+91.8
+***
 |2023-07-17 15:00:00 
  * * *
 

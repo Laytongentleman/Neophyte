@@ -3,6 +3,7 @@
 #include "heatmap.h"
 #include "QDebug"
 
+#include <cmath>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -30,14 +31,14 @@ Heatmaptotal::Heatmaptotal(QWidget *parent,QString title,QString path,int posx ,
  QLabel* name = new QLabel(parent);
  name->setText(title);
  name->setMinimumSize(500,0);
- name->move(posx+150 ,posy-50);
+ name->move(posx ,posy-50);
 
 
 
 QFile file(path);
 
 
-
+  int beststreak = -1;
 if(file.open(QFile::ReadOnly | QFile::Text))
   {
 QString line;
@@ -85,8 +86,11 @@ char buff[400];
     int m=0;
 
  int score = 0;
-
+  int totalscore = 0;
+  int nbdays = 0;
   int streak = -1;
+  int sousstreak = -1;
+
   bool streakbroken = false;
   bool streakok = true;
   int i = 0;
@@ -102,15 +106,15 @@ char buff[400];
     if (sLine[0] == '|') {
       if (registering == true){
         char buff[400];
+        nbdays++;
         int a = min((int)(score),15);
 
-  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, %d%, %d% );}*:hover{border: 1rem solid;background-color: hsl(%d, %d, 50% );}",color[0],color[1],max(0,100-((a*7)+color[2])),color[0],color[1]);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, %d%, %d% );}*:hover{border: 1rem solid;background-color: hsl(%d, %d, 50% );}",color[0],color[1],max(40,100-((int)(a)*7+color[2])),color[0],color[1]);
   
    harray[m][d]->setStyleSheet(buff);
       }
       struct tm tm;
            //char buf[255];
-
            sLine.erase(0,1);
            memset(&tm, 0, sizeof(tm));
           const char * sline2 = sLine.c_str();
@@ -121,10 +125,18 @@ char buff[400];
            d = tm.tm_mday;
            m =tm.tm_mon ;
            // on brise la streak que si la streak est brisé avant aujourd'hui et pas le futur
-          
+   
+
+          if (streakok){
+            sousstreak++;
+              if (sousstreak > beststreak){beststreak = sousstreak;}
+          }else{sousstreak = 0;}
+            // pour streak depuis auj:
            if (not streakbroken  )  {
            if (streakok){
            streak++;
+           if (streak > beststreak){
+           }
            }
            else{
              streakbroken = true;
@@ -140,7 +152,7 @@ char buff[400];
       int countch = 0;
       int l = sLine.length();
       for (int i = 0; i < l;i++) {
-        if (sLine[countch] == symb){ score++; streakok = true;}
+        if (sLine[countch] == symb){ score++;totalscore++; streakok = true;}
         countch++;
         if (sLine[countch] == '_'){ score--;}
 
@@ -151,16 +163,31 @@ char buff[400];
         streakok = true;
         char buff[400];
         int a = min((int)(score*25),255);
-  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, %d%, %d% );}*:hover{border: 1rem solid;background-color: hsl(%d, %d, 50% );}",color[0],color[1],max(0,100-((a*7)+color[2])),color[0],color[1]);
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, %d%, %d% );}*:hover{border: 1rem solid;background-color: hsl(%d, %d, 50% );}",color[0],color[1],max(40,100-((int)(a)*7+color[2])),color[0],color[1]);
   harray[m][d]->setStyleSheet(buff);
       } 
 
  QLabel* curstreak = new QLabel(parent);
  char buff[50];
- snprintf(buff, sizeof(buff), "current streak : %d", streak);
+ snprintf(buff, sizeof(buff), "Streak : %d", streak);
 
  curstreak->setText(buff);
- curstreak->move(posx+560,yoff - 50);
+ curstreak->setGeometry(posx+170,posy-75,800,80);
+
+ QLabel* beststreaklabel = new QLabel(parent);
+ buff[50];
+ snprintf(buff, sizeof(buff), "Best : %d", beststreak);
+ beststreaklabel->setText(buff);
+ beststreaklabel->setGeometry(posx+320,posy-75,800,80);
+ 
+ float avg = (float)totalscore/(float)nbdays;
+ QLabel* avg_label = new QLabel(parent);
+ buff[50];
+ snprintf(buff, sizeof(buff), "Avg : %.2f", avg);
+ avg_label->setText(buff);
+ avg_label->setGeometry(posx+470,posy-75,800,80);
+
+
 }
    else
     {

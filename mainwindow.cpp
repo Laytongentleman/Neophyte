@@ -149,7 +149,7 @@ QString currentdateqs = newedit->toPlainText();
 
 std::string currentdate = currentdateqs.toUtf8().constData();
   QLabel* m_label = new QLabel(ui->heatmapsupport);
-  m_label->setText(qstr);
+ // m_label->setText(qstr);
 bool found = false;
 for (int i =0; i < 11; i++) 
 {
@@ -171,8 +171,8 @@ newedit->insertPlainText (qstr + "\n");;
 void MainWindow::heatmapsetup(){
    int x1 = 20;
    int x2 = 840;
-   int y0 = 60 ;
-   int ydec = 150;
+   int y0 = 50 ;
+   int ydec = 148;
 
    for(int i = 0; i<6;i++){
    heats[i] = new Heatmaptotal(ui->heatmapsupport,skills_list[i].name,skills_list[i].txtpath,x1,y0+i*ydec,'*',skills_list[i].hsl,true);
@@ -322,7 +322,7 @@ void MainWindow::on_actionSave_All_triggered(){
   QString text = (skills_list[i].edit)->toPlainText();
   out << text;
   file.close();}
-   
+ 
 
   qDeleteAll(ui->heatmapsupport->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
   
