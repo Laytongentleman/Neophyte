@@ -2,9 +2,9 @@
 #include "mainwindow.h"
 #include <QPushButton>
 #include "timelogic.h"
+#include <QStandardPaths>
 int main (int argc, char *argv[]){
-system("backup.sh");
-  update_date();
+update_date();
   QApplication a (argc, argv);
 
   MainWindow w;

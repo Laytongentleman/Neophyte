@@ -22,7 +22,7 @@
    Heatmaptotal* heats[12];
 int nbskills = 12;
   int hsl[3]=  {200,70,0};
-  QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/Neophyte/";
+  QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/neophyte/";
 
   Skill maths("Maths",1,path + "mathsquicktext.txt",hsl) ;
 //  hsl[0] = 180;
@@ -70,8 +70,10 @@ MainWindow::MainWindow(QWidget *parent)
   , ui (new Ui::MainWindow)
 {
   ui->setupUi(this);
+  QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/icon.png";
 
-setWindowIcon(QIcon("icon.png"));
+
+setWindowIcon(QIcon(path));
   //tabsWidget->setParent(ui->center);
   setWindowTitle("Ma super app !");
   (ui->TabWidget)->setMovable(true);

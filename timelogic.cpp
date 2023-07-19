@@ -9,7 +9,7 @@ using namespace std;
 
 void update_date()
 {
-  QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/Neophyte/";
+  QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/neophyte/";
     /*delete all problems */
 
 std::ofstream ofs;
