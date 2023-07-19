@@ -1290,6 +1290,9 @@ moc_heatmap.cpp: heatmap.h \
 
 moc_heatmaptotal.cpp: heatmaptotal.h \
 		ui_mainwindow.h \
+		mainwindow.h \
+		custombutton.h \
+		heatmaptotal.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
 	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include heatmaptotal.h -o moc_heatmaptotal.cpp
@@ -1298,6 +1301,7 @@ moc_mainwindow.cpp: mainwindow.h \
 		custombutton.h \
 		heatmaptotal.h \
 		ui_mainwindow.h \
+		mainwindow.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
 	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
@@ -1331,6 +1335,8 @@ heatmap.o: heatmap.cpp heatmap.h
 
 heatmaptotal.o: heatmaptotal.cpp heatmaptotal.h \
 		ui_mainwindow.h \
+		mainwindow.h \
+		custombutton.h \
 		heatmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o heatmaptotal.o heatmaptotal.cpp
 

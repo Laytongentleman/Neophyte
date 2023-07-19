@@ -1,5 +1,8 @@
+|2023-07-19 08:50:44
+pdlf: 56
 |2023-07-18 10:19:56
-PDLF: 1 *
+PDLF: 1234 ****
+
 Remarque : Si l'on suit les recommandations du Conseil supérieur de la langue française de 1990 (nouvelle orthographe), on n'accorde plus les participes « fait » et « laissé » suivis immédiatement d'un infinitif.
 |2023-07-17 15:00:00 
 lu le français * quelques page du bon chapitre CC

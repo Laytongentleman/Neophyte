@@ -4,12 +4,13 @@
 #include "timelogic.h"
 int main (int argc, char *argv[]){
 system("backup.sh");
+  update_date();
   QApplication a (argc, argv);
 
   MainWindow w;
  //QPushButton btn("Toto", &w);
 
-  update_date();
+
 
   w.setWindowState(Qt::WindowMaximized);
   //w.setWindowState(Qt::WindowFullScreen);

@@ -15,48 +15,50 @@
 #include <QStatusBar>
 
 
-
+#include <QStandardPaths>
 #include "skills.h"
 
 
    Heatmaptotal* heats[12];
 int nbskills = 12;
   int hsl[3]=  {200,70,0};
-  Skill maths("Maths",1,"storage/mathsquicktext.txt",hsl) ;
+  QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/Neophyte/";
+
+  Skill maths("Maths",1,path + "mathsquicktext.txt",hsl) ;
 //  hsl[0] = 180;
-  Skill physique("Physique",2,"storage/physiquequicktext.txt",hsl) ;
+  Skill physique("Physique",2,path + "physiquequicktext.txt",hsl) ;
   //hsl[0] = 270;
-  Skill informatique("Informatique",3,"storage/informatique.txt",hsl) ;
+  Skill informatique("Informatique",3,path + "informatique.txt",hsl) ;
 ;
   //hsl[0] = 325;
-  Skill francais("Français",4,"storage/francais.txt",hsl) ; 
+  Skill francais("Français",4,path + "francais.txt",hsl) ;
   //hsl[0] = 250;
-  Skill anglais("Anglais",5,"storage/anglais.txt",hsl) ; 
+  Skill anglais("Anglais",5,path +"anglais.txt",hsl) ;
   //hsl[0] = 40;
   //hsl[1] = 100;
-  Skill allemand("Allemand",6,"storage/allemand.txt",hsl) ; 
+  Skill allemand("Allemand",6,path + "allemand.txt",hsl) ;
    // hsl[0] = 360;
  //hsl[1] = 80;
 
-  Skill sport("Sport",7,"storage/sport.txt",hsl) ; 
+  Skill sport("Sport",7,path + "sport.txt",hsl) ;
    // hsl[0] = 115;
   //hsl[1] = 59
-  Skill health("Health",8,"storage/health.txt",hsl); 
+  Skill health("Health",8,path + "health.txt",hsl);
     //hsl[0] = 160;
  //hsl[1] = 60
-  Skill dactylo("Dactyolographie",9,"storage/fasttyping.txt",hsl) ;
+  Skill dactylo("Dactylographie",9,path + "fasttyping.txt",hsl) ;
    // hsl[0] = 27;
  //hsl[1] = 35
 
-  Skill geo("Geographie",10,"storage/geographie.txt",hsl) ;
+  Skill geo("Geographie",10,path + "geographie.txt",hsl) ;
    // hsl[0] = 260;
  //hsl[1] = 20
 
-  Skill sleep("Sleep",11,"storage/sleep.txt",hsl) ;
+  Skill sleep("Sleep",11,path + "sleep.txt",hsl) ;
    // hsl[0] = 144;
  //hsl[1] = 27
 
-  Skill chess("Chess",12,"storage/chess.txt",hsl);
+  Skill chess("Chess",12,path + "chess.txt",hsl);
   Skill skills_list[] = {maths,physique,informatique,francais,anglais,allemand,sport,health,dactylo,geo,sleep,chess};
 
 
@@ -136,7 +138,7 @@ void MainWindow::addskillstabs(){
   newedit->setPlainText(text);
   newedit->moveCursor (QTextCursor::Start);
 
-  QFile datefile("storage/date.txt");
+  QFile datefile(path + "date.txt");
   if (!datefile.open(QIODevice::ReadOnly | QFile::Text)){
     QMessageBox::warning( this, "Warning", "Cannot open file : " + datefile.errorString());
   }
@@ -149,7 +151,10 @@ QString currentdateqs = newedit->toPlainText();
 
 std::string currentdate = currentdateqs.toUtf8().constData();
   QLabel* m_label = new QLabel(ui->heatmapsupport);
- // m_label->setText(qstr);
+  m_label->setGeometry(0,0,500,80);
+  
+  //QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+  //m_label->setText(path);
 bool found = false;
 for (int i =0; i < 11; i++) 
 {

@@ -1,7 +1,7 @@
 #include <ctime>
 #include <iostream>
 #include<fstream>
-
+#include <QStandardPaths>
 #include <stdio.h>
 #include <time.h>
 using namespace std;
@@ -9,15 +9,20 @@ using namespace std;
 
 void update_date()
 {
+  QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/Neophyte/";
     /*delete all problems */
 
 std::ofstream ofs;
-ofs.open("storage/date.txt", std::ofstream::out | std::ofstream::trunc);
+QString path_date = path +"date.txt";
+
+std::string path_date_str = path_date.toUtf8().constData();
+const char * c = path_date_str.c_str();
+ofs.open(c, std::ofstream::out | std::ofstream::trunc);
 ofs.close();
    FILE * fp;
 
    /* open the file for writing*/
-   fp = fopen("storage/date.txt","w");
+   fp = fopen(c,"w");
  
    /* write time as text into the file stream*/
    char cur_time[128];

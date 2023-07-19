@@ -1,5 +1,7 @@
+|2023-07-19 08:50:44
+** cours somme et produit
 |2023-07-18 10:19:56
-
+*
 cours sommes
 |2023-07-17 15:00:00 
 somme et produits * 
@@ -18,7 +20,7 @@ geo francais philo uuuuuu
 |2023-07-14 12:05:55
 25 minutes sports 100 pompes focus épaules, pyke and pseudo $$ et 100 abs ressort le dos touche et haut abdos $$
 %%% finito
-maths:
+maths:*
 anglais:
 physique:
 info:

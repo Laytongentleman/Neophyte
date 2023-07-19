@@ -93,6 +93,7 @@ char buff[400];
 
   bool streakbroken = false;
   bool streakok = true;
+  bool skip = false;
   int i = 0;
   while(!s1.atEnd()) {
     i++;
@@ -107,9 +108,19 @@ char buff[400];
       if (registering == true){
         char buff[400];
         nbdays++;
+        if (not skip){
         int a = min((int)(score),15);
+        int accent = max(40,100-((int)(a)*5+color[2]));
+  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, %d%, %d% );}*:hover{border: 1rem solid;background-color: hsl(%d, %d, 50% );}",color[0],color[1],accent,color[0],color[1]);}else{
 
-  snprintf(buff, sizeof(buff), "QPushButton { border: none; border-radius: 1px; background-color: hsl(%d, %d%, %d% );}*:hover{border: 1rem solid;background-color: hsl(%d, %d, 50% );}",color[0],color[1],max(40,100-((int)(a)*7+color[2])),color[0],color[1]);
+        int a = 8 ;
+        int accent = max(40,100-((int)(a)*7+color[2]));
+
+  snprintf(buff, sizeof(buff), "QPushButton {  border-radius: 1px; background-color: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #fff, stop: .5 #fff, stop: .51 hsl(%d, %d%, %d% ), stop: 1 hsl(%d, %d%, %d% ));  }*:hover{border: 1rem solid;background-color: hsl(%d, %d, 50% );}",color[0],color[1],accent,color[0],color[1],accent,color[0],color[1]);
+
+
+
+  }
   
    harray[m][d]->setStyleSheet(buff);
       }
@@ -143,18 +154,17 @@ char buff[400];
            }
 
            }
+           skip = false;
            streakok = false;
            registering = true;
-
            score = 0;
     }
     else{
       int countch = 0;
       int l = sLine.length();
       for (int i = 0; i < l;i++) {
-        if (sLine[countch] == symb){ score++;totalscore++; streakok = true;}
-        countch++;
-        if (sLine[countch] == '_'){ score--;}
+        if (sLine[i] == symb){ score++;totalscore++; streakok = true;}
+        if (sLine[i] == '#'){ streakok = true; skip = true; printf("jaivuskip");}
 
       }
     }
