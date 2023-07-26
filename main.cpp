@@ -3,6 +3,7 @@
 #include <QPushButton>
 #include "timelogic.h"
 #include <QStandardPaths>
+#include <QStyle>
 int main (int argc, char *argv[]){
 update_date();
   QApplication a (argc, argv);
@@ -18,6 +19,7 @@ update_date();
   QFont newFont("Terminus", 14, QFont::Bold, true);
 //set font of application
   QApplication::setFont(newFont);
+  //a.setStyle("Windows");
 
  
   return a.exec();

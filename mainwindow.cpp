@@ -17,7 +17,7 @@
 
 #include <QStandardPaths>
 #include "skills.h"
-
+#include <QScrollArea>
 
    Heatmaptotal* heats[12];
 int nbskills = 12;
@@ -75,8 +75,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 setWindowIcon(QIcon(path));
   //tabsWidget->setParent(ui->center);
-  setWindowTitle("Ma super app !");
-  (ui->TabWidget)->setMovable(true);
+
+
+
+setWindowTitle("Ma super app !");
+
+(ui->TabWidget)->setMovable(true);
     (ui->TabWidget)->setTabsClosable(true);
     connect((ui->TabWidget), SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
     connect((ui->plainTextEdit_14),SIGNAL(textChanged()), this, SLOT(TextEditChanged()));
@@ -86,6 +90,7 @@ setWindowIcon(QIcon(path));
    (ui->mainstack)->setCurrentIndex(0);
    (ui->stackedWidget)->setCurrentIndex(7);
    (ui->statsWidget)->setCurrentIndex(0);
+
 
    heatmapsetup();
    addskillstabs();
