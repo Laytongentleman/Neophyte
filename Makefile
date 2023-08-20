@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_WEBENGINEWIDGETS_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_WEBENGINECORE_LIB -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_WEBCHANNEL_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_POSITIONING_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_WEBENGINEWIDGETS_LIB -DQT_PRINTSUPPORT_LIB -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_WEBENGINECORE_LIB -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_WEBCHANNEL_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_POSITIONING_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -O2 -fPIC -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -O2 -fPIC -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I. -I. -I/usr/lib64/qt5/mkspecs/linux-g++
+INCPATH       = -I. -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtCharts -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I. -I. -I/usr/lib64/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib64/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = neophyte1.0.0
 DISTDIR = /home/louis/info/sup/fun/Neophyte/.tmp/neophyte1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -L/usr/lib64 -Wl,-rpath,/usr/lib64 -Wl,-rpath-link,/usr/lib64
-LIBS          = $(SUBLIBS) /usr/lib64/libQt5WebEngineWidgets.so /usr/lib64/libQt5PrintSupport.so /usr/lib64/libQt5Widgets.so /usr/lib64/libQt5WebEngineCore.so /usr/lib64/libQt5Quick.so /usr/lib64/libQt5Gui.so /usr/lib64/libQt5QmlModels.so /usr/lib64/libQt5WebChannel.so /usr/lib64/libQt5Qml.so /usr/lib64/libQt5Network.so /usr/lib64/libQt5Positioning.so /usr/lib64/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) /usr/lib64/libQt5WebEngineWidgets.so /usr/lib64/libQt5PrintSupport.so /usr/lib64/libQt5Charts.so /usr/lib64/libQt5Widgets.so /usr/lib64/libQt5WebEngineCore.so /usr/lib64/libQt5Quick.so /usr/lib64/libQt5Gui.so /usr/lib64/libQt5QmlModels.so /usr/lib64/libQt5WebChannel.so /usr/lib64/libQt5Qml.so /usr/lib64/libQt5Network.so /usr/lib64/libQt5Positioning.so /usr/lib64/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -1242,6 +1242,7 @@ qrc_ressources.cpp: ressources.qrc \
 		storage/date.txt \
 		storage/mathsquicktext.txt \
 		res/honorball.png \
+		res/Chamallot.png \
 		res/graph.png \
 		res/volley0.png \
 		res/volley1.png \
@@ -1252,6 +1253,7 @@ qrc_ressources.cpp: ressources.qrc \
 		res/ballshine.png \
 		res/hoothoot.png \
 		res/prism.png \
+		res/Pichu.png \
 		res/tetarte.png \
 		res/Chapignon.png \
 		res/ronflex.png \
@@ -1259,14 +1261,18 @@ qrc_ressources.cpp: ressources.qrc \
 		res/Voltorbe.png \
 		res/Simularbre.png \
 		res/fantominus.png \
+		res/Pikachu.png \
 		res/professor-layton-steam.png \
 		res/triballs.png \
 		res/maril.png \
+		res/Charmander.png \
+		res/Florizarre.png \
 		res/coffeecup0.png \
-		res/coffeecup1.png \
 		res/metamorph.png \
+		res/coffeecup1.png \
 		res/Miaouss.png \
-		res/massball.png
+		res/massball.png \
+		res/florizarremotion.png
 	/usr/lib64/qt5/bin/rcc -name ressources ressources.qrc -o qrc_ressources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -1281,12 +1287,12 @@ compiler_moc_header_clean:
 moc_custombutton.cpp: custombutton.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
-	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include custombutton.h -o moc_custombutton.cpp
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtCharts -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include custombutton.h -o moc_custombutton.cpp
 
 moc_heatmap.cpp: heatmap.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
-	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include heatmap.h -o moc_heatmap.cpp
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtCharts -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include heatmap.h -o moc_heatmap.cpp
 
 moc_heatmaptotal.cpp: heatmaptotal.h \
 		ui_mainwindow.h \
@@ -1295,7 +1301,7 @@ moc_heatmaptotal.cpp: heatmaptotal.h \
 		heatmaptotal.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
-	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include heatmaptotal.h -o moc_heatmaptotal.cpp
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtCharts -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include heatmaptotal.h -o moc_heatmaptotal.cpp
 
 moc_mainwindow.cpp: mainwindow.h \
 		custombutton.h \
@@ -1304,7 +1310,7 @@ moc_mainwindow.cpp: mainwindow.h \
 		mainwindow.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
-	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include /home/louis/info/sup/fun/Neophyte/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/louis/info/sup/fun/Neophyte -I/home/louis/info/sup/fun/Neophyte -I/usr/include/qt5 -I/usr/include/qt5/QtWebEngineWidgets -I/usr/include/qt5/QtPrintSupport -I/usr/include/qt5/QtCharts -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtWebEngineCore -I/usr/include/qt5/QtQuick -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtQmlModels -I/usr/include/qt5/QtWebChannel -I/usr/include/qt5/QtQml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtPositioning -I/usr/include/qt5/QtCore -I/usr/include/c++/11.2.0 -I/usr/include/c++/11.2.0/x86_64-slackware-linux -I/usr/include/c++/11.2.0/backward -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

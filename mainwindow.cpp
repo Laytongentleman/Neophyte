@@ -18,7 +18,12 @@
 #include <QStandardPaths>
 #include "skills.h"
 #include <QScrollArea>
+#include <QtCharts>
 
+
+//using namespace QtCharts;
+int startyear =2023;
+int currentyear = 2025;
    Heatmaptotal* heats[12];
 int nbskills = 12;
   int hsl[3]=  {200,70,0};
@@ -90,9 +95,20 @@ setWindowTitle("Ma super app !");
    (ui->mainstack)->setCurrentIndex(0);
    (ui->stackedWidget)->setCurrentIndex(7);
    (ui->statsWidget)->setCurrentIndex(0);
+   
+   QChartView * vchart = new QChartView(ui->graphssupport);
+   QLineSeries* series = new QLineSeries(ui->graphssupport);
+   series->append(0, 0);
+   series->append(50, 4); 
+   series->append(51,5);
+   series->append(52,6);
 
 
-   heatmapsetup();
+   vchart->chart()->addSeries(series);
+   vchart->chart()->createDefaultAxes();
+   vchart->setGeometry(0,0,1000,800);
+
+heatmapsetup();
    addskillstabs();
 }
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)

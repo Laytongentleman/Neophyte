@@ -1,5 +1,11 @@
 <RCC>
   <qresource prefix="/">
+    <file>res/Charmander.png</file>
+    <file>res/Chamallot.png</file>
+    <file>res/Pichu.png</file>
+    <file>res/Pikachu.png</file>
+    <file>res/Florizarre.png</file>
+    <file>res/florizarremotion.png</file>
     <file>storage/date.txt</file>
     <file>res/ballshine.png</file>
     <file>res/Chapignon.png</file>
@@ -26,7 +32,6 @@
     <file>res/volley0.png</file>
     <file>res/volley1.png</file>
     <file>res/volley3.png</file>
-
     <file>storage/mathsquicktext.txt</file>
     <file>res/professor-layton-steam.png</file>
   </qresource>
