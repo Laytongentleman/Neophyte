@@ -23,32 +23,46 @@
 
 //using namespace QtCharts;
 int startyear =2023;
-int currentyear = 2025;
+  int currentyear = 2025;
    Heatmaptotal* heats[12];
-int nbskills = 12;
-  int hsl[3]=  {200,70,0};
-  QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/neophyte/";
+  int nbskills = 12;
+  int hsl[3]=  {227,69,0};
 
-  Skill maths("Maths",1,path + "mathsquicktext.txt",hsl) ;
+  QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/neophyte/";
+  int hslmaths[3] = {340,90,0};
+  Skill maths("Maths",1,path + "mathsquicktext.txt",hslmaths) ;
 //  hsl[0] = 180;
-  Skill physique("Physique",2,path + "physiquequicktext.txt",hsl) ;
+  //hsl[0]=59 ;
+  //hsl[1] =95;
+  int hslphy[3]=  {59,95,0};
+ int hslsport[3]=  {353,80,0};
+  int hslallemand[3]=  {36,100,0};
+ int hslfr[3]=  {15,40,0};
+ int hslang[3]=  {227,69,0};
+
+ int hslsleep[3]=  {90,69,0};
+ int hslhealth[3]=  {140,73,0};
+ int hslchess[3]=  {227,69,0};
+
+  Skill physique("Physique",2,path + "physiquequicktext.txt",hslphy) ;
   //hsl[0] = 270;
-  Skill informatique("Informatique",3,path + "informatique.txt",hsl) ;
+  int hslinfo[3]=  {276,66,0};
+  Skill informatique("Informatique",3,path + "informatique.txt",hslinfo) ;
 ;
   //hsl[0] = 325;
-  Skill francais("Français",4,path + "francais.txt",hsl) ;
+  Skill francais("Français",4,path + "francais.txt",hslfr) ;
   //hsl[0] = 250;
-  Skill anglais("Anglais",5,path +"anglais.txt",hsl) ;
+  Skill anglais("Anglais",5,path +"anglais.txt",hslang) ;
   //hsl[0] = 40;
   //hsl[1] = 100;
-  Skill allemand("Allemand",6,path + "allemand.txt",hsl) ;
+  Skill allemand("Allemand",6,path + "allemand.txt",hslallemand) ;
    // hsl[0] = 360;
  //hsl[1] = 80;
 
-  Skill sport("Sport",7,path + "sport.txt",hsl) ;
+  Skill sport("Sport",7,path + "sport.txt",hslsport) ;
    // hsl[0] = 115;
   //hsl[1] = 59
-  Skill health("Health",8,path + "health.txt",hsl);
+  Skill health("Health",8,path + "health.txt",hslhealth);
     //hsl[0] = 160;
  //hsl[1] = 60
   Skill dactylo("Dactylographie",9,path + "fasttyping.txt",hsl) ;
@@ -59,14 +73,12 @@ int nbskills = 12;
    // hsl[0] = 260;
  //hsl[1] = 20
 
-  Skill sleep("Sleep",11,path + "sleep.txt",hsl) ;
+  Skill sleep("Sleep",11,path + "sleep.txt",hslsleep) ;
    // hsl[0] = 144;
  //hsl[1] = 27
 
-  Skill chess("Chess",12,path + "chess.txt",hsl);
+  Skill chess("Chess",12,path + "chess.txt",hslchess);
   Skill skills_list[] = {maths,physique,informatique,francais,anglais,allemand,sport,health,dactylo,geo,sleep,chess};
-
-
 
 
 using namespace std;
@@ -75,10 +87,19 @@ MainWindow::MainWindow(QWidget *parent)
   , ui (new Ui::MainWindow)
 {
   ui->setupUi(this);
-  QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/icon.png";
 
 
-setWindowIcon(QIcon(path));
+
+
+
+
+
+
+
+QString pathicon = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/icon.png";
+
+
+setWindowIcon(QIcon(pathicon));
   //tabsWidget->setParent(ui->center);
 
 
