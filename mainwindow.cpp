@@ -21,6 +21,20 @@
 #include <QtCharts>
 
 
+// timelogic
+#include <ctime>
+#include <iostream>
+#include<fstream>
+#include <QStandardPaths>
+#include <stdio.h>
+#include <time.h>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <iostream>
+
+
+
 //using namespace QtCharts;
 int startyear =2023;
   int currentyear = 2025;
@@ -34,13 +48,13 @@ int startyear =2023;
 //  hsl[0] = 180;
   //hsl[0]=59 ;
   //hsl[1] =95;
-  int hslphy[3]=  {59,95,0};
+  int hslphy[3]=  {23,100,0};
  int hslsport[3]=  {353,80,0};
   int hslallemand[3]=  {36,100,0};
  int hslfr[3]=  {15,40,0};
  int hslang[3]=  {227,69,0};
 
- int hslsleep[3]=  {90,69,0};
+ int hslsleep[3]=  {250,50,60};
  int hslhealth[3]=  {140,73,0};
  int hslchess[3]=  {227,69,0};
 
@@ -129,9 +143,20 @@ setWindowTitle("Ma super app !");
    vchart->chart()->createDefaultAxes();
    vchart->setGeometry(0,0,1000,800);
 
+
 heatmapsetup();
    addskillstabs();
 }
+
+
+// function to parse a date or time string.
+time_t parseDateTime(const char* datetimeString, const char* format)
+{
+    struct tm tmStruct;
+    strptime(datetimeString, format, &tmStruct);
+    return mktime(&tmStruct);
+} 
+
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
   if (event->type() == QEvent::MouseMove)
@@ -189,9 +214,14 @@ void MainWindow::addskillstabs(){
 
   QTextStream streamdate(&datefile);
 
-  QString qstr = "|" + streamdate.readAll();//QString::fromStdString(s);
 
+
+  QString qstr = "|" + streamdate.readAll();//QString::fromStdString(s);
+   char cur_time[128];
+
+  
 QString currentdateqs = newedit->toPlainText();
+
 
 std::string currentdate = currentdateqs.toUtf8().constData();
   QLabel* m_label = new QLabel(ui->heatmapsupport);
@@ -199,20 +229,62 @@ std::string currentdate = currentdateqs.toUtf8().constData();
   
   //QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
   //m_label->setText(path);
-bool found = false;
-for (int i =0; i < 11; i++) 
-{
-    if (currentdateqs[i] != qstr[i]) {
-        found = true;
 
 
-        //break;
-    }
-}
-if (found) {
-newedit->insertPlainText (qstr + "\n");;
-}  file.close();
- 
+
+  string lastdate_entered = (currentdate.substr(1, 19));
+  const char* constlastdate_entered = lastdate_entered.c_str();
+
+  for(int i = 0;i<20;i++){
+    putchar(constlastdate_entered[i]);
+  }
+  time_t t3 = time(NULL); 
+  struct tm tes;
+  struct tm * targetptm=&tes;
+  
+  struct tm * dummy = localtime(&t3); 
+  targetptm->tm_mday = dummy->tm_mday;
+
+  targetptm->tm_yday = dummy->tm_yday;
+
+  targetptm->tm_year = dummy->tm_year;
+
+  time_t      t;
+   struct tm*  ptm;
+  const char* format = "%Y-%m-%d %H:%M:%S";
+  time_t lasttime = parseDateTime(constlastdate_entered, format);
+  ptm = localtime(&lasttime);
+
+
+
+
+  /*printf("ptm %d", ptm->tm_mday);
+  printf("target %d", targetptm->tm_mday);*/
+  bool datediff = (ptm->tm_yday!=targetptm->tm_yday) || (ptm->tm_year!=targetptm->tm_year) ;
+
+  int limit =0;
+    while(datediff && limit<30){
+       limit++;
+
+
+  ptm->tm_mday+=1;
+  time_t t2=mktime(ptm);
+  ptm=localtime(&t2);
+
+  newedit->moveCursor (QTextCursor::Start);
+
+         strftime(cur_time, 128, "%Y-%m-%d %H:%M:%S", ptm); 
+         std::string str(cur_time);
+        QString thetime = QString::fromStdString((cur_time));
+        qstr = "|"+ thetime;
+        newedit->insertPlainText (qstr + "\n \n");;
+        
+   datediff = (ptm->tm_yday!=targetptm->tm_yday) || (ptm->tm_year!=targetptm->tm_year) ;
+
+       
+   }
+  file.close();
+     
 
 }
 }

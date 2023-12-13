@@ -31,7 +31,7 @@ Heatmaptotal::Heatmaptotal(QWidget *parent,QString title,QString path,int posx ,
  QLabel* name = new QLabel(parent);
  name->setText(title);
  name->setMinimumSize(500,0);
- name->move(posx ,posy-50);
+ name->move(posx ,posy-50);file:///home/louis/.local/share/Anki2/Louis/collection.media/tmpvb9di__y.jpg
 
 
 
@@ -164,7 +164,8 @@ char buff[400];
       int l = sLine.length();
       for (int i = 0; i < l;i++) {
         if (sLine[i] == symb){ score++;totalscore++; streakok = true;}
-        if (sLine[i] == '#'){ streakok = true; skip = true; printf("jaivuskip");}
+        if (sLine[i] == '$'){ score--;totalscore--; streakok = true;}
+        if (sLine[i] == '#'){ streakok = true; skip = true; }
 
       }
     }
